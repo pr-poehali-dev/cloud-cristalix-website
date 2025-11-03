@@ -15,12 +15,14 @@ const RainEffect = () => {
     height: 100 + Math.random() * 80,
   }));
 
-  const backgroundDrops = Array.from({ length: 80 }, (_, i) => ({
+  const backgroundDrops = Array.from({ length: 150 }, (_, i) => ({
     id: i,
     left: Math.random() * 100,
     top: Math.random() * 100,
-    size: 3 + Math.random() * 8,
-    opacity: 0.05 + Math.random() * 0.15,
+    size: 2 + Math.random() * 6,
+    opacity: 0.08 + Math.random() * 0.2,
+    animationDelay: Math.random() * 3,
+    animationDuration: 2 + Math.random() * 2,
   }));
 
   return (
@@ -31,13 +33,16 @@ const RainEffect = () => {
         {backgroundDrops.map((drop) => (
           <div
             key={`bg-${drop.id}`}
-            className="absolute rounded-full bg-gradient-radial from-blue-400/40 to-transparent blur-sm"
+            className="absolute rounded-full bg-gradient-radial from-blue-300/50 via-blue-400/30 to-transparent"
             style={{
               left: `${drop.left}%`,
               top: `${drop.top}%`,
               width: `${drop.size}px`,
               height: `${drop.size}px`,
               opacity: drop.opacity,
+              filter: 'blur(1px)',
+              animation: `rain-pulse ${drop.animationDuration}s ease-in-out infinite`,
+              animationDelay: `${drop.animationDelay}s`,
             }}
           />
         ))}
@@ -47,17 +52,31 @@ const RainEffect = () => {
         {raindrops.map((drop) => (
           <div
             key={drop.id}
-            className="absolute w-[2px] bg-gradient-to-b from-blue-100/70 via-blue-200/50 to-transparent"
+            className="absolute"
             style={{
               left: `${drop.left}%`,
-              height: `${drop.height}px`,
               animation: `rain-fall ${drop.duration}s linear infinite`,
               animationDelay: `${drop.delay}s`,
-              opacity: drop.opacity,
-              filter: 'blur(0.4px)',
-              boxShadow: '0 0 3px rgba(147, 197, 253, 0.3)',
             }}
-          />
+          >
+            <div
+              className="relative bg-gradient-to-b from-blue-100/80 via-blue-200/60 to-transparent"
+              style={{
+                width: '2px',
+                height: `${drop.height}px`,
+                opacity: drop.opacity,
+                filter: 'blur(0.5px)',
+                boxShadow: '0 0 8px rgba(147, 197, 253, 0.5), 0 0 4px rgba(191, 219, 254, 0.6)',
+              }}
+            >
+              <div 
+                className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-200/60 blur-[2px]"
+                style={{
+                  boxShadow: '0 0 6px rgba(147, 197, 253, 0.8)',
+                }}
+              />
+            </div>
+          </div>
         ))}
       </div>
     </>
