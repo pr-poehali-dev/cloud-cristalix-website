@@ -24,11 +24,11 @@ const Index = () => {
   }, []);
 
   const pricingPlans = [
-    { days: '3 дня', price: '200₽', emoji: '⏱️', desc: 'Идеально для тестирования', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/5f63a486-f22f-4b2c-8a79-7e001a84327e.jpg' },
+    { days: '3 дня', price: '200₽', emoji: '⏱️', desc: 'Идеально для тестирования', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/0d744ba6-3d61-45b6-bdb2-c27274138792.jpg' },
     { days: '7 дней', price: '350₽', emoji: '📅', desc: 'Оптимальный выбор на неделю', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/d17ec92a-11eb-47a4-b768-0c1688acb713.jpg' },
     { days: '30 дней', price: '1200₽', emoji: '📆', desc: 'Самый популярный тариф', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/61f1eb4e-ff3b-4c6f-bbf1-f9a4ad069eac.jpg', popular: true },
     { days: '60 дней', price: '1900₽', emoji: '📆', desc: 'Выгодное предложение', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/fd64adcf-d98e-4f43-8899-078bd34dc788.jpg' },
-    { days: '90 дней', price: '3100₽', emoji: '📆', desc: 'Максимальная выгода', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/37c09571-a515-41c2-bb78-e0ffc65b8143.jpg' },
+    { days: '90 дней', price: '3100₽', emoji: '📆', desc: 'Максимальная выгода', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/4c6d7575-5f13-4bb5-b331-76b1459fb182.jpg' },
     { days: 'НАВСЕГДА', price: '4000₽', emoji: '♾️', desc: 'Безлимитный доступ навсегда', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/19e68a3d-fe88-43fa-9a0c-f124e3b04bc2.jpg', isLifetime: true },
   ];
 
@@ -160,7 +160,7 @@ const Index = () => {
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')} 
-              className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-lg overflow-hidden group transition-all duration-300"
+              className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-full overflow-hidden group transition-all duration-300"
             >
               <span className="relative z-10 font-semibold">Купить</span>
               <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
