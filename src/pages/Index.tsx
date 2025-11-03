@@ -10,6 +10,7 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState('combat');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedPlan, setSelectedPlan] = useState(2);
+  const [sliderValue, setSliderValue] = useState(2);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -445,12 +446,29 @@ const Index = () => {
                         type="range" 
                         min="0" 
                         max="5" 
-                        step="1"
-                        value={selectedPlan}
-                        onChange={(e) => setSelectedPlan(Number(e.target.value))}
-                        className="w-full h-2 rounded-full appearance-none cursor-pointer slider transition-all duration-300"
+                        step="0.01"
+                        value={sliderValue}
+                        onChange={(e) => {
+                          const val = Number(e.target.value);
+                          setSliderValue(val);
+                          setSelectedPlan(Math.round(val));
+                        }}
+                        onMouseUp={(e) => {
+                          const val = Number((e.target as HTMLInputElement).value);
+                          const rounded = Math.round(val);
+                          setSliderValue(rounded);
+                          setSelectedPlan(rounded);
+                        }}
+                        onTouchEnd={(e) => {
+                          const val = Number((e.target as HTMLInputElement).value);
+                          const rounded = Math.round(val);
+                          setSliderValue(rounded);
+                          setSelectedPlan(rounded);
+                        }}
+                        className="w-full h-2 rounded-full appearance-none cursor-pointer slider"
                         style={{
-                          background: `linear-gradient(to right, #4299e1 0%, #4299e1 ${(selectedPlan / 5) * 85}%, #ef4444 ${(selectedPlan / 5) * 85}%, #ef4444 100%)`
+                          background: `linear-gradient(to right, #4299e1 0%, #4299e1 ${(sliderValue / 5) * 85}%, #ef4444 ${(sliderValue / 5) * 85}%, #ef4444 100%)`,
+                          transition: 'background 0.15s ease-out'
                         }}
                       />
                     </div>
@@ -459,7 +477,10 @@ const Index = () => {
                       {pricingPlans.map((plan, idx) => (
                         <button
                           key={idx}
-                          onClick={() => setSelectedPlan(idx)}
+                          onClick={() => {
+                            setSelectedPlan(idx);
+                            setSliderValue(idx);
+                          }}
                           className={`text-xs py-2 px-1 rounded-lg transition-all duration-300 cursor-pointer ${
                             selectedPlan === idx 
                               ? 'text-white bg-[#4299e1]/20 font-bold scale-105' 
