@@ -264,42 +264,146 @@ const Index = () => {
               </TabsList>
 
               <TabsContent value="combat" className="mt-0">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                  <img 
-                    src="https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png" 
-                    alt="Combat Features" 
-                    className="w-full h-auto"
-                  />
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  <div className="space-y-3">
+                    {features.combat.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                              {feature.name}
+                            </h3>
+                            <p className="text-sm text-gray-400">
+                              {feature.desc}
+                            </p>
+                          </div>
+                          {feature.keybind && (
+                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                              {feature.keybind}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                    <img 
+                      src="https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png" 
+                      alt="Combat Features" 
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </TabsContent>
 
               <TabsContent value="render" className="mt-0">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                  <img 
-                    src="https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png" 
-                    alt="Render Features" 
-                    className="w-full h-auto"
-                  />
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  <div className="space-y-3">
+                    {features.render.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                              {feature.name}
+                            </h3>
+                            <p className="text-sm text-gray-400">
+                              {feature.desc}
+                            </p>
+                          </div>
+                          {feature.keybind && (
+                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                              {feature.keybind}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                    <img 
+                      src="https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png" 
+                      alt="Render Features" 
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </TabsContent>
 
               <TabsContent value="movement" className="mt-0">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                  <img 
-                    src="https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png" 
-                    alt="Movement Features" 
-                    className="w-full h-auto"
-                  />
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  <div className="space-y-3">
+                    {features.movement.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                              {feature.name}
+                            </h3>
+                            <p className="text-sm text-gray-400">
+                              {feature.desc}
+                            </p>
+                          </div>
+                          {feature.keybind && (
+                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                              {feature.keybind}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                    <img 
+                      src="https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png" 
+                      alt="Movement Features" 
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </TabsContent>
 
               <TabsContent value="misc" className="mt-0">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                  <img 
-                    src="https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png" 
-                    alt="Misc Features" 
-                    className="w-full h-auto"
-                  />
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  <div className="space-y-3">
+                    {features.misc.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                              {feature.name}
+                            </h3>
+                            <p className="text-sm text-gray-400">
+                              {feature.desc}
+                            </p>
+                          </div>
+                          {feature.keybind && (
+                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                              {feature.keybind}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                    <img 
+                      src="https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png" 
+                      alt="Misc Features" 
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </TabsContent>
             </Tabs>
