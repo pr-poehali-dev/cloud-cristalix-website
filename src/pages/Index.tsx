@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,18 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [activeTab, setActiveTab] = useState('combat');
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const features = {
     combat: [
@@ -59,11 +71,13 @@ const Index = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50">
+      <nav className="fixed top-0 left-0 right-0 z-50" style={{ perspective: '1000px' }}>
         <div 
-          className="relative backdrop-blur-xl"
+          className="relative backdrop-blur-xl transition-transform duration-200 ease-out"
           style={{
             clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 10px), 95% calc(100% - 5px), 90% 100%, 85% calc(100% - 8px), 75% calc(100% - 3px), 65% calc(100% - 12px), 55% calc(100% - 6px), 45% calc(100% - 10px), 35% calc(100% - 4px), 25% calc(100% - 15px), 15% calc(100% - 7px), 10% calc(100% - 2px), 5% calc(100% - 9px), 0 100%)',
+            transform: `rotateX(${mousePosition.y * -3}deg) rotateY(${mousePosition.x * 3}deg)`,
+            transformStyle: 'preserve-3d',
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/90 via-[#0f1729]/80 to-[#0f1729]/70"></div>
@@ -176,50 +190,69 @@ const Index = () => {
               </p>
             </div>
 
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4 bg-[#0f1729] border border-white/10 rounded-xl p-1 mb-8">
-                <TabsTrigger 
-                  value="combat" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium"
+            <div style={{ perspective: '1500px' }}>
+              <Tabs 
+                value={activeTab} 
+                onValueChange={setActiveTab} 
+                className="w-full transition-transform duration-300 ease-out"
+                style={{
+                  transform: `rotateX(${mousePosition.y * -2}deg) rotateY(${mousePosition.x * 2}deg)`,
+                  transformStyle: 'preserve-3d',
+                }}
+              >
+                <TabsList 
+                  className="grid w-full grid-cols-4 bg-[#0f1729]/80 border border-white/10 rounded-xl p-1 mb-8 backdrop-blur-md"
+                  style={{
+                    boxShadow: `${mousePosition.x * 10}px ${mousePosition.y * 10}px 30px rgba(0, 0, 0, 0.3)`,
+                  }}
                 >
-                  Combat
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="render" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium"
-                >
-                  Render
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="movement" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium"
-                >
-                  Movement
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="misc" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium"
-                >
-                  Misc
-                </TabsTrigger>
-              </TabsList>
+                  <TabsTrigger 
+                    value="combat" 
+                    className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium transition-all"
+                  >
+                    Combat
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="render" 
+                    className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium transition-all"
+                  >
+                    Render
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="movement" 
+                    className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium transition-all"
+                  >
+                    Movement
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="misc" 
+                    className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium transition-all"
+                  >
+                    Misc
+                  </TabsTrigger>
+                </TabsList>
 
-              {Object.entries(features).map(([key, items]) => (
-                <TabsContent key={key} value={key} className="mt-0">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {items.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-[#0f1729]/50 border border-white/10 rounded-xl p-6 hover:border-[#4299e1]/50 transition-all hover:scale-105 backdrop-blur-sm"
-                      >
-                        <h3 className="text-lg font-semibold text-white mb-2">{feature.name}</h3>
-                        <p className="text-sm text-gray-400">{feature.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-              ))}
-            </Tabs>
+                {Object.entries(features).map(([key, items]) => (
+                  <TabsContent key={key} value={key} className="mt-0">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {items.map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className="bg-[#0f1729]/60 border border-white/10 rounded-xl p-6 hover:border-[#4299e1]/50 transition-all hover:scale-105 backdrop-blur-sm"
+                          style={{
+                            transform: `translateZ(${20 + idx * 5}px)`,
+                            boxShadow: `${mousePosition.x * 5}px ${mousePosition.y * 5}px 20px rgba(0, 0, 0, 0.2)`,
+                          }}
+                        >
+                          <h3 className="text-lg font-semibold text-white mb-2">{feature.name}</h3>
+                          <p className="text-sm text-gray-400">{feature.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </div>
           </div>
         </section>
 
