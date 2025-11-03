@@ -90,10 +90,10 @@ export default {
 					}
 				},
 				'rain-fall': {
-					'0%': { transform: 'translateY(-10vh)', opacity: '0' },
-					'10%': { opacity: '1' },
-					'90%': { opacity: '1' },
-					'100%': { transform: 'translateY(110vh)', opacity: '0' }
+					'0%': { transform: 'translateY(-20vh)', opacity: '0' },
+					'5%': { opacity: '0.8' },
+					'95%': { opacity: '0.8' },
+					'100%': { transform: 'translateY(120vh)', opacity: '0' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },

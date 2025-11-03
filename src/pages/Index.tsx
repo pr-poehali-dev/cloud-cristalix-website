@@ -6,30 +6,35 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
 const RainEffect = () => {
-  const raindrops = Array.from({ length: 120 }, (_, i) => ({
+  const raindrops = Array.from({ length: 200 }, (_, i) => ({
     id: i,
     left: Math.random() * 100,
-    duration: 0.5 + Math.random() * 1,
-    delay: Math.random() * 2,
-    opacity: 0.15 + Math.random() * 0.35,
+    duration: 1 + Math.random() * 2,
+    delay: Math.random() * 5,
+    opacity: 0.2 + Math.random() * 0.4,
+    height: 80 + Math.random() * 60,
   }));
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {raindrops.map((drop) => (
-        <div
-          key={drop.id}
-          className="absolute w-[1px] bg-blue-300/50"
-          style={{
-            left: `${drop.left}%`,
-            height: '70px',
-            animation: `rain-fall ${drop.duration}s linear infinite`,
-            animationDelay: `${drop.delay}s`,
-            opacity: drop.opacity,
-          }}
-        />
-      ))}
-    </div>
+    <>
+      <div className="fixed inset-0 bg-black/20 pointer-events-none z-[1]" />
+      <div className="fixed inset-0 pointer-events-none z-[2] overflow-hidden">
+        {raindrops.map((drop) => (
+          <div
+            key={drop.id}
+            className="absolute w-[1.5px] bg-gradient-to-b from-blue-200/60 via-blue-300/40 to-transparent"
+            style={{
+              left: `${drop.left}%`,
+              height: `${drop.height}px`,
+              animation: `rain-fall ${drop.duration}s linear infinite`,
+              animationDelay: `${drop.delay}s`,
+              opacity: drop.opacity,
+              filter: 'blur(0.3px)',
+            }}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
@@ -84,8 +89,8 @@ const Index = () => {
       <RainEffect />
       
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/80 via-[#0a0e1a]/95 to-[#0a0e1a]"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0d16]/90 via-[#070913]/95 to-[#050711]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
       </div>
 
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f1729]/60 backdrop-blur-xl border-b border-white/5">
