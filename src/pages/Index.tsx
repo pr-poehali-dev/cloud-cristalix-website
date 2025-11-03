@@ -60,21 +60,62 @@ const Index = () => {
       </div>
 
       <nav className="fixed top-0 left-0 right-0 z-50">
-        <div 
-          className="relative backdrop-blur-xl"
-          style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 10px), 95% calc(100% - 5px), 90% 100%, 85% calc(100% - 8px), 75% calc(100% - 3px), 65% calc(100% - 12px), 55% calc(100% - 6px), 45% calc(100% - 10px), 35% calc(100% - 4px), 25% calc(100% - 15px), 15% calc(100% - 7px), 10% calc(100% - 2px), 5% calc(100% - 9px), 0 100%)',
-          }}
-        >
+        <div className="relative backdrop-blur-xl overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/90 via-[#0f1729]/80 to-[#0f1729]/70"></div>
-          <div 
-            className="absolute bottom-0 left-0 right-0 h-[2px]"
-            style={{
-              background: 'linear-gradient(90deg, transparent, rgba(66, 153, 225, 0.6) 10%, rgba(66, 153, 225, 0.8) 20%, rgba(66, 153, 225, 0.5) 30%, rgba(66, 153, 225, 0.9) 40%, rgba(66, 153, 225, 0.4) 50%, rgba(66, 153, 225, 0.7) 60%, rgba(66, 153, 225, 0.6) 70%, rgba(66, 153, 225, 0.8) 80%, rgba(66, 153, 225, 0.5) 90%, transparent)',
-              filter: 'blur(1px)',
-              boxShadow: '0 0 10px rgba(66, 153, 225, 0.6)',
+          
+          <svg 
+            className="absolute bottom-0 left-0 right-0 w-full" 
+            height="20" 
+            viewBox="0 0 2000 20" 
+            preserveAspectRatio="none"
+            style={{ 
+              overflow: 'visible',
             }}
-          ></div>
+          >
+            <defs>
+              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="rgba(66, 153, 225, 0)" />
+                <stop offset="10%" stopColor="rgba(66, 153, 225, 0.6)" />
+                <stop offset="20%" stopColor="rgba(66, 153, 225, 0.8)" />
+                <stop offset="30%" stopColor="rgba(66, 153, 225, 0.5)" />
+                <stop offset="40%" stopColor="rgba(66, 153, 225, 0.9)" />
+                <stop offset="50%" stopColor="rgba(66, 153, 225, 0.7)" />
+                <stop offset="60%" stopColor="rgba(66, 153, 225, 0.6)" />
+                <stop offset="70%" stopColor="rgba(66, 153, 225, 0.8)" />
+                <stop offset="80%" stopColor="rgba(66, 153, 225, 0.5)" />
+                <stop offset="90%" stopColor="rgba(66, 153, 225, 0.6)" />
+                <stop offset="100%" stopColor="rgba(66, 153, 225, 0)" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <path
+              d="M0,10 Q25,5 50,10 T100,10 T150,10 T200,10 T250,10 T300,10 T350,10 T400,10 T450,10 T500,10 T550,10 T600,10 T650,10 T700,10 T750,10 T800,10 T850,10 T900,10 T950,10 T1000,10 T1050,10 T1100,10 T1150,10 T1200,10 T1250,10 T1300,10 T1350,10 T1400,10 T1450,10 T1500,10 T1550,10 T1600,10 T1650,10 T1700,10 T1750,10 T1800,10 T1850,10 T1900,10 T1950,10 T2000,10 L2000,20 L0,20 Z"
+              fill="url(#waveGradient)"
+              filter="url(#glow)"
+              style={{
+                animation: 'wave-glow 3s ease-in-out infinite',
+              }}
+            >
+              <animate
+                attributeName="d"
+                dur="4s"
+                repeatCount="indefinite"
+                values="
+                  M0,10 Q25,5 50,10 T100,10 T150,10 T200,10 T250,10 T300,10 T350,10 T400,10 T450,10 T500,10 T550,10 T600,10 T650,10 T700,10 T750,10 T800,10 T850,10 T900,10 T950,10 T1000,10 T1050,10 T1100,10 T1150,10 T1200,10 T1250,10 T1300,10 T1350,10 T1400,10 T1450,10 T1500,10 T1550,10 T1600,10 T1650,10 T1700,10 T1750,10 T1800,10 T1850,10 T1900,10 T1950,10 T2000,10 L2000,20 L0,20 Z;
+                  M0,8 Q25,13 50,8 T100,8 T150,8 T200,8 T250,8 T300,8 T350,8 T400,8 T450,8 T500,8 T550,8 T600,8 T650,8 T700,8 T750,8 T800,8 T850,8 T900,8 T950,8 T1000,8 T1050,8 T1100,8 T1150,8 T1200,8 T1250,8 T1300,8 T1350,8 T1400,8 T1450,8 T1500,8 T1550,8 T1600,8 T1650,8 T1700,8 T1750,8 T1800,8 T1850,8 T1900,8 T1950,8 T2000,8 L2000,20 L0,20 Z;
+                  M0,12 Q25,7 50,12 T100,12 T150,12 T200,12 T250,12 T300,12 T350,12 T400,12 T450,12 T500,12 T550,12 T600,12 T650,12 T700,12 T750,12 T800,12 T850,12 T900,12 T950,12 T1000,12 T1050,12 T1100,12 T1150,12 T1200,12 T1250,12 T1300,12 T1350,12 T1400,12 T1450,12 T1500,12 T1550,12 T1600,12 T1650,12 T1700,12 T1750,12 T1800,12 T1850,12 T1900,12 T1950,12 T2000,12 L2000,20 L0,20 Z;
+                  M0,9 Q25,14 50,9 T100,9 T150,9 T200,9 T250,9 T300,9 T350,9 T400,9 T450,9 T500,9 T550,9 T600,9 T650,9 T700,9 T750,9 T800,9 T850,9 T900,9 T950,9 T1000,9 T1050,9 T1100,9 T1150,9 T1200,9 T1250,9 T1300,9 T1350,9 T1400,9 T1450,9 T1500,9 T1550,9 T1600,9 T1650,9 T1700,9 T1750,9 T1800,9 T1850,9 T1900,9 T1950,9 T2000,9 L2000,20 L0,20 Z;
+                  M0,10 Q25,5 50,10 T100,10 T150,10 T200,10 T250,10 T300,10 T350,10 T400,10 T450,10 T500,10 T550,10 T600,10 T650,10 T700,10 T750,10 T800,10 T850,10 T900,10 T950,10 T1000,10 T1050,10 T1100,10 T1150,10 T1200,10 T1250,10 T1300,10 T1350,10 T1400,10 T1450,10 T1500,10 T1550,10 T1600,10 T1650,10 T1700,10 T1750,10 T1800,10 T1850,10 T1900,10 T1950,10 T2000,10 L2000,20 L0,20 Z
+                "
+              />
+            </path>
+          </svg>
           
           <div className="container mx-auto px-6 py-4 relative z-10">
             <div className="flex items-center justify-between">
