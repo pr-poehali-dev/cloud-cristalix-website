@@ -580,41 +580,67 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="py-24 px-6 bg-gradient-to-b from-[#0a0e1a] to-[#050711]">
-          <div className="container mx-auto max-w-7xl">
+        <section className="py-24 px-6 bg-gradient-to-b from-[#0a0e1a] to-[#050711] relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+          
+          <div className="container mx-auto max-w-7xl relative z-10">
             <div className="grid lg:grid-cols-3 gap-8">
               
-              <Card id="download" className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-8">
+              <Card id="download" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative z-10">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Icon name="Download" size={40} className="text-[#4299e1]" />
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
+                      <div className="relative w-24 h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <Icon name="Download" size={48} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500" />
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Скачать</h3>
-                    <p className="text-sm text-gray-400 mb-1">Cloud v1.0.0</p>
+                    
+                    <div className="inline-block mb-2">
+                      <div className="bg-[#4299e1]/20 px-4 py-1 rounded-full border border-[#4299e1]/30">
+                        <p className="text-xs font-semibold text-[#4299e1]">ПОСЛЕДНЯЯ ВЕРСИЯ</p>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold text-white mb-1 group-hover:text-[#4299e1] transition-colors duration-300">Скачать</h3>
+                    <p className="text-lg font-semibold text-gray-300 mb-1">Cloud v1.0.0</p>
                     <p className="text-xs text-gray-500 mb-6">03.11.2025</p>
-                    <Button className="w-full bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl py-5 font-semibold mb-6">
-                      <Icon name="Download" size={18} className="mr-2" />
+                    
+                    <Button className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-6 font-bold text-lg shadow-lg hover:shadow-[#4299e1]/50 transform hover:scale-105 transition-all duration-300 mb-6 group/btn">
+                      <Icon name="Download" size={22} className="mr-2 group-hover/btn:animate-bounce" />
                       Скачать клиент
                     </Button>
+                    
                     <div className="border-t border-white/10 pt-6">
-                      <p className="text-xs font-semibold text-gray-400 mb-3">Системные требования:</p>
-                      <ul className="text-xs text-gray-500 space-y-2 text-left">
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={14} className="text-[#4299e1]" />
-                          Windows 10/11 (64-bit)
+                      <div className="flex items-center justify-between mb-4">
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Системные требования</p>
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      </div>
+                      <ul className="text-xs text-gray-400 space-y-3 text-left">
+                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
+                            <Icon name="Monitor" size={14} className="text-[#4299e1]" />
+                          </div>
+                          <span className="font-medium">Windows 10/11 (64-bit)</span>
                         </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={14} className="text-[#4299e1]" />
-                          Minecraft 1.8.9 - 1.20.2
+                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
+                            <Icon name="Gamepad2" size={14} className="text-[#4299e1]" />
+                          </div>
+                          <span className="font-medium">Minecraft 1.8.9 - 1.20.2</span>
                         </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={14} className="text-[#4299e1]" />
-                          Java 8 или выше
+                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
+                            <Icon name="Coffee" size={14} className="text-[#4299e1]" />
+                          </div>
+                          <span className="font-medium">Java 8 или выше</span>
                         </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={14} className="text-[#4299e1]" />
-                          4GB RAM минимум
+                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
+                            <Icon name="HardDrive" size={14} className="text-[#4299e1]" />
+                          </div>
+                          <span className="font-medium">4GB RAM минимум</span>
                         </li>
                       </ul>
                     </div>
@@ -622,85 +648,151 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card id="support" className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-8">
+              <Card id="support" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative z-10">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Icon name="Headphones" size={40} className="text-[#4299e1]" />
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
+                      <div className="relative w-24 h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
+                        <Icon name="Headphones" size={48} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500" />
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Поддержка</h3>
-                    <p className="text-sm text-gray-400 mb-8">Свяжитесь с нами</p>
+                    
+                    <div className="inline-block mb-2">
+                      <div className="bg-green-500/20 px-4 py-1 rounded-full border border-green-500/30">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                          <p className="text-xs font-semibold text-green-400">ОНЛАЙН 24/7</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#4299e1] transition-colors duration-300">Поддержка</h3>
+                    <p className="text-sm text-gray-400 mb-8">Всегда на связи</p>
                     
                     <div className="space-y-4 mb-6">
-                      <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4 hover:border-[#4299e1]/30 transition-all">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center">
-                            <Icon name="MessageCircle" size={20} className="text-[#4299e1]" />
+                      <div className="relative group/discord bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-5 hover:border-[#5865F2]/50 hover:shadow-[0_0_20px_rgba(88,101,242,0.3)] transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#5865F2]/0 to-[#5865F2]/20 opacity-0 group-hover/discord:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-4 mb-4">
+                            <div className="w-12 h-12 bg-[#5865F2]/20 rounded-xl flex items-center justify-center group-hover/discord:bg-[#5865F2]/30 group-hover/discord:scale-110 transition-all duration-300">
+                              <Icon name="MessageCircle" size={24} className="text-[#5865F2]" />
+                            </div>
+                            <div className="text-left flex-1">
+                              <p className="text-base font-bold text-white">Discord</p>
+                              <p className="text-xs text-gray-500">Активное сообщество</p>
+                            </div>
+                            <div className="bg-green-500/20 px-2 py-1 rounded-full">
+                              <p className="text-xs font-bold text-green-400">2.5K</p>
+                            </div>
                           </div>
-                          <div className="text-left">
-                            <p className="text-sm font-semibold text-white">Discord</p>
-                            <p className="text-xs text-gray-500">Сообщество</p>
-                          </div>
+                          <Button className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Присоединиться →
+                          </Button>
                         </div>
-                        <Button className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-3 text-sm font-semibold">
-                          Присоединиться
-                        </Button>
                       </div>
 
-                      <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4 hover:border-[#4299e1]/30 transition-all">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center">
-                            <Icon name="Send" size={20} className="text-[#4299e1]" />
+                      <div className="relative group/telegram bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-5 hover:border-[#0088cc]/50 hover:shadow-[0_0_20px_rgba(0,136,204,0.3)] transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0088cc]/0 to-[#0088cc]/20 opacity-0 group-hover/telegram:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-4 mb-4">
+                            <div className="w-12 h-12 bg-[#0088cc]/20 rounded-xl flex items-center justify-center group-hover/telegram:bg-[#0088cc]/30 group-hover/telegram:scale-110 transition-all duration-300">
+                              <Icon name="Send" size={24} className="text-[#0088cc]" />
+                            </div>
+                            <div className="text-left flex-1">
+                              <p className="text-base font-bold text-white">Telegram</p>
+                              <p className="text-xs text-gray-500">Мгновенные ответы</p>
+                            </div>
+                            <div className="bg-[#0088cc]/20 px-2 py-1 rounded-full">
+                              <p className="text-xs font-bold text-[#0088cc]">⚡ FAST</p>
+                            </div>
                           </div>
-                          <div className="text-left">
-                            <p className="text-sm font-semibold text-white">Telegram</p>
-                            <p className="text-xs text-gray-500">Быстрая связь</p>
-                          </div>
-                        </div>
-                        <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-3 text-sm font-semibold">
-                          Написать
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card id="about" className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-8">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Icon name="Info" size={40} className="text-[#4299e1]" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">О проекте</h3>
-                    <p className="text-sm text-gray-400 mb-6">Cloud</p>
-                    
-                    <img 
-                      src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
-                      alt="Cloud" 
-                      className="w-24 h-24 mx-auto mb-6 opacity-80"
-                    />
-                    
-                    <p className="text-sm text-gray-300 mb-4 leading-relaxed">
-                      Профессиональный чит для Cristalix, разработанный командой опытных программистов с 2023 года.
-                    </p>
-                    
-                    <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4 mb-4">
-                      <div className="flex items-center justify-center gap-3">
-                        <Icon name="Users" size={24} className="text-[#4299e1]" />
-                        <div className="text-left">
-                          <p className="text-lg font-bold text-white">5000+</p>
-                          <p className="text-xs text-gray-500">Активных игроков</p>
+                          <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Написать →
+                          </Button>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4">
-                      <div className="flex items-center justify-center gap-3">
-                        <Icon name="Shield" size={24} className="text-[#4299e1]" />
-                        <div className="text-left">
-                          <p className="text-lg font-bold text-white">100%</p>
-                          <p className="text-xs text-gray-500">Безопасность</p>
+                      <p className="text-xs text-gray-500">Среднее время ответа: <span className="text-[#4299e1] font-bold">~ 5 мин</span></p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card id="about" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative z-10">
+                  <div className="text-center">
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
+                      <div className="relative w-24 h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 transition-all duration-500">
+                        <img 
+                          src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                          alt="Cloud" 
+                          className="w-16 h-16 group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="inline-block mb-2">
+                      <div className="bg-purple-500/20 px-4 py-1 rounded-full border border-purple-500/30">
+                        <p className="text-xs font-semibold text-purple-400">С 2023 ГОДА</p>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#4299e1] transition-colors duration-300">О проекте</h3>
+                    <p className="text-sm text-gray-400 mb-6">Cloud Client</p>
+                    
+                    <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+                      Профессиональный чит для <span className="text-[#4299e1] font-semibold">Cristalix</span>, созданный командой опытных разработчиков
+                    </p>
+                    
+                    <div className="space-y-3 mb-6">
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 hover:border-[#4299e1]/30 hover:shadow-[0_0_15px_rgba(66,153,225,0.2)] transition-all duration-300">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center group-hover/stat:bg-[#4299e1]/30 group-hover/stat:scale-110 transition-all duration-300">
+                              <Icon name="Users" size={22} className="text-[#4299e1]" />
+                            </div>
+                            <div className="text-left">
+                              <p className="text-2xl font-bold text-white group-hover/stat:text-[#4299e1] transition-colors">5000+</p>
+                              <p className="text-xs text-gray-500">Активных игроков</p>
+                            </div>
+                          </div>
+                          <div className="text-green-400 text-xs font-bold">+12% ↑</div>
+                        </div>
+                      </div>
+
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 hover:border-green-500/30 hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all duration-300">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-green-500/30 group-hover/stat:scale-110 transition-all duration-300">
+                              <Icon name="Shield" size={22} className="text-green-400" />
+                            </div>
+                            <div className="text-left">
+                              <p className="text-2xl font-bold text-white group-hover/stat:text-green-400 transition-colors">100%</p>
+                              <p className="text-xs text-gray-500">Безопасность</p>
+                            </div>
+                          </div>
+                          <Icon name="Check" size={20} className="text-green-400" />
+                        </div>
+                      </div>
+
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 hover:border-purple-500/30 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-purple-500/30 group-hover/stat:scale-110 transition-all duration-300">
+                              <Icon name="Zap" size={22} className="text-purple-400" />
+                            </div>
+                            <div className="text-left">
+                              <p className="text-2xl font-bold text-white group-hover/stat:text-purple-400 transition-colors">24/7</p>
+                              <p className="text-xs text-gray-500">Обновления</p>
+                            </div>
+                          </div>
+                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
                         </div>
                       </div>
                     </div>
