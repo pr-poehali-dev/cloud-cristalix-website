@@ -160,7 +160,7 @@ const Index = () => {
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')} 
-              className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-full overflow-hidden group transition-all duration-300"
+              className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-xl overflow-hidden group transition-all duration-300"
             >
               <span className="relative z-10 font-semibold">Купить</span>
               <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
@@ -481,7 +481,7 @@ const Index = () => {
                             setSelectedPlan(idx);
                             setSliderValue(idx);
                           }}
-                          className={`text-xs py-2 px-1 rounded-lg transition-all duration-300 cursor-pointer ${
+                          className={`text-xs py-2 px-1 rounded-xl transition-all duration-300 cursor-pointer ${
                             selectedPlan === idx 
                               ? 'text-white bg-[#4299e1]/20 font-bold scale-105' 
                               : 'text-gray-500 hover:text-gray-300'
