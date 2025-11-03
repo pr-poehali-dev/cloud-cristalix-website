@@ -22,38 +22,10 @@ const Index = () => {
   }, []);
 
   const features = {
-    combat: [
-      { name: 'Kill Aura', desc: 'Автоматическая атака ближайших врагов' },
-      { name: 'Aim Assist', desc: 'Точное наведение на противников' },
-      { name: 'Criticals', desc: 'Критические удары на каждую атаку' },
-      { name: 'Velocity', desc: 'Контроль отбрасывания' },
-      { name: 'Auto Clicker', desc: 'Автоматические клики' },
-      { name: 'Hit Boxes', desc: 'Увеличение хитбоксов врагов' },
-    ],
-    render: [
-      { name: 'ESP', desc: 'Подсветка игроков сквозь стены' },
-      { name: 'Tracers', desc: 'Линии к игрокам' },
-      { name: 'Nametags', desc: 'Улучшенные ники игроков' },
-      { name: 'X-Ray', desc: 'Просвечивание блоков' },
-      { name: 'Fullbright', desc: 'Полная яркость' },
-      { name: 'Chams', desc: 'Цветная подсветка моделей' },
-    ],
-    movement: [
-      { name: 'Speed', desc: 'Увеличение скорости движения' },
-      { name: 'Fly', desc: 'Полёт в любом режиме' },
-      { name: 'Sprint', desc: 'Автоматический бег' },
-      { name: 'NoFall', desc: 'Отключение урона от падения' },
-      { name: 'Step', desc: 'Автоматический подъём на блоки' },
-      { name: 'Jesus', desc: 'Ходьба по воде' },
-    ],
-    misc: [
-      { name: 'AutoArmor', desc: 'Автоматическое надевание брони' },
-      { name: 'ChestStealer', desc: 'Мгновенное ограбление сундуков' },
-      { name: 'InvMove', desc: 'Движение с открытым инвентарём' },
-      { name: 'NoRotate', desc: 'Отключение поворотов от сервера' },
-      { name: 'AntiBot', desc: 'Игнорирование ботов' },
-      { name: 'Timer', desc: 'Ускорение игрового времени' },
-    ],
+    combat: ['AimBot', 'AutoArmor', 'AutoClicker', 'AutoGApple', 'AutoTotem', 'HitBox', 'TriggerBot'],
+    render: ['BlockEsp', 'BlockOverlay', 'Chams', 'ChinaHat', 'ClickGUI', 'Crosshair', 'ESP', 'HUD', 'KeyStrokes', 'NameTags', 'NoRender', 'Notifications', 'PenisESP', 'TargetESP', 'Tracers', 'Trails', 'Triangles', 'XRay'],
+    movement: ['AutoSprint', 'AutoWalk', 'BHop', 'EntityFly', 'MultiJump', 'NoGravity', 'Parkour', 'SafeWalk', 'Velocity'],
+    misc: ['AntiBot', 'AutoEat', 'AutoFish', 'AutoMine', 'AutoRespawn', 'AutoTool', 'ChestStealer', 'ClickTP', 'FastBreak', 'FastPlace', 'FriendManager', 'InvMove', 'NoCommands', 'NoFriendInteract', 'NoInteract', 'Optimization', 'ShippingBot', 'ShowCaves', 'Spinner', 'StaffAlert', 'World', 'Configs'],
   };
 
   const scrollToSection = (id: string) => {
@@ -233,16 +205,23 @@ const Index = () => {
 
               {Object.entries(features).map(([key, items]) => (
                 <TabsContent key={key} value={key} className="mt-0">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {items.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-[#0f1729]/50 border border-white/10 rounded-xl p-6 hover:border-[#4299e1]/50 transition-all hover:scale-105 backdrop-blur-sm"
-                      >
-                        <h3 className="text-lg font-semibold text-white mb-2">{feature.name}</h3>
-                        <p className="text-sm text-gray-400">{feature.desc}</p>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/5 via-transparent to-[#4299e1]/5 rounded-3xl blur-3xl"></div>
+                    <div className="relative bg-[#0f1729]/30 border border-white/5 rounded-2xl p-8 backdrop-blur-sm">
+                      <div className="flex flex-wrap gap-3">
+                        {items.map((feature, idx) => (
+                          <div
+                            key={idx}
+                            className="group relative bg-[#0a0e1a]/60 border border-white/10 rounded-lg px-4 py-2.5 hover:border-[#4299e1]/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#4299e1]/20 cursor-pointer"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#4299e1]/0 via-[#4299e1]/10 to-[#4299e1]/0 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+                            <span className="relative text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </TabsContent>
               ))}
