@@ -804,9 +804,17 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="faq" className="py-24 px-6">
-          <div className="container mx-auto max-w-4xl">
+        <section id="faq" className="py-24 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050711] via-[#0a0e1a] to-[#050711]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
+          
+          <div className="container mx-auto max-w-6xl relative z-10">
             <div className="text-center mb-16">
+              <div className="inline-block mb-4">
+                <div className="bg-[#4299e1]/10 px-5 py-2 rounded-full border border-[#4299e1]/30">
+                  <p className="text-sm font-bold text-[#4299e1]">FAQ</p>
+                </div>
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Вопросы и <span className="text-[#4299e1]">ответы</span>
               </h2>
@@ -815,22 +823,70 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
-                { q: 'Обходит ли чит античит Cristalix?', a: 'Да, Cloud полностью обходит античит. Постоянные обновления для максимальной безопасности.' },
-                { q: 'Как установить Cloud?', a: 'Скачайте лаунчер, войдите в аккаунт и нажмите "Запустить". Всё работает автоматически.' },
-                { q: 'Есть ли риск бана?', a: 'Минимальный при правильном использовании. Следуйте рекомендациям в Discord.' },
-                { q: 'Работает ли на других серверах?', a: 'Cloud оптимизирован для Cristalix, но совместим с большинством серверов.' },
-                { q: 'Как получить поддержку?', a: 'Свяжитесь с нами через Discord или Telegram в разделе "Поддержка".' },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#0f1729]/50 border border-white/10 rounded-xl p-7 hover:border-[#4299e1]/50 transition-all"
-                >
-                  <h3 className="text-lg font-semibold text-white mb-3">{item.q}</h3>
-                  <p className="text-gray-400 leading-relaxed">{item.a}</p>
-                </div>
-              ))}
+                { 
+                  icon: 'ShieldCheck',
+                  color: 'green',
+                  q: 'Обходит ли чит античит Cristalix?', 
+                  a: 'Да, Cloud полностью обходит античит. Постоянные обновления для максимальной безопасности.' 
+                },
+                { 
+                  icon: 'Download',
+                  color: 'blue',
+                  q: 'Как установить Cloud?', 
+                  a: 'Скачайте лаунчер, войдите в аккаунт и нажмите "Запустить". Всё работает автоматически.' 
+                },
+                { 
+                  icon: 'AlertTriangle',
+                  color: 'yellow',
+                  q: 'Есть ли риск бана?', 
+                  a: 'Минимальный при правильном использовании. Следуйте рекомендациям в Discord.' 
+                },
+                { 
+                  icon: 'Server',
+                  color: 'purple',
+                  q: 'Работает ли на других серверах?', 
+                  a: 'Cloud оптимизирован для Cristalix, но совместим с большинством серверов.' 
+                },
+                { 
+                  icon: 'Headphones',
+                  color: 'pink',
+                  q: 'Как получить поддержку?', 
+                  a: 'Свяжитесь с нами через Discord или Telegram в разделе "Поддержка".' 
+                },
+                { 
+                  icon: 'Rocket',
+                  color: 'orange',
+                  q: 'Как часто выходят обновления?', 
+                  a: 'Мы выпускаем обновления еженедельно для поддержки стабильной работы и новых функций.' 
+                },
+              ].map((item, idx) => {
+                const colorMap: Record<string, {bg: string, icon: string, border: string}> = {
+                  green: { bg: 'bg-green-500/20', icon: 'text-green-400', border: 'border-green-500/30' },
+                  blue: { bg: 'bg-[#4299e1]/20', icon: 'text-[#4299e1]', border: 'border-[#4299e1]/30' },
+                  yellow: { bg: 'bg-yellow-500/20', icon: 'text-yellow-400', border: 'border-yellow-500/30' },
+                  purple: { bg: 'bg-purple-500/20', icon: 'text-purple-400', border: 'border-purple-500/30' },
+                  pink: { bg: 'bg-pink-500/20', icon: 'text-pink-400', border: 'border-pink-500/30' },
+                  orange: { bg: 'bg-orange-500/20', icon: 'text-orange-400', border: 'border-orange-500/30' },
+                };
+                const colors = colorMap[item.color];
+                
+                return (
+                  <div
+                    key={idx}
+                    className="group bg-gradient-to-br from-[#0f1729]/80 to-[#0a0e1a]/60 border border-white/10 rounded-2xl p-6 hover:border-[#4299e1]/50 hover:shadow-[0_0_20px_rgba(66,153,225,0.2)] transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon name={item.icon as any} size={24} className={colors.icon} />
+                      </div>
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#4299e1] transition-colors pt-2">{item.q}</h3>
+                    </div>
+                    <p className="text-gray-400 leading-relaxed ml-16">{item.a}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -876,9 +932,88 @@ const Index = () => {
 
       </main>
 
-      <footer className="relative z-10 border-t border-white/5 py-10">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-500 text-sm">© 2025 Cloud Cheats. Все права защищены.</p>
+      <footer className="relative z-10 bg-gradient-to-b from-[#050711] to-[#020408] border-t border-white/5 pt-16 pb-8 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDIpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-4 gap-10 mb-12">
+            
+            <div className="md:col-span-1">
+              <div className="flex items-center gap-3 mb-4">
+                <img 
+                  src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                  alt="Cloud" 
+                  className="w-12 h-12"
+                />
+                <h3 className="text-2xl font-bold text-white">Cloud</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                Профессиональный чит для Cristalix с постоянными обновлениями и поддержкой 24/7
+              </p>
+              <div className="flex gap-3">
+                <a href="#" className="w-10 h-10 bg-[#0f1729] border border-white/10 rounded-lg flex items-center justify-center hover:border-[#5865F2] hover:bg-[#5865F2]/20 transition-all group">
+                  <Icon name="MessageCircle" size={18} className="text-gray-400 group-hover:text-[#5865F2] transition-colors" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-[#0f1729] border border-white/10 rounded-lg flex items-center justify-center hover:border-[#0088cc] hover:bg-[#0088cc]/20 transition-all group">
+                  <Icon name="Send" size={18} className="text-gray-400 group-hover:text-[#0088cc] transition-colors" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-[#0f1729] border border-white/10 rounded-lg flex items-center justify-center hover:border-[#4299e1] hover:bg-[#4299e1]/20 transition-all group">
+                  <Icon name="Youtube" size={18} className="text-gray-400 group-hover:text-[#4299e1] transition-colors" />
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Продукт</h4>
+              <ul className="space-y-3">
+                <li><a href="#features" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Функции</a></li>
+                <li><a href="#pricing" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Цены</a></li>
+                <li><a href="#download" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Скачать</a></li>
+                <li><a href="#updates" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Обновления</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Поддержка</h4>
+              <ul className="space-y-3">
+                <li><a href="#faq" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> FAQ</a></li>
+                <li><a href="#support" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Связаться с нами</a></li>
+                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Документация</a></li>
+                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Статус серверов</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Правовая информация</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Условия использования</a></li>
+                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Политика конфиденциальности</a></li>
+                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Правила возврата</a></li>
+              </ul>
+              
+              <div className="mt-6 bg-[#0f1729]/50 border border-[#4299e1]/30 rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <p className="text-xs font-bold text-green-400">СТАТУС</p>
+                </div>
+                <p className="text-xs text-gray-400">Все системы работают</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="border-t border-white/5 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-gray-500">© 2025 <span className="text-[#4299e1] font-semibold">Cloud</span>. Все права защищены.</p>
+              <div className="flex items-center gap-6 text-xs text-gray-500">
+                <span>Сделано с</span>
+                <div className="flex items-center gap-1">
+                  <Icon name="Heart" size={14} className="text-red-400 fill-red-400" />
+                  <span>для игроков</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
 
