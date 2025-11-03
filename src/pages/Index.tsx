@@ -225,7 +225,7 @@ const Index = () => {
         </section>
 
         <section id="features" className="py-24 px-6">
-          <div className="container mx-auto max-w-6xl">
+          <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Функции <span className="text-[#4299e1]">чита</span>
@@ -263,35 +263,45 @@ const Index = () => {
                 </TabsTrigger>
               </TabsList>
 
-              {Object.entries(features).map(([key, items]) => (
-                <TabsContent key={key} value={key} className="mt-0">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {items.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="group relative bg-[#0a0e1a]/80 border border-white/10 rounded-xl p-5 hover:border-[#4299e1]/50 transition-all hover:scale-[1.02] cursor-pointer overflow-hidden"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 via-[#4299e1]/5 to-[#4299e1]/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div className="relative">
-                          <div className="flex items-start justify-between mb-2">
-                            <h3 className="text-lg font-semibold text-white group-hover:text-[#4299e1] transition-colors">
-                              {feature.name}
-                            </h3>
-                            {feature.keybind && (
-                              <span className="text-xs px-2 py-1 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono">
-                                {feature.keybind}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                            {feature.desc}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-              ))}
+              <TabsContent value="combat" className="mt-0">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <img 
+                    src="https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png" 
+                    alt="Combat Features" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </TabsContent>
+
+              <TabsContent value="render" className="mt-0">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <img 
+                    src="https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png" 
+                    alt="Render Features" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </TabsContent>
+
+              <TabsContent value="movement" className="mt-0">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <img 
+                    src="https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png" 
+                    alt="Movement Features" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </TabsContent>
+
+              <TabsContent value="misc" className="mt-0">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <img 
+                    src="https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png" 
+                    alt="Misc Features" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </TabsContent>
             </Tabs>
           </div>
         </section>
