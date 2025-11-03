@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
 const RainEffect = () => {
-  const raindrops = Array.from({ length: 50 }, (_, i) => ({
+  const raindrops = Array.from({ length: 100 }, (_, i) => ({
     id: i,
     left: Math.random() * 100,
-    duration: 2 + Math.random() * 3,
-    delay: Math.random() * 5,
+    duration: 0.5 + Math.random() * 1,
+    delay: Math.random() * 2,
+    opacity: 0.1 + Math.random() * 0.3,
   }));
 
   return (
@@ -18,11 +19,13 @@ const RainEffect = () => {
       {raindrops.map((drop) => (
         <div
           key={drop.id}
-          className="absolute w-[2px] h-[20px] bg-gradient-to-b from-primary/80 to-transparent"
+          className="absolute w-[1px] bg-blue-400/40"
           style={{
             left: `${drop.left}%`,
+            height: '60px',
             animation: `rain-fall ${drop.duration}s linear infinite`,
             animationDelay: `${drop.delay}s`,
+            opacity: drop.opacity,
           }}
         />
       ))}
@@ -30,83 +33,77 @@ const RainEffect = () => {
   );
 };
 
-const PixelCloud = () => (
-  <div className="relative w-64 h-32 mx-auto mb-8 animate-float">
-    <img 
-      src="https://cdn.poehali.dev/files/0dbd3d58-f4a1-4c66-a8d5-103566991176.png" 
-      alt="Cloud Logo" 
-      className="w-full h-full object-contain"
-      style={{ imageRendering: 'pixelated' }}
-    />
-  </div>
-);
-
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('home');
   const [showLogin, setShowLogin] = useState(false);
+  const [activeTab, setActiveTab] = useState('combat');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'features', 'download', 'pricing', 'faq', 'support', 'updates', 'about'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const features = {
+    combat: [
+      { name: 'Kill Aura', desc: 'Автоматическая атака ближайших врагов' },
+      { name: 'Aim Assist', desc: 'Точное наведение на противников' },
+      { name: 'Criticals', desc: 'Критические удары на каждую атаку' },
+      { name: 'Velocity', desc: 'Контроль отбрасывания' },
+      { name: 'Auto Clicker', desc: 'Автоматические клики' },
+      { name: 'Hit Boxes', desc: 'Увеличение хитбоксов врагов' },
+    ],
+    render: [
+      { name: 'ESP', desc: 'Подсветка игроков сквозь стены' },
+      { name: 'Tracers', desc: 'Линии к игрокам' },
+      { name: 'Nametags', desc: 'Улучшенные ники игроков' },
+      { name: 'X-Ray', desc: 'Просвечивание блоков' },
+      { name: 'Fullbright', desc: 'Полная яркость' },
+      { name: 'Chams', desc: 'Цветная подсветка моделей' },
+    ],
+    movement: [
+      { name: 'Speed', desc: 'Увеличение скорости движения' },
+      { name: 'Fly', desc: 'Полёт в любом режиме' },
+      { name: 'Sprint', desc: 'Автоматический бег' },
+      { name: 'NoFall', desc: 'Отключение урона от падения' },
+      { name: 'Step', desc: 'Автоматический подъём на блоки' },
+      { name: 'Jesus', desc: 'Ходьба по воде' },
+    ],
+    misc: [
+      { name: 'AutoArmor', desc: 'Автоматическое надевание брони' },
+      { name: 'ChestStealer', desc: 'Мгновенное ограбление сундуков' },
+      { name: 'InvMove', desc: 'Движение с открытым инвентарём' },
+      { name: 'NoRotate', desc: 'Отключение поворотов от сервера' },
+      { name: 'AntiBot', desc: 'Игнорирование ботов' },
+      { name: 'Timer', desc: 'Ускорение игрового времени' },
+    ],
   };
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative bg-[#0a0e1a]">
       <RainEffect />
       
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 py-4">
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/80 via-[#0a0e1a]/95 to-[#0a0e1a]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
+      </div>
+
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f1729]/60 backdrop-blur-xl border-b border-white/5">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-pixel text-primary cursor-pointer" onClick={() => scrollToSection('home')}>
-              CLOUD
-            </h1>
-            <div className="hidden md:flex gap-6">
-              {[
-                { id: 'home', label: 'Главная' },
-                { id: 'features', label: 'Функции' },
-                { id: 'download', label: 'Скачать' },
-                { id: 'pricing', label: 'Цены' },
-                { id: 'faq', label: 'FAQ' },
-                { id: 'support', label: 'Поддержка' },
-                { id: 'updates', label: 'Обновления' },
-                { id: 'about', label: 'О проекте' },
-              ].map((item) => (
+            <div className="flex items-center gap-3">
+              <img 
+                src="https://cdn.poehali.dev/files/0dbd3d58-f4a1-4c66-a8d5-103566991176.png" 
+                alt="Cloud" 
+                className="w-10 h-10"
+                style={{ imageRendering: 'pixelated' }}
+              />
+              <span className="text-2xl font-bold text-white">Cloud</span>
+            </div>
+            <div className="hidden md:flex gap-8">
+              {['Главная', 'Функции', 'Товары', 'FAQ'].map((item) => (
                 <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-sm transition-colors ${
-                    activeSection === item.id ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                  key={item}
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
-                  {item.label}
+                  {item}
                 </button>
               ))}
             </div>
-            <Button onClick={() => setShowLogin(true)} className="pixel-border">
-              <Icon name="LogIn" size={16} className="mr-2" />
+            <Button onClick={() => setShowLogin(true)} className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg px-6">
               Войти
             </Button>
           </div>
@@ -114,263 +111,267 @@ const Index = () => {
       </nav>
 
       <main className="relative z-10 pt-20">
-        <section id="home" className="min-h-screen flex items-center justify-center px-4">
-          <div className="text-center animate-fade-in">
-            <PixelCloud />
-            <h2 className="text-4xl md:text-6xl font-pixel text-primary mb-6">
-              Cloud Cheats
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Самый мощный чит для Cristalix. Обходит античит, постоянные обновления, удобный интерфейс.
+        <section className="min-h-screen flex items-center justify-center px-6 py-20">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="mb-8">
+              <img 
+                src="https://cdn.poehali.dev/files/0dbd3d58-f4a1-4c66-a8d5-103566991176.png" 
+                alt="Cloud Logo" 
+                className="w-48 h-48 mx-auto mb-8 animate-float"
+                style={{ imageRendering: 'pixelated' }}
+              />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+              Cloud
+            </h1>
+            <p className="text-xl text-gray-400 mb-3">
+              Текущая версия <span className="text-[#4299e1] font-semibold">1.0.0</span>
             </p>
-            <div className="flex gap-4 justify-center">
-              <Button size="lg" onClick={() => scrollToSection('download')} className="pixel-border">
-                <Icon name="Download" size={20} className="mr-2" />
-                Скачать
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollToSection('features')} className="pixel-border">
-                <Icon name="Zap" size={20} className="mr-2" />
-                Функции
-              </Button>
-            </div>
+            <p className="text-sm text-gray-500 mb-8">
+              Посмотреть <button className="text-[#4299e1] hover:underline">Changelog</button>
+            </p>
+            <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Cloud — приватный DLC-клиент для Cristalix с отличным Combat и хорошим Movement. 
+              Регулярные обновления обеспечивают комфортную игру.
+            </p>
+            <Button size="lg" className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg px-12 py-6 text-lg">
+              Запустить
+            </Button>
           </div>
         </section>
 
-        <section id="features" className="min-h-screen py-20 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12 text-center">
-              Функции чита
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: 'Crosshair', title: 'Aim Assist', desc: 'Точное наведение на противников' },
-                { icon: 'Eye', title: 'ESP', desc: 'Видение игроков сквозь стены' },
-                { icon: 'Zap', title: 'Kill Aura', desc: 'Автоматическая атака врагов' },
-                { icon: 'Shield', title: 'Anti-Knockback', desc: 'Защита от отбрасывания' },
-                { icon: 'Activity', title: 'Speed', desc: 'Увеличение скорости движения' },
-                { icon: 'Package', title: 'AutoArmor', desc: 'Автоматическая броня' },
-              ].map((feature, idx) => (
-                <Card key={idx} className="pixel-border border-2 hover:border-primary transition-all hover:scale-105">
-                  <CardContent className="p-6">
-                    <Icon name={feature.icon} size={32} className="text-primary mb-4" />
-                    <h3 className="text-xl font-pixel text-foreground mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground">{feature.desc}</p>
-                  </CardContent>
-                </Card>
+        <section className="py-20 px-6">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                Функции <span className="text-[#4299e1]">чита</span>
+              </h2>
+              <p className="text-gray-400 text-lg">
+                Все необходимые модули для комфортной игры
+              </p>
+            </div>
+
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              <TabsList className="grid w-full grid-cols-4 bg-[#0f1729] border border-white/10 rounded-xl p-1 mb-8">
+                <TabsTrigger 
+                  value="combat" 
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400"
+                >
+                  Combat
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="render" 
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400"
+                >
+                  Render
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="movement" 
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400"
+                >
+                  Movement
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="misc" 
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400"
+                >
+                  Misc
+                </TabsTrigger>
+              </TabsList>
+
+              {Object.entries(features).map(([key, items]) => (
+                <TabsContent key={key} value={key} className="mt-0">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {items.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-[#0f1729]/50 border border-white/10 rounded-xl p-6 hover:border-[#4299e1]/50 transition-all hover:scale-105 backdrop-blur-sm"
+                      >
+                        <h3 className="text-lg font-semibold text-white mb-2">{feature.name}</h3>
+                        <p className="text-sm text-gray-400">{feature.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
               ))}
-            </div>
+            </Tabs>
           </div>
         </section>
 
-        <section id="download" className="min-h-screen py-20 px-4 flex items-center">
-          <div className="container mx-auto max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12 text-center">
-              Скачать
-            </h2>
-            <Card className="pixel-border border-2">
-              <CardContent className="p-8">
-                <div className="text-center mb-6">
-                  <Icon name="Download" size={48} className="text-primary mx-auto mb-4" />
-                  <h3 className="text-2xl font-pixel mb-2">Cloud v2.5.1</h3>
-                  <p className="text-muted-foreground mb-6">Последняя версия от 03.11.2025</p>
-                  <Button size="lg" className="w-full pixel-border">
-                    <Icon name="Download" size={20} className="mr-2" />
-                    Скачать чит
+        <section className="py-20 px-6">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Популярные <span className="text-[#4299e1]">товары</span>
+              </h2>
+              <p className="text-gray-400 text-lg">
+                Мы предоставляем вам лучший клиент для комфортной игры, 
+                который даст вам наилучшие впечатления от игры.
+              </p>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto mb-16">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#4299e1] via-[#4299e1] to-[#ef4444] h-1 rounded-full"></div>
+              <div className="grid grid-cols-3 gap-0 mt-8">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-white mb-2">30 дней</h3>
+                  <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg">
+                    Узнать подробней
                   </Button>
                 </div>
-                <div className="border-t border-border pt-6 mt-6">
-                  <h4 className="font-pixel text-sm mb-4">Системные требования:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-2">
-                    <li>• Windows 10/11</li>
-                    <li>• Minecraft 1.8.9 - 1.20.2</li>
-                    <li>• Java 8 или выше</li>
-                  </ul>
+                <div className="text-center border-x border-white/10">
+                  <h3 className="text-2xl font-bold text-white mb-2">90 дней</h3>
+                  <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg">
+                    Узнать подробней
+                  </Button>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">
+                    <span className="text-[#4299e1]">НАВ</span>
+                    <span className="text-[#ef4444]">СЕГДА</span>
+                  </h3>
+                  <Button className="bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90 text-white rounded-lg">
+                    Узнать подробней
+                  </Button>
+                </div>
+              </div>
+            </div>
 
-        <section id="pricing" className="min-h-screen py-20 px-4 flex items-center">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12 text-center">
-              Цены и подписки
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                { name: 'День', price: '99₽', period: '1 день', features: ['Все функции', 'Обновления', 'Поддержка'] },
-                { name: 'Неделя', price: '499₽', period: '7 дней', features: ['Все функции', 'Обновления', 'Поддержка', 'Скидка 29%'], highlight: true },
-                { name: 'Месяц', price: '1499₽', period: '30 дней', features: ['Все функции', 'Обновления', 'Поддержка', 'Скидка 49%'] },
-              ].map((plan, idx) => (
-                <Card key={idx} className={`pixel-border border-2 ${plan.highlight ? 'border-primary scale-105' : ''}`}>
-                  <CardContent className="p-6">
-                    <h3 className="text-2xl font-pixel text-primary mb-4">{plan.name}</h3>
-                    <div className="mb-6">
-                      <span className="text-4xl font-bold">{plan.price}</span>
-                      <span className="text-muted-foreground ml-2">/ {plan.period}</span>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
+                <CardContent className="p-8">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="w-32 h-32 bg-gradient-to-br from-[#4299e1]/20 to-[#ef4444]/20 rounded-2xl flex items-center justify-center">
+                      <span className="text-6xl">∞</span>
                     </div>
-                    <ul className="space-y-3 mb-6">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-center text-sm">
-                          <Icon name="Check" size={16} className="text-primary mr-2" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button className="w-full pixel-border" variant={plan.highlight ? 'default' : 'outline'}>
-                      Купить
+                  </div>
+                  <div className="text-center">
+                    <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg mb-4">
+                      Выбор пользователей
                     </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="faq" className="min-h-screen py-20 px-4 flex items-center">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12 text-center">
-              Вопросы и ответы
-            </h2>
-            <Accordion type="single" collapsible className="space-y-4">
-              {[
-                { q: 'Обходит ли чит античит?', a: 'Да, Cloud полностью обходит античит Cristalix. Мы постоянно обновляем защиту.' },
-                { q: 'Как установить чит?', a: 'Скачайте файл, запустите лаунчер Minecraft и добавьте чит в папку mods.' },
-                { q: 'Есть ли риск бана?', a: 'Риск минимален при правильном использовании. Следуйте нашим рекомендациям.' },
-                { q: 'Работает ли на других серверах?', a: 'Cloud оптимизирован для Cristalix, но работает и на других серверах.' },
-                { q: 'Как получить поддержку?', a: 'Свяжитесь с нами через Discord или Telegram в разделе "Поддержка".' },
-              ].map((item, idx) => (
-                <AccordionItem key={idx} value={`item-${idx}`} className="pixel-border border-2 border-border px-6">
-                  <AccordionTrigger className="hover:text-primary">
-                    {item.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {item.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-
-        <section id="support" className="min-h-screen py-20 px-4 flex items-center">
-          <div className="container mx-auto max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12 text-center">
-              Поддержка
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <Card className="pixel-border border-2 hover:border-primary transition-all">
-                <CardContent className="p-6 text-center">
-                  <Icon name="MessageCircle" size={48} className="text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-pixel mb-2">Discord</h3>
-                  <p className="text-muted-foreground mb-4">Наше сообщество</p>
-                  <Button variant="outline" className="pixel-border">
-                    Присоединиться
-                  </Button>
+                    <h3 className="text-3xl font-bold mb-4">
+                      <span className="text-[#4299e1]">НАВ</span>
+                      <span className="text-[#ef4444]">СЕГДА</span>
+                    </h3>
+                    <p className="text-gray-400 mb-6">
+                      Вы получаете клиент бессрочно, обновления на этот период.
+                    </p>
+                    <Button className="w-full bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90 text-white rounded-lg py-6 text-lg">
+                      ПРИОБРЕСТИ
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
-              <Card className="pixel-border border-2 hover:border-primary transition-all">
-                <CardContent className="p-6 text-center">
-                  <Icon name="Send" size={48} className="text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-pixel mb-2">Telegram</h3>
-                  <p className="text-muted-foreground mb-4">Быстрая связь</p>
-                  <Button variant="outline" className="pixel-border">
-                    Написать
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
 
-        <section id="updates" className="min-h-screen py-20 px-4 flex items-center">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12 text-center">
-              История обновлений
-            </h2>
-            <div className="space-y-6">
-              {[
-                { version: '2.5.1', date: '03.11.2025', changes: ['Исправлен баг с ESP', 'Улучшена стабильность', 'Обновлен обход античита'] },
-                { version: '2.5.0', date: '01.11.2025', changes: ['Новая функция AutoArmor', 'Улучшен интерфейс', 'Оптимизация производительности'] },
-                { version: '2.4.5', date: '28.10.2025', changes: ['Исправлены критические баги', 'Добавлена поддержка Minecraft 1.20.2'] },
-              ].map((update, idx) => (
-                <Card key={idx} className="pixel-border border-2">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-pixel text-primary">v{update.version}</h3>
-                      <span className="text-sm text-muted-foreground">{update.date}</span>
+              <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
+                <CardContent className="p-8">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="w-32 h-32 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center">
+                      <span className="text-5xl font-bold">90</span>
                     </div>
-                    <ul className="space-y-2">
-                      {update.changes.map((change, i) => (
-                        <li key={i} className="flex items-start text-sm">
-                          <Icon name="GitCommit" size={16} className="text-primary mr-2 mt-1" />
-                          {change}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-3xl font-bold text-[#4299e1] mb-4">90 дней</h3>
+                    <p className="text-gray-400 mb-6">
+                      Подписка на 3 месяца с полным доступом ко всем функциям.
+                    </p>
+                    <Button className="w-full bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg py-6 text-lg">
+                      ПРИОБРЕСТИ
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        <section id="about" className="min-h-screen py-20 px-4 flex items-center">
-          <div className="container mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl md:text-5xl font-pixel text-primary mb-12">
-              О проекте
-            </h2>
-            <Card className="pixel-border border-2">
-              <CardContent className="p-8">
-                <p className="text-lg text-muted-foreground mb-6">
-                  Cloud — это профессиональный чит для Cristalix, разработанный командой опытных программистов. 
-                  Мы работаем над проектом с 2023 года и постоянно улучшаем функционал.
-                </p>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Наша цель — предоставить лучший игровой опыт с максимальной безопасностью и надежностью.
-                </p>
-                <div className="flex justify-center gap-4 mt-8">
-                  <Icon name="Users" size={24} className="text-primary" />
-                  <span className="text-xl font-bold">5000+ активных пользователей</span>
+        <section className="py-20 px-6">
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                Часто задаваемые <span className="text-[#4299e1]">вопросы</span>
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                { q: 'Обходит ли чит античит Cristalix?', a: 'Да, Cloud полностью обходит античит. Постоянные обновления для максимальной безопасности.' },
+                { q: 'Как установить Cloud?', a: 'Скачайте лаунчер, войдите в аккаунт и нажмите "Запустить". Всё работает автоматически.' },
+                { q: 'Есть ли риск бана?', a: 'Минимальный при правильном использовании. Следуйте рекомендациям в Discord.' },
+                { q: 'Работает ли на других серверах?', a: 'Cloud оптимизирован для Cristalix, но совместим с большинством серверов.' },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#0f1729]/50 border border-white/10 rounded-xl p-6 hover:border-[#4299e1]/50 transition-all"
+                >
+                  <h3 className="text-lg font-semibold text-white mb-2">{item.q}</h3>
+                  <p className="text-gray-400">{item.a}</p>
                 </div>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-border py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2025 Cloud Cheats. Все права защищены.
-          </p>
+      <footer className="relative z-10 border-t border-white/5 py-8">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-gray-500">© 2025 Cloud Cheats. Все права защищены.</p>
         </div>
       </footer>
 
       {showLogin && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm" onClick={() => setShowLogin(false)}>
-          <Card className="w-full max-w-md pixel-border border-2 border-primary animate-fade-in" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md" 
+          onClick={() => setShowLogin(false)}
+        >
+          <Card 
+            className="w-full max-w-md bg-[#1a202e]/95 border border-white/10 rounded-2xl shadow-2xl animate-fade-in" 
+            onClick={(e) => e.stopPropagation()}
+          >
             <CardContent className="p-8">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-pixel text-primary">Вход</h2>
-                <Button variant="ghost" size="icon" onClick={() => setShowLogin(false)}>
-                  <Icon name="X" size={24} />
-                </Button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setShowLogin(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              >
+                <Icon name="X" size={20} />
+              </Button>
+              
+              <div className="text-center mb-8">
+                <img 
+                  src="https://cdn.poehali.dev/files/0dbd3d58-f4a1-4c66-a8d5-103566991176.png" 
+                  alt="Cloud" 
+                  className="w-16 h-16 mx-auto mb-4"
+                  style={{ imageRendering: 'pixelated' }}
+                />
+                <h2 className="text-2xl font-bold text-white mb-2">
+                  Добро пожаловать в <span className="text-[#4299e1]">Cloud</span>
+                </h2>
+                <p className="text-gray-400 text-sm">
+                  Пожалуйста, введите ваш логин и ключ.
+                </p>
               </div>
+
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Логин</label>
-                  <Input placeholder="Введите логин" className="pixel-border" />
+                  <Input 
+                    placeholder="Логин" 
+                    className="bg-[#0f1729] border-white/10 text-white placeholder:text-gray-500 rounded-lg h-12"
+                  />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Пароль</label>
-                  <Input type="password" placeholder="Введите пароль" className="pixel-border" />
+                  <Input 
+                    type="password"
+                    placeholder="Ключ" 
+                    className="bg-[#0f1729] border-white/10 text-white placeholder:text-gray-500 rounded-lg h-12"
+                  />
                 </div>
-                <Button className="w-full pixel-border">
+                <Button className="w-full bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg h-12 text-base">
                   Продолжить
                 </Button>
-                <p className="text-sm text-center text-muted-foreground">
-                  Забыли пароль? <button className="text-primary hover:underline">Восстановить</button>
+                <p className="text-sm text-center text-gray-400">
+                  Забыли пароль? <button className="text-[#4299e1] hover:underline">Восстановить</button>
                 </p>
               </div>
             </CardContent>
