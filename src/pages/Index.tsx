@@ -580,41 +580,135 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="download" className="py-24 px-6">
-          <div className="container mx-auto max-w-3xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Скачать
-              </h2>
-              <p className="text-gray-400 text-lg">
-                Последняя версия клиента Cloud
-              </p>
-            </div>
-
-            <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
-              <CardContent className="p-10">
-                <div className="text-center mb-8">
-                  <div className="w-24 h-24 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Icon name="Download" size={48} className="text-[#4299e1]" />
+        <section className="py-24 px-6 bg-gradient-to-b from-[#0a0e1a] to-[#050711]">
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid lg:grid-cols-3 gap-8">
+              
+              <Card id="download" className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Icon name="Download" size={40} className="text-[#4299e1]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Скачать</h3>
+                    <p className="text-sm text-gray-400 mb-1">Cloud v1.0.0</p>
+                    <p className="text-xs text-gray-500 mb-6">03.11.2025</p>
+                    <Button className="w-full bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl py-5 font-semibold mb-6">
+                      <Icon name="Download" size={18} className="mr-2" />
+                      Скачать клиент
+                    </Button>
+                    <div className="border-t border-white/10 pt-6">
+                      <p className="text-xs font-semibold text-gray-400 mb-3">Системные требования:</p>
+                      <ul className="text-xs text-gray-500 space-y-2 text-left">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={14} className="text-[#4299e1]" />
+                          Windows 10/11 (64-bit)
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={14} className="text-[#4299e1]" />
+                          Minecraft 1.8.9 - 1.20.2
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={14} className="text-[#4299e1]" />
+                          Java 8 или выше
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={14} className="text-[#4299e1]" />
+                          4GB RAM минимум
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">Cloud v1.0.0</h3>
-                  <p className="text-gray-400 mb-8">Последняя версия от 03.11.2025</p>
-                  <Button size="lg" className="w-full bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl py-6 text-lg font-semibold">
-                    <Icon name="Download" size={20} className="mr-2" />
-                    Скачать клиент
-                  </Button>
-                </div>
-                <div className="border-t border-white/10 pt-6 mt-6">
-                  <h4 className="font-semibold text-white text-sm mb-4">Системные требования:</h4>
-                  <ul className="text-sm text-gray-400 space-y-2">
-                    <li>• Windows 10/11 (64-bit)</li>
-                    <li>• Minecraft 1.8.9 - 1.20.2</li>
-                    <li>• Java 8 или выше</li>
-                    <li>• 4GB RAM минимум</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+
+              <Card id="support" className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Icon name="Headphones" size={40} className="text-[#4299e1]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Поддержка</h3>
+                    <p className="text-sm text-gray-400 mb-8">Свяжитесь с нами</p>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4 hover:border-[#4299e1]/30 transition-all">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center">
+                            <Icon name="MessageCircle" size={20} className="text-[#4299e1]" />
+                          </div>
+                          <div className="text-left">
+                            <p className="text-sm font-semibold text-white">Discord</p>
+                            <p className="text-xs text-gray-500">Сообщество</p>
+                          </div>
+                        </div>
+                        <Button className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-3 text-sm font-semibold">
+                          Присоединиться
+                        </Button>
+                      </div>
+
+                      <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4 hover:border-[#4299e1]/30 transition-all">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center">
+                            <Icon name="Send" size={20} className="text-[#4299e1]" />
+                          </div>
+                          <div className="text-left">
+                            <p className="text-sm font-semibold text-white">Telegram</p>
+                            <p className="text-xs text-gray-500">Быстрая связь</p>
+                          </div>
+                        </div>
+                        <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-3 text-sm font-semibold">
+                          Написать
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card id="about" className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Icon name="Info" size={40} className="text-[#4299e1]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">О проекте</h3>
+                    <p className="text-sm text-gray-400 mb-6">Cloud</p>
+                    
+                    <img 
+                      src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                      alt="Cloud" 
+                      className="w-24 h-24 mx-auto mb-6 opacity-80"
+                    />
+                    
+                    <p className="text-sm text-gray-300 mb-4 leading-relaxed">
+                      Профессиональный чит для Cristalix, разработанный командой опытных программистов с 2023 года.
+                    </p>
+                    
+                    <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4 mb-4">
+                      <div className="flex items-center justify-center gap-3">
+                        <Icon name="Users" size={24} className="text-[#4299e1]" />
+                        <div className="text-left">
+                          <p className="text-lg font-bold text-white">5000+</p>
+                          <p className="text-xs text-gray-500">Активных игроков</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4">
+                      <div className="flex items-center justify-center gap-3">
+                        <Icon name="Shield" size={24} className="text-[#4299e1]" />
+                        <div className="text-left">
+                          <p className="text-lg font-bold text-white">100%</p>
+                          <p className="text-xs text-gray-500">Безопасность</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
           </div>
         </section>
 
@@ -645,47 +739,6 @@ const Index = () => {
                   <p className="text-gray-400 leading-relaxed">{item.a}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="support" className="py-24 px-6">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Поддержка
-              </h2>
-              <p className="text-gray-400 text-lg">
-                Свяжитесь с нами удобным способом
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-10 text-center">
-                  <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Icon name="MessageCircle" size={40} className="text-[#4299e1]" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Discord</h3>
-                  <p className="text-gray-400 mb-6">Наше сообщество</p>
-                  <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl w-full py-6 font-semibold">
-                    Присоединиться
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-10 text-center">
-                  <div className="w-20 h-20 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Icon name="Send" size={40} className="text-[#4299e1]" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Telegram</h3>
-                  <p className="text-gray-400 mb-6">Быстрая связь</p>
-                  <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl w-full py-6 font-semibold">
-                    Написать
-                  </Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>
@@ -728,36 +781,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="about" className="py-24 px-6">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                О <span className="text-[#4299e1]">проекте</span>
-              </h2>
-            </div>
 
-            <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
-              <CardContent className="p-12 text-center">
-                <img 
-                  src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
-                  alt="Cloud" 
-                  className="w-32 h-32 mx-auto mb-8"
-                />
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  Cloud — это профессиональный чит для Cristalix, разработанный командой опытных программистов. 
-                  Мы работаем над проектом с 2023 года и постоянно улучшаем функционал.
-                </p>
-                <p className="text-lg text-gray-300 mb-10 leading-relaxed">
-                  Наша цель — предоставить лучший игровой опыт с максимальной безопасностью и надежностью.
-                </p>
-                <div className="flex justify-center items-center gap-4 bg-[#0a0e1a] rounded-xl py-6 px-8">
-                  <Icon name="Users" size={32} className="text-[#4299e1]" />
-                  <span className="text-2xl font-bold text-white">5000+ активных пользователей</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
       </main>
 
       <footer className="relative z-10 border-t border-white/5 py-10">
