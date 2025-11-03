@@ -5,84 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
-const RainEffect = () => {
-  const raindrops = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    duration: 1.2 + Math.random() * 1.8,
-    delay: Math.random() * 5,
-    opacity: 0.3 + Math.random() * 0.5,
-    height: 100 + Math.random() * 80,
-  }));
-
-  const backgroundDrops = Array.from({ length: 150 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    size: 2 + Math.random() * 6,
-    opacity: 0.08 + Math.random() * 0.2,
-    animationDelay: Math.random() * 3,
-    animationDuration: 2 + Math.random() * 2,
-  }));
-
-  return (
-    <>
-      <div className="fixed inset-0 bg-black/20 pointer-events-none z-[1]" />
-      
-      <div className="fixed inset-0 pointer-events-none z-[0] overflow-hidden">
-        {backgroundDrops.map((drop) => (
-          <div
-            key={`bg-${drop.id}`}
-            className="absolute rounded-full bg-gradient-radial from-blue-300/50 via-blue-400/30 to-transparent"
-            style={{
-              left: `${drop.left}%`,
-              top: `${drop.top}%`,
-              width: `${drop.size}px`,
-              height: `${drop.size}px`,
-              opacity: drop.opacity,
-              filter: 'blur(1px)',
-              animation: `rain-pulse ${drop.animationDuration}s ease-in-out infinite`,
-              animationDelay: `${drop.animationDelay}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="fixed inset-0 pointer-events-none z-[2] overflow-hidden">
-        {raindrops.map((drop) => (
-          <div
-            key={drop.id}
-            className="absolute"
-            style={{
-              left: `${drop.left}%`,
-              animation: `rain-fall ${drop.duration}s linear infinite`,
-              animationDelay: `${drop.delay}s`,
-            }}
-          >
-            <div
-              className="relative bg-gradient-to-b from-blue-100/80 via-blue-200/60 to-transparent"
-              style={{
-                width: '2px',
-                height: `${drop.height}px`,
-                opacity: drop.opacity,
-                filter: 'blur(0.5px)',
-                boxShadow: '0 0 8px rgba(147, 197, 253, 0.5), 0 0 4px rgba(191, 219, 254, 0.6)',
-              }}
-            >
-              <div 
-                className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-200/60 blur-[2px]"
-                style={{
-                  boxShadow: '0 0 6px rgba(147, 197, 253, 0.8)',
-                }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-};
-
 const Index = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [activeTab, setActiveTab] = useState('combat');
@@ -131,7 +53,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative bg-[#0a0e1a]">
-      <RainEffect />
       
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0d16]/90 via-[#070913]/95 to-[#050711]"></div>

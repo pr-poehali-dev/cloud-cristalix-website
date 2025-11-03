@@ -1,0 +1,91 @@
+import { useMemo } from 'react';
+
+const RainEffect = () => {
+  const raindrops = useMemo(() => 
+    Array.from({ length: 60 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      duration: 1 + Math.random() * 1.5,
+      delay: Math.random() * 5,
+      opacity: 0.4 + Math.random() * 0.4,
+      height: 80 + Math.random() * 100,
+    })), []
+  );
+
+  const backgroundDrops = useMemo(() =>
+    Array.from({ length: 200 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: 2 + Math.random() * 5,
+      opacity: 0.1 + Math.random() * 0.25,
+      animationDelay: Math.random() * 4,
+      animationDuration: 2.5 + Math.random() * 2.5,
+    })), []
+  );
+
+  return (
+    <>
+      <div className="fixed inset-0 bg-black/15 pointer-events-none z-[998]" />
+      
+      <div className="fixed inset-0 pointer-events-none z-[997] overflow-hidden">
+        {backgroundDrops.map((drop) => (
+          <div
+            key={`bg-${drop.id}`}
+            className="absolute rounded-full will-change-transform"
+            style={{
+              left: `${drop.left}%`,
+              top: `${drop.top}%`,
+              width: `${drop.size}px`,
+              height: `${drop.size}px`,
+              opacity: drop.opacity,
+              background: 'radial-gradient(circle, rgba(147, 197, 253, 0.6) 0%, rgba(191, 219, 254, 0.3) 50%, transparent 100%)',
+              filter: 'blur(1.5px)',
+              animation: `rain-pulse ${drop.animationDuration}s ease-in-out infinite`,
+              animationDelay: `${drop.animationDelay}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="fixed inset-0 pointer-events-none z-[999] overflow-hidden">
+        {raindrops.map((drop) => (
+          <div
+            key={drop.id}
+            className="absolute will-change-transform"
+            style={{
+              left: `${drop.left}%`,
+              animation: `rain-fall ${drop.duration}s linear infinite`,
+              animationDelay: `${drop.delay}s`,
+            }}
+          >
+            <div
+              className="relative"
+              style={{
+                width: '2px',
+                height: `${drop.height}px`,
+                opacity: drop.opacity,
+                background: 'linear-gradient(to bottom, rgba(191, 219, 254, 0.9) 0%, rgba(147, 197, 253, 0.7) 30%, transparent 100%)',
+                filter: 'blur(0.6px)',
+                boxShadow: '0 0 10px rgba(147, 197, 253, 0.6), 0 0 5px rgba(191, 219, 254, 0.8)',
+              }}
+            >
+              <div 
+                className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full"
+                style={{
+                  width: '4px',
+                  height: '4px',
+                  background: 'radial-gradient(circle, rgba(191, 219, 254, 0.9) 0%, rgba(147, 197, 253, 0.5) 100%)',
+                  filter: 'blur(2px)',
+                  boxShadow: '0 0 8px rgba(147, 197, 253, 1), 0 0 4px rgba(191, 219, 254, 1)',
+                }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default RainEffect;
