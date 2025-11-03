@@ -82,17 +82,17 @@
 
 @keyframes rain-fall {
   0% {
-    transform: translateY(-10vh);
+    transform: translateY(-5vh);
     opacity: 0;
   }
-  3% {
+  10% {
     opacity: 0.8;
   }
-  85% {
+  90% {
     opacity: 0.8;
   }
   100% {
-    transform: translateY(110vh);
+    transform: translateY(105vh);
     opacity: 0;
   }
 }
