@@ -23,12 +23,12 @@ const Index = () => {
   }, []);
 
   const pricingPlans = [
-    { days: '3 дня', price: '99₽', image: 'https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png' },
-    { days: '7 дней', price: '199₽', image: 'https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png' },
-    { days: '30 дней', price: '499₽', image: 'https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png' },
-    { days: '60 дней', price: '899₽', image: 'https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png' },
-    { days: '90 дней', price: '1299₽', image: 'https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png' },
-    { days: 'НАВСЕГДА', price: '2999₽', image: 'https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png', isLifetime: true },
+    { days: '3 дня', price: '200₽', emoji: '⏱️', desc: 'Идеально для тестирования', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/5f63a486-f22f-4b2c-8a79-7e001a84327e.jpg' },
+    { days: '7 дней', price: '350₽', emoji: '📅', desc: 'Оптимальный выбор на неделю', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/d17ec92a-11eb-47a4-b768-0c1688acb713.jpg' },
+    { days: '30 дней', price: '1200₽', emoji: '📆', desc: 'Самый популярный тариф', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/61f1eb4e-ff3b-4c6f-bbf1-f9a4ad069eac.jpg', popular: true },
+    { days: '60 дней', price: '1900₽', emoji: '📆', desc: 'Выгодное предложение', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/fd64adcf-d98e-4f43-8899-078bd34dc788.jpg' },
+    { days: '90 дней', price: '3100₽', emoji: '📆', desc: 'Максимальная выгода', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/37c09571-a515-41c2-bb78-e0ffc65b8143.jpg' },
+    { days: 'НАВСЕГДА', price: '4000₽', emoji: '♾️', desc: 'Безлимитный доступ навсегда', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/19e68a3d-fe88-43fa-9a0c-f124e3b04bc2.jpg', isLifetime: true },
   ];
 
   const features = {
@@ -435,42 +435,57 @@ const Index = () => {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8">
                   <div className="space-y-6">
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400 text-sm font-medium">3 дня</span>
-                      <span className="text-gray-400 text-sm font-medium">НАВСЕГДА</span>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-gray-400 text-sm font-medium">⏱️ 3 дня</span>
+                      <span className="text-gray-400 text-sm font-medium">♾️ НАВСЕГДА</span>
                     </div>
                     
-                    <div className="relative">
+                    <div className="relative py-2">
                       <input 
                         type="range" 
                         min="0" 
                         max="5" 
+                        step="1"
                         value={selectedPlan}
                         onChange={(e) => setSelectedPlan(Number(e.target.value))}
-                        className="w-full h-2 bg-gradient-to-r from-[#4299e1] via-[#4299e1] to-[#ef4444] rounded-full appearance-none cursor-pointer slider"
+                        className="w-full h-2 rounded-full appearance-none cursor-pointer slider transition-all duration-300"
                         style={{
-                          background: `linear-gradient(to right, #4299e1 0%, #4299e1 ${(selectedPlan / 5) * 80}%, #ef4444 ${(selectedPlan / 5) * 80}%, #ef4444 100%)`
+                          background: `linear-gradient(to right, #4299e1 0%, #4299e1 ${(selectedPlan / 5) * 85}%, #ef4444 ${(selectedPlan / 5) * 85}%, #ef4444 100%)`
                         }}
                       />
                     </div>
 
-                    <div className="grid grid-cols-6 gap-2 text-center text-xs text-gray-500">
+                    <div className="grid grid-cols-6 gap-1 text-center">
                       {pricingPlans.map((plan, idx) => (
-                        <div 
+                        <button
                           key={idx}
-                          className={`transition-all ${selectedPlan === idx ? 'text-[#4299e1] font-semibold' : ''}`}
+                          onClick={() => setSelectedPlan(idx)}
+                          className={`text-xs py-2 px-1 rounded-lg transition-all duration-300 cursor-pointer ${
+                            selectedPlan === idx 
+                              ? 'text-white bg-[#4299e1]/20 font-bold scale-105' 
+                              : 'text-gray-500 hover:text-gray-300'
+                          }`}
                         >
-                          {plan.days.replace(' ', '\n')}
-                        </div>
+                          <div className="text-base mb-1">{plan.emoji}</div>
+                          <div className="whitespace-nowrap text-[10px]">{plan.days}</div>
+                        </button>
                       ))}
                     </div>
                   </div>
 
-                  <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
+                  <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300">
                     <CardContent className="p-8">
                       <div className="text-center">
                         <div className="mb-6">
-                          <h3 className={`text-5xl font-bold mb-2 ${pricingPlans[selectedPlan].isLifetime ? '' : 'text-white'}`}>
+                          <div className="text-6xl mb-4">{pricingPlans[selectedPlan].emoji}</div>
+                          
+                          {pricingPlans[selectedPlan].popular && (
+                            <div className="inline-block px-3 py-1 bg-[#4299e1]/20 border border-[#4299e1]/50 rounded-full text-[#4299e1] text-xs font-bold mb-3">
+                              🔥 ПОПУЛЯРНОЕ
+                            </div>
+                          )}
+                          
+                          <h3 className={`text-4xl font-bold mb-3 transition-all duration-300 ${pricingPlans[selectedPlan].isLifetime ? '' : 'text-white'}`}>
                             {pricingPlans[selectedPlan].isLifetime ? (
                               <>
                                 <span className="text-[#4299e1]">НАВ</span>
@@ -480,13 +495,13 @@ const Index = () => {
                               pricingPlans[selectedPlan].days
                             )}
                           </h3>
-                          <p className="text-6xl font-black text-[#4299e1] mb-4">
+                          
+                          <p className="text-6xl font-black text-[#4299e1] mb-3 transition-all duration-300">
                             {pricingPlans[selectedPlan].price}
                           </p>
-                          <p className="text-gray-400">
-                            {pricingPlans[selectedPlan].isLifetime 
-                              ? 'Вечный доступ + все обновления' 
-                              : 'Полный доступ ко всем функциям'}
+                          
+                          <p className="text-gray-400 transition-all duration-300">
+                            {pricingPlans[selectedPlan].desc}
                           </p>
                         </div>
                         
