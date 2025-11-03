@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,18 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [activeTab, setActiveTab] = useState('combat');
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const features = {
     combat: [
@@ -201,33 +213,68 @@ const Index = () => {
       </nav>
 
       <main className="relative z-10 pt-20">
-        <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 relative">
+        <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6cmdiYSg2NiwxNTMsMjI1LDAuMTUpO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6cmdiYSg2NiwxNTMsMjI1LDApO3N0b3Atb3BhY2l0eTowIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxlbGxpcHNlIGN4PSI1MCUiIGN5PSI1MCUiIHJ4PSI1MCUiIHJ5PSI1MCUiIGZpbGw9InVybCgjZ2xvdykiLz48L3N2Zz4=')] opacity-40"></div>
           
-          <div className="text-center max-w-4xl mx-auto relative z-10">
-            <div className="mb-8">
-              <img 
-                src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
-                alt="Cloud Logo" 
-                className="w-56 h-56 mx-auto mb-8 animate-float drop-shadow-[0_0_40px_rgba(66,153,225,0.6)]"
-              />
+          <div className="container mx-auto max-w-7xl relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <div className="mb-8">
+                  <img 
+                    src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                    alt="Cloud Logo" 
+                    className="w-40 h-40 mx-auto lg:mx-0 mb-8 animate-float drop-shadow-[0_0_40px_rgba(66,153,225,0.6)]"
+                  />
+                </div>
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                  Cloud
+                </h1>
+                <p className="text-xl text-gray-400 mb-3">
+                  Текущая версия <span className="text-[#4299e1] font-semibold">1.0.0</span>
+                </p>
+                <p className="text-sm text-gray-500 mb-10">
+                  Посмотреть <button className="text-[#4299e1] hover:underline">Changelog</button>
+                </p>
+                <p className="text-lg text-gray-300 mb-12 max-w-2xl lg:max-w-none leading-relaxed">
+                  Cloud — приватный DLC-клиент для Cristalix с отличным Combat и хорошим Movement. 
+                  Регулярные обновления обеспечивают комфортную игру.
+                </p>
+                <Button size="lg" className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl px-14 py-7 text-lg font-semibold shadow-lg shadow-[#4299e1]/30">
+                  Запустить
+                </Button>
+              </div>
+
+              <div 
+                className="relative lg:block hidden"
+                style={{ 
+                  perspective: '2000px',
+                }}
+              >
+                <div
+                  className="relative transition-transform duration-300 ease-out"
+                  style={{
+                    transform: `rotateX(${mousePosition.y * -8}deg) rotateY(${mousePosition.x * 8}deg) translateZ(50px)`,
+                    transformStyle: 'preserve-3d',
+                  }}
+                >
+                  <div
+                    className="absolute inset-0 bg-[#4299e1]/20 blur-3xl rounded-3xl"
+                    style={{
+                      transform: 'translateZ(-50px)',
+                    }}
+                  ></div>
+                  <img 
+                    src="https://cdn.poehali.dev/files/834de93e-d72b-4c62-83ad-c8f89abf8b6c.png" 
+                    alt="Cloud GUI" 
+                    className="relative z-10 w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30"
+                    style={{
+                      boxShadow: `${mousePosition.x * 20}px ${mousePosition.y * 20}px 60px rgba(66, 153, 225, 0.4), ${mousePosition.x * -10}px ${mousePosition.y * -10}px 40px rgba(0, 0, 0, 0.5)`,
+                      filter: 'drop-shadow(0 0 30px rgba(66, 153, 225, 0.3))',
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
-              Cloud
-            </h1>
-            <p className="text-xl text-gray-400 mb-3">
-              Текущая версия <span className="text-[#4299e1] font-semibold">1.0.0</span>
-            </p>
-            <p className="text-sm text-gray-500 mb-10">
-              Посмотреть <button className="text-[#4299e1] hover:underline">Changelog</button>
-            </p>
-            <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Cloud — приватный DLC-клиент для Cristalix с отличным Combat и хорошим Movement. 
-              Регулярные обновления обеспечивают комфортную игру.
-            </p>
-            <Button size="lg" className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl px-14 py-7 text-lg font-semibold shadow-lg shadow-[#4299e1]/30">
-              Запустить
-            </Button>
           </div>
         </section>
 
