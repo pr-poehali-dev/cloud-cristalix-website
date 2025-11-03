@@ -59,40 +59,77 @@ const Index = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f1729]/60 backdrop-blur-xl border-b border-white/5">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img 
-                src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
-                alt="Cloud" 
-                className="w-10 h-10"
-              />
-              <span className="text-2xl font-bold text-white">Cloud</span>
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div 
+          className="relative backdrop-blur-xl"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 10px), 95% calc(100% - 5px), 90% 100%, 85% calc(100% - 8px), 75% calc(100% - 3px), 65% calc(100% - 12px), 55% calc(100% - 6px), 45% calc(100% - 10px), 35% calc(100% - 4px), 25% calc(100% - 15px), 15% calc(100% - 7px), 10% calc(100% - 2px), 5% calc(100% - 9px), 0 100%)',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/90 via-[#0f1729]/80 to-[#0f1729]/70"></div>
+          <div 
+            className="absolute bottom-0 left-0 right-0 h-[2px]"
+            style={{
+              background: 'linear-gradient(90deg, transparent, rgba(66, 153, 225, 0.6) 10%, rgba(66, 153, 225, 0.8) 20%, rgba(66, 153, 225, 0.5) 30%, rgba(66, 153, 225, 0.9) 40%, rgba(66, 153, 225, 0.4) 50%, rgba(66, 153, 225, 0.7) 60%, rgba(66, 153, 225, 0.6) 70%, rgba(66, 153, 225, 0.8) 80%, rgba(66, 153, 225, 0.5) 90%, transparent)',
+              filter: 'blur(1px)',
+              boxShadow: '0 0 10px rgba(66, 153, 225, 0.6)',
+            }}
+          ></div>
+          
+          <div className="container mx-auto px-6 py-4 relative z-10">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-[#4299e1]/20 blur-xl rounded-full"></div>
+                  <img 
+                    src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                    alt="Cloud" 
+                    className="w-10 h-10 relative z-10 drop-shadow-[0_0_10px_rgba(66,153,225,0.8)]"
+                  />
+                </div>
+                <span className="text-2xl font-bold text-white drop-shadow-[0_0_8px_rgba(66,153,225,0.6)]">Cloud</span>
+              </div>
+              <div className="hidden md:flex gap-6">
+                {[
+                  { id: 'home', label: 'Главная' },
+                  { id: 'features', label: 'Функции' },
+                  { id: 'download', label: 'Скачать' },
+                  { id: 'pricing', label: 'Цены' },
+                  { id: 'faq', label: 'FAQ' },
+                  { id: 'support', label: 'Поддержка' },
+                  { id: 'updates', label: 'Обновления' },
+                  { id: 'about', label: 'О проекте' },
+                ].map((item, index) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="relative text-sm text-gray-400 hover:text-white transition-all duration-300 group px-2 py-1"
+                    style={{
+                      transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 2)}deg)`,
+                    }}
+                  >
+                    <span className="relative z-10">{item.label}</span>
+                    <div 
+                      className="absolute inset-0 bg-[#4299e1]/0 group-hover:bg-[#4299e1]/20 transition-all duration-300 -z-10"
+                      style={{
+                        clipPath: `polygon(${5 + Math.random() * 5}% 0, ${95 + Math.random() * 5}% ${Math.random() * 5}%, ${98 - Math.random() * 5}% ${95 + Math.random() * 5}%, ${2 + Math.random() * 5}% ${100 - Math.random() * 5}%)`,
+                        filter: 'blur(2px)',
+                      }}
+                    ></div>
+                  </button>
+                ))}
+              </div>
+              <Button 
+                onClick={() => setShowLogin(true)} 
+                className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-6 overflow-hidden group"
+                style={{
+                  clipPath: 'polygon(5% 0, 98% 2%, 97% 95%, 3% 100%)',
+                }}
+              >
+                <span className="relative z-10">Войти</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#4299e1] via-[#5ba3e6] to-[#4299e1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Button>
             </div>
-            <div className="hidden md:flex gap-8">
-              {[
-                { id: 'home', label: 'Главная' },
-                { id: 'features', label: 'Функции' },
-                { id: 'download', label: 'Скачать' },
-                { id: 'pricing', label: 'Цены' },
-                { id: 'faq', label: 'FAQ' },
-                { id: 'support', label: 'Поддержка' },
-                { id: 'updates', label: 'Обновления' },
-                { id: 'about', label: 'О проекте' },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-            <Button onClick={() => setShowLogin(true)} className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg px-6">
-              Войти
-            </Button>
           </div>
         </div>
       </nav>
