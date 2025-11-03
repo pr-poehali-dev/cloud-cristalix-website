@@ -13,23 +13,31 @@ const Index = () => {
   const [sliderValue, setSliderValue] = useState(2);
 
   useEffect(() => {
+    let rafId: number;
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      setMousePosition({ x, y });
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * 2;
+        setMousePosition({ x, y });
+        rafId = 0;
+      });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const pricingPlans = [
-    { days: '3 дня', price: '200₽', emoji: '⏱️', desc: 'Идеально для тестирования', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/0d744ba6-3d61-45b6-bdb2-c27274138792.jpg' },
-    { days: '7 дней', price: '350₽', emoji: '📅', desc: 'Оптимальный выбор на неделю', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/d17ec92a-11eb-47a4-b768-0c1688acb713.jpg' },
-    { days: '30 дней', price: '1200₽', emoji: '📆', desc: 'Самый популярный тариф', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/61f1eb4e-ff3b-4c6f-bbf1-f9a4ad069eac.jpg', popular: true },
-    { days: '60 дней', price: '1900₽', emoji: '📆', desc: 'Выгодное предложение', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/fd64adcf-d98e-4f43-8899-078bd34dc788.jpg' },
-    { days: '90 дней', price: '3100₽', emoji: '📆', desc: 'Максимальная выгода', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/4c6d7575-5f13-4bb5-b331-76b1459fb182.jpg' },
-    { days: 'НАВСЕГДА', price: '4000₽', emoji: '♾️', desc: 'Безлимитный доступ навсегда', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/19e68a3d-fe88-43fa-9a0c-f124e3b04bc2.jpg', isLifetime: true },
+    { days: '3 дня', price: '200₽', emoji: '🥉', desc: 'Идеально для тестирования', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/0d744ba6-3d61-45b6-bdb2-c27274138792.jpg' },
+    { days: '7 дней', price: '350₽', emoji: '🥈', desc: 'Оптимальный выбор на неделю', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/d17ec92a-11eb-47a4-b768-0c1688acb713.jpg' },
+    { days: '30 дней', price: '1200₽', emoji: '🥇', desc: 'Самый популярный тариф', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/61f1eb4e-ff3b-4c6f-bbf1-f9a4ad069eac.jpg', popular: true },
+    { days: '60 дней', price: '1900₽', emoji: '💎', desc: 'Выгодное предложение', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/fd64adcf-d98e-4f43-8899-078bd34dc788.jpg' },
+    { days: '90 дней', price: '3100₽', emoji: '👑', desc: 'Максимальная выгода', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/4c6d7575-5f13-4bb5-b331-76b1459fb182.jpg' },
+    { days: 'НАВСЕГДА', price: '4000₽', emoji: '🔥', desc: 'Безлимитный доступ навсегда', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/19e68a3d-fe88-43fa-9a0c-f124e3b04bc2.jpg', isLifetime: true },
   ];
 
   const features = {
@@ -180,7 +188,7 @@ const Index = () => {
                   <img 
                     src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
                     alt="Cloud Logo" 
-                    className="w-40 h-40 mx-auto lg:mx-0 mb-8 animate-float drop-shadow-[0_0_40px_rgba(66,153,225,0.6)]"
+                    className="w-40 h-40 mx-auto lg:mx-0 mb-8 animate-float drop-shadow-[0_0_25px_rgba(66,153,225,0.5)]"
                   />
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
@@ -208,16 +216,16 @@ const Index = () => {
                 }}
               >
                 <div
-                  className="relative transition-transform duration-300 ease-out"
+                  className="relative transition-transform duration-500 ease-out will-change-transform"
                   style={{
-                    transform: `rotateX(${mousePosition.y * -8}deg) rotateY(${mousePosition.x * 8}deg) translateZ(50px)`,
+                    transform: `rotateX(${mousePosition.y * -5}deg) rotateY(${mousePosition.x * 5}deg) translateZ(30px)`,
                     transformStyle: 'preserve-3d',
                   }}
                 >
                   <div
-                    className="absolute inset-0 bg-[#4299e1]/20 blur-3xl rounded-3xl"
+                    className="absolute inset-0 bg-[#4299e1]/15 blur-2xl rounded-3xl"
                     style={{
-                      transform: 'translateZ(-50px)',
+                      transform: 'translateZ(-30px)',
                     }}
                   ></div>
                   <img 
@@ -225,8 +233,7 @@ const Index = () => {
                     alt="Cloud GUI" 
                     className="relative z-10 w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30"
                     style={{
-                      boxShadow: `${mousePosition.x * 20}px ${mousePosition.y * 20}px 60px rgba(66, 153, 225, 0.4), ${mousePosition.x * -10}px ${mousePosition.y * -10}px 40px rgba(0, 0, 0, 0.5)`,
-                      filter: 'drop-shadow(0 0 30px rgba(66, 153, 225, 0.3))',
+                      boxShadow: '0 20px 60px rgba(66, 153, 225, 0.3)',
                     }}
                   />
                 </div>
@@ -437,8 +444,8 @@ const Index = () => {
                 <div className="space-y-8">
                   <div className="space-y-6">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-400 text-sm font-medium">⏱️ 3 дня</span>
-                      <span className="text-gray-400 text-sm font-medium">♾️ НАВСЕГДА</span>
+                      <span className="text-gray-400 text-sm font-medium">🥉 3 дня</span>
+                      <span className="text-gray-400 text-sm font-medium">🔥 НАВСЕГДА</span>
                     </div>
                     
                     <div className="relative py-2">
@@ -481,7 +488,7 @@ const Index = () => {
                             setSelectedPlan(idx);
                             setSliderValue(idx);
                           }}
-                          className={`text-xs py-2 px-1 rounded-xl transition-all duration-300 cursor-pointer ${
+                          className={`text-xs py-2 px-1 rounded-xl transition-all duration-200 cursor-pointer ${
                             selectedPlan === idx 
                               ? 'text-white bg-[#4299e1]/20 font-bold scale-105' 
                               : 'text-gray-500 hover:text-gray-300'
@@ -494,7 +501,7 @@ const Index = () => {
                     </div>
                   </div>
 
-                  <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300">
+                  <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
                     <CardContent className="p-8">
                       <div className="text-center">
                         <div className="mb-6">

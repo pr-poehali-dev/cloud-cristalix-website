@@ -100,7 +100,7 @@ export default {
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-10px)' }
+					'50%': { transform: 'translateY(-8px)' }
 				},
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(10px)' },
@@ -145,8 +145,8 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'rain-fall': 'rain-fall linear infinite',
-				'float': 'float 3s ease-in-out infinite',
-				'fade-in': 'fade-in 0.5s ease-out',
+				'float': 'float 4s ease-in-out infinite',
+				'fade-in': 'fade-in 0.3s ease-out',
 				'rain-pulse': 'rain-pulse ease-in-out infinite',
 				'ripple': 'ripple ease-out',
 				'drift': 'drift ease-in-out infinite',
