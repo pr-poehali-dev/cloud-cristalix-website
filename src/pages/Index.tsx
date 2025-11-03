@@ -9,6 +9,7 @@ const Index = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [activeTab, setActiveTab] = useState('combat');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [selectedPlan, setSelectedPlan] = useState(2);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -20,6 +21,15 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  const pricingPlans = [
+    { days: '3 дня', price: '99₽', image: 'https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png' },
+    { days: '7 дней', price: '199₽', image: 'https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png' },
+    { days: '30 дней', price: '499₽', image: 'https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png' },
+    { days: '60 дней', price: '899₽', image: 'https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png' },
+    { days: '90 дней', price: '1299₽', image: 'https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png' },
+    { days: 'НАВСЕГДА', price: '2999₽', image: 'https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png', isLifetime: true },
+  ];
 
   const features = {
     combat: [
@@ -410,6 +420,123 @@ const Index = () => {
           </div>
         </section>
 
+        <section id="pricing" className="py-24 px-6">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Цены и <span className="text-[#4299e1]">подписки</span>
+              </h2>
+              <p className="text-gray-400 text-lg">
+                Выберите подходящий тариф для вашей игры
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="space-y-8">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-400 text-sm font-medium">3 дня</span>
+                      <span className="text-gray-400 text-sm font-medium">НАВСЕГДА</span>
+                    </div>
+                    
+                    <div className="relative">
+                      <input 
+                        type="range" 
+                        min="0" 
+                        max="5" 
+                        value={selectedPlan}
+                        onChange={(e) => setSelectedPlan(Number(e.target.value))}
+                        className="w-full h-2 bg-gradient-to-r from-[#4299e1] via-[#4299e1] to-[#ef4444] rounded-full appearance-none cursor-pointer slider"
+                        style={{
+                          background: `linear-gradient(to right, #4299e1 0%, #4299e1 ${(selectedPlan / 5) * 80}%, #ef4444 ${(selectedPlan / 5) * 80}%, #ef4444 100%)`
+                        }}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-6 gap-2 text-center text-xs text-gray-500">
+                      {pricingPlans.map((plan, idx) => (
+                        <div 
+                          key={idx}
+                          className={`transition-all ${selectedPlan === idx ? 'text-[#4299e1] font-semibold' : ''}`}
+                        >
+                          {plan.days.replace(' ', '\n')}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
+                    <CardContent className="p-8">
+                      <div className="text-center">
+                        <div className="mb-6">
+                          <h3 className={`text-5xl font-bold mb-2 ${pricingPlans[selectedPlan].isLifetime ? '' : 'text-white'}`}>
+                            {pricingPlans[selectedPlan].isLifetime ? (
+                              <>
+                                <span className="text-[#4299e1]">НАВ</span>
+                                <span className="text-[#ef4444]">СЕГДА</span>
+                              </>
+                            ) : (
+                              pricingPlans[selectedPlan].days
+                            )}
+                          </h3>
+                          <p className="text-6xl font-black text-[#4299e1] mb-4">
+                            {pricingPlans[selectedPlan].price}
+                          </p>
+                          <p className="text-gray-400">
+                            {pricingPlans[selectedPlan].isLifetime 
+                              ? 'Вечный доступ + все обновления' 
+                              : 'Полный доступ ко всем функциям'}
+                          </p>
+                        </div>
+                        
+                        <Button 
+                          className={`w-full ${pricingPlans[selectedPlan].isLifetime 
+                            ? 'bg-gradient-to-r from-[#4299e1] to-[#ef4444]' 
+                            : 'bg-[#4299e1]'} hover:opacity-90 text-white rounded-xl py-7 text-lg font-bold`}
+                        >
+                          ПРИОБРЕСТИ
+                        </Button>
+
+                        <div className="mt-6 pt-6 border-t border-white/10">
+                          <ul className="text-sm text-gray-400 space-y-2 text-left">
+                            <li className="flex items-center gap-2">
+                              <Icon name="Check" size={16} className="text-[#4299e1]" />
+                              Все модули разблокированы
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Icon name="Check" size={16} className="text-[#4299e1]" />
+                              Обход античита Cristalix
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Icon name="Check" size={16} className="text-[#4299e1]" />
+                              Поддержка 24/7 в Discord
+                            </li>
+                            {pricingPlans[selectedPlan].isLifetime && (
+                              <li className="flex items-center gap-2">
+                                <Icon name="Check" size={16} className="text-[#ef4444]" />
+                                <span className="text-[#ef4444] font-semibold">Бесплатные обновления навсегда</span>
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                  <img 
+                    src={pricingPlans[selectedPlan].image}
+                    alt={`Тариф ${pricingPlans[selectedPlan].days}`}
+                    className="w-full h-auto transition-all duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="download" className="py-24 px-6">
           <div className="container mx-auto max-w-3xl">
             <div className="text-center mb-16">
@@ -445,92 +572,6 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </section>
-
-        <section id="pricing" className="py-24 px-6">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Цены и <span className="text-[#4299e1]">подписки</span>
-              </h2>
-              <p className="text-gray-400 text-lg">
-                Выберите подходящий тариф для вашей игры
-              </p>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto mb-16">
-              <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-[#4299e1] via-[#4299e1] to-[#ef4444] h-1 rounded-full"></div>
-              <div className="grid grid-cols-3 gap-0 mt-8">
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-white mb-2">30 дней</h3>
-                  <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg">
-                    Узнать подробней
-                  </Button>
-                </div>
-                <div className="text-center border-x border-white/10">
-                  <h3 className="text-2xl font-bold text-white mb-2">90 дней</h3>
-                  <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg">
-                    Узнать подробней
-                  </Button>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-2">
-                    <span className="text-[#4299e1]">НАВ</span>
-                    <span className="text-[#ef4444]">СЕГДА</span>
-                  </h3>
-                  <Button className="bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90 text-white rounded-lg">
-                    Узнать подробней
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-10">
-                  <div className="flex items-center justify-center mb-6">
-                    <div className="w-32 h-32 bg-gradient-to-br from-[#4299e1]/20 to-[#ef4444]/20 rounded-2xl flex items-center justify-center">
-                      <span className="text-7xl">∞</span>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <Button className="bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-lg mb-4 font-semibold">
-                      Выбор пользователей
-                    </Button>
-                    <h3 className="text-4xl font-bold mb-4">
-                      <span className="text-[#4299e1]">НАВ</span>
-                      <span className="text-[#ef4444]">СЕГДА</span>
-                    </h3>
-                    <p className="text-gray-400 mb-8 leading-relaxed">
-                      Вы получаете клиент бессрочно, обновления на этот период.
-                    </p>
-                    <Button className="w-full bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90 text-white rounded-xl py-7 text-lg font-bold">
-                      ПРИОБРЕСТИ
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/50 transition-all">
-                <CardContent className="p-10">
-                  <div className="flex items-center justify-center mb-6">
-                    <div className="w-32 h-32 bg-[#4299e1]/20 rounded-2xl flex items-center justify-center">
-                      <span className="text-6xl font-bold text-[#4299e1]">90</span>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-4xl font-bold text-[#4299e1] mb-4">90 дней</h3>
-                    <p className="text-gray-400 mb-8 leading-relaxed">
-                      Подписка на 3 месяца с полным доступом ко всем функциям.
-                    </p>
-                    <Button className="w-full bg-[#4299e1] hover:bg-[#3182ce] text-white rounded-xl py-7 text-lg font-bold">
-                      ПРИОБРЕСТИ
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </section>
 
