@@ -22,10 +22,70 @@ const Index = () => {
   }, []);
 
   const features = {
-    combat: ['AimBot', 'AutoArmor', 'AutoClicker', 'AutoGApple', 'AutoTotem', 'HitBox', 'TriggerBot'],
-    render: ['BlockEsp', 'BlockOverlay', 'Chams', 'ChinaHat', 'ClickGUI', 'Crosshair', 'ESP', 'HUD', 'KeyStrokes', 'NameTags', 'NoRender', 'Notifications', 'PenisESP', 'TargetESP', 'Tracers', 'Trails', 'Triangles', 'XRay'],
-    movement: ['AutoSprint', 'AutoWalk', 'BHop', 'EntityFly', 'MultiJump', 'NoGravity', 'Parkour', 'SafeWalk', 'Velocity'],
-    misc: ['AntiBot', 'AutoEat', 'AutoFish', 'AutoMine', 'AutoRespawn', 'AutoTool', 'ChestStealer', 'ClickTP', 'FastBreak', 'FastPlace', 'FriendManager', 'InvMove', 'NoCommands', 'NoFriendInteract', 'NoInteract', 'Optimization', 'ShippingBot', 'ShowCaves', 'Spinner', 'StaffAlert', 'World', 'Configs'],
+    combat: [
+      { name: 'AimBot', desc: 'Поворачивает голову до хитбокса.' },
+      { name: 'Hitbox', desc: 'Увеличение хитбоксов у сущностей.' },
+      { name: 'AutoGApple', desc: 'Автоматическое поедание золотых яблок.' },
+      { name: 'AutoClicker', desc: 'Автоматически кликает.' },
+      { name: 'AutoArmor', desc: 'Надевает лучшую броню.' },
+      { name: 'TriggerBot', desc: 'Автоматическая атака при наведении на сущность.' },
+      { name: 'AutoTotem', desc: 'Автоматически берёт тотем в руку.' },
+    ],
+    render: [
+      { name: 'ESP', desc: 'Вид игроков через стены.' },
+      { name: 'ClickGUI', desc: 'Гуи', keybind: 'RSHIFT' },
+      { name: 'NameTags', desc: 'Кастомное выделение никнейма игрока.' },
+      { name: 'Crosshair', desc: 'Настраиваемый прицел.' },
+      { name: 'BlockESP', desc: 'Подсвечивает блоки в мире.' },
+      { name: 'Keystrokes', desc: 'Отображает нажатия клавиш.' },
+      { name: 'Chams', desc: 'Рендер игроков через стены.' },
+      { name: 'Notifications', desc: 'Уведомления клиента.' },
+      { name: 'TargetESP', desc: 'Подсвечивает цель аимбота.' },
+      { name: 'Tracers', desc: 'Линии до игроков.' },
+      { name: 'Triangles', desc: 'Треугольники до определённых мест или игроков.' },
+      { name: 'NoRender', desc: 'Убирает рендер определённых элементов.' },
+      { name: 'ChinaHat', desc: 'Китайская шляпа у вас на голове.' },
+      { name: 'Trails', desc: 'Линия бегущая за вами.', keybind: 'Trails' },
+      { name: 'PenisESP', desc: '...' },
+      { name: 'HUD', desc: 'Добавляет элементов в оверлей.' },
+      { name: 'BlockOverlay', desc: 'Подсвечивает блок под курсором.' },
+    ],
+    movement: [
+      { name: 'AutoSprint', desc: 'Автоматическое нажатие ctrl.' },
+      { name: 'Fly', desc: 'Ракета юху или полноценный флай.' },
+      { name: 'EntityFly', desc: 'Позволяет летать на лодке и других сущностях.' },
+      { name: 'MultiJump', desc: 'Прыжок в воздухе.' },
+      { name: 'AutoWalk', desc: 'Автоматически идёт вперёд.' },
+      { name: 'Parkour', desc: 'Автоматически прыгает, когда Вы на краю блока.' },
+      { name: 'BHop', desc: 'Прыгает при приземлении, ускоряя передвижение.' },
+      { name: 'NoGravity', desc: 'Убирает гравитацию у игрока.' },
+      { name: 'SafeWalk', desc: 'Шифт, когда вы у краю блока.' },
+      { name: 'Velocity', desc: 'Полный анти киок бек.' },
+    ],
+    misc: [
+      { name: 'Additions', desc: 'Дополнительные функции для отдельных режимов.' },
+      { name: 'AntiBot', desc: 'Отключает атаку NPC.' },
+      { name: 'ClickTP', desc: 'Телепорт по клику на мыши.' },
+      { name: 'FriendManager', desc: 'Удаляет или добавляет друзей в список по клику.' },
+      { name: 'Optimization', desc: 'Небольшая оптимизация игры.' },
+      { name: 'World', desc: 'Кастомизация мира.' },
+      { name: 'NoFriendInteract', desc: 'Не дает взаимодействовать с друзьями.' },
+      { name: 'NoCommands', desc: 'Отключение команд клиента.' },
+      { name: 'ShippingBot', desc: 'Автоматически выдаёт грузы (в режиме выживание бомжа в России).' },
+      { name: 'StaffAlert', desc: 'Уведомления о заходе модераторов на реалм.' },
+      { name: 'Spinner', desc: 'Вращает головой (визуально).' },
+      { name: 'AutoRespawn', desc: 'Автоматическое возрождение после смерти.' },
+      { name: 'AutoFish', desc: 'Автоматически ловит рыбу.' },
+      { name: 'ShowCaves', desc: 'Показывает пещеры.' },
+      { name: 'AutoTool', desc: 'Автоматически выбирает лучший инструмент для блока.' },
+      { name: 'AutoEat', desc: 'Автоматически ест, когда у вас не полный голод.' },
+      { name: 'FastBreak', desc: 'Эффект спешки.' },
+      { name: 'AutoMine', desc: 'Автоматически добывает блок.' },
+      { name: 'FastPlace', desc: 'Быстрая установка блоков.' },
+      { name: 'ChestStealer', desc: 'Автоматически забирает предметы из сундуков.' },
+      { name: 'InvMove', desc: 'Позволяет двигаться с открытым инвентарём.' },
+      { name: 'Configs', desc: 'Управление конфигами.' },
+    ],
   };
 
   const scrollToSection = (id: string) => {
@@ -205,23 +265,30 @@ const Index = () => {
 
               {Object.entries(features).map(([key, items]) => (
                 <TabsContent key={key} value={key} className="mt-0">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/5 via-transparent to-[#4299e1]/5 rounded-3xl blur-3xl"></div>
-                    <div className="relative bg-[#0f1729]/30 border border-white/5 rounded-2xl p-8 backdrop-blur-sm">
-                      <div className="flex flex-wrap gap-3">
-                        {items.map((feature, idx) => (
-                          <div
-                            key={idx}
-                            className="group relative bg-[#0a0e1a]/60 border border-white/10 rounded-lg px-4 py-2.5 hover:border-[#4299e1]/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#4299e1]/20 cursor-pointer"
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#4299e1]/0 via-[#4299e1]/10 to-[#4299e1]/0 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-                            <span className="relative text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                              {feature}
-                            </span>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {items.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="group relative bg-[#0a0e1a]/80 border border-white/10 rounded-xl p-5 hover:border-[#4299e1]/50 transition-all hover:scale-[1.02] cursor-pointer overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 via-[#4299e1]/5 to-[#4299e1]/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div className="relative">
+                          <div className="flex items-start justify-between mb-2">
+                            <h3 className="text-lg font-semibold text-white group-hover:text-[#4299e1] transition-colors">
+                              {feature.name}
+                            </h3>
+                            {feature.keybind && (
+                              <span className="text-xs px-2 py-1 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono">
+                                {feature.keybind}
+                              </span>
+                            )}
                           </div>
-                        ))}
+                          <p className="text-sm text-gray-400 leading-relaxed">
+                            {feature.desc}
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </TabsContent>
               ))}
