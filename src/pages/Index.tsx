@@ -71,143 +71,57 @@ const Index = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50">
-        <svg 
-          className="absolute top-0 left-0 w-full h-full pointer-events-none" 
-          viewBox="0 0 1920 80" 
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <clipPath id="waveClip">
-              <path
-                d="M0,0 L1920,0 L1920,70 Q1900,65 1880,70 T1840,70 T1800,70 T1760,70 T1720,70 T1680,70 T1640,70 T1600,70 T1560,70 T1520,70 T1480,70 T1440,70 T1400,70 T1360,70 T1320,70 T1280,70 T1240,70 T1200,70 T1160,70 T1120,70 T1080,70 T1040,70 T1000,70 T960,70 T920,70 T880,70 T840,70 T800,70 T760,70 T720,70 T680,70 T640,70 T600,70 T560,70 T520,70 T480,70 T440,70 T400,70 T360,70 T320,70 T280,70 T240,70 T200,70 T160,70 T120,70 T80,70 T40,70 T0,70 Z"
-              >
-                <animate
-                  attributeName="d"
-                  dur="5s"
-                  repeatCount="indefinite"
-                  values="
-                    M0,0 L1920,0 L1920,70 Q1900,65 1880,70 T1840,70 T1800,70 T1760,70 T1720,70 T1680,70 T1640,70 T1600,70 T1560,70 T1520,70 T1480,70 T1440,70 T1400,70 T1360,70 T1320,70 T1280,70 T1240,70 T1200,70 T1160,70 T1120,70 T1080,70 T1040,70 T1000,70 T960,70 T920,70 T880,70 T840,70 T800,70 T760,70 T720,70 T680,70 T640,70 T600,70 T560,70 T520,70 T480,70 T440,70 T400,70 T360,70 T320,70 T280,70 T240,70 T200,70 T160,70 T120,70 T80,70 T40,70 T0,70 Z;
-                    M0,0 L1920,0 L1920,72 Q1900,68 1880,72 T1840,72 T1800,72 T1760,72 T1720,72 T1680,72 T1640,72 T1600,72 T1560,72 T1520,72 T1480,72 T1440,72 T1400,72 T1360,72 T1320,72 T1280,72 T1240,72 T1200,72 T1160,72 T1120,72 T1080,72 T1040,72 T1000,72 T960,72 T920,72 T880,72 T840,72 T800,72 T760,72 T720,72 T680,72 T640,72 T600,72 T560,72 T520,72 T480,72 T440,72 T400,72 T360,72 T320,72 T280,72 T240,72 T200,72 T160,72 T120,72 T80,72 T40,72 T0,72 Z;
-                    M0,0 L1920,0 L1920,68 Q1900,73 1880,68 T1840,68 T1800,68 T1760,68 T1720,68 T1680,68 T1640,68 T1600,68 T1560,68 T1520,68 T1480,68 T1440,68 T1400,68 T1360,68 T1320,68 T1280,68 T1240,68 T1200,68 T1160,68 T1120,68 T1080,68 T1040,68 T1000,68 T960,68 T920,68 T880,68 T840,68 T800,68 T760,68 T720,68 T680,68 T640,68 T600,68 T560,68 T520,68 T480,68 T440,68 T400,68 T360,68 T320,68 T280,68 T240,68 T200,68 T160,68 T120,68 T80,68 T40,68 T0,68 Z;
-                    M0,0 L1920,0 L1920,71 Q1900,66 1880,71 T1840,71 T1800,71 T1760,71 T1720,71 T1680,71 T1640,71 T1600,71 T1560,71 T1520,71 T1480,71 T1440,71 T1400,71 T1360,71 T1320,71 T1280,71 T1240,71 T1200,71 T1160,71 T1120,71 T1080,71 T1040,71 T1000,71 T960,71 T920,71 T880,71 T840,71 T800,71 T760,71 T720,71 T680,71 T640,71 T600,71 T560,71 T520,71 T480,71 T440,71 T400,71 T360,71 T320,71 T280,71 T240,71 T200,71 T160,71 T120,71 T80,71 T40,71 T0,71 Z;
-                    M0,0 L1920,0 L1920,70 Q1900,65 1880,70 T1840,70 T1800,70 T1760,70 T1720,70 T1680,70 T1640,70 T1600,70 T1560,70 T1520,70 T1480,70 T1440,70 T1400,70 T1360,70 T1320,70 T1280,70 T1240,70 T1200,70 T1160,70 T1120,70 T1080,70 T1040,70 T1000,70 T960,70 T920,70 T880,70 T840,70 T800,70 T760,70 T720,70 T680,70 T640,70 T600,70 T560,70 T520,70 T480,70 T440,70 T400,70 T360,70 T320,70 T280,70 T240,70 T200,70 T160,70 T120,70 T80,70 T40,70 T0,70 Z
-                  "
-                />
-              </path>
-            </clipPath>
-          </defs>
-        </svg>
+      <nav 
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl"
+        style={{
+          clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), 98% calc(100% - 3px), 95% 100%, 92% calc(100% - 5px), 88% calc(100% - 2px), 84% calc(100% - 7px), 80% 100%, 76% calc(100% - 4px), 72% calc(100% - 9px), 68% calc(100% - 2px), 64% calc(100% - 6px), 60% 100%, 56% calc(100% - 5px), 52% calc(100% - 3px), 48% calc(100% - 8px), 44% 100%, 40% calc(100% - 4px), 36% calc(100% - 7px), 32% calc(100% - 2px), 28% calc(100% - 9px), 24% calc(100% - 5px), 20% 100%, 16% calc(100% - 6px), 12% calc(100% - 3px), 8% calc(100% - 8px), 5% calc(100% - 4px), 2% 100%, 0 calc(100% - 5px))',
+        }}
+      >
+        <div className="absolute inset-0 bg-[#0a0e1a]/95"></div>
         
-        <div 
-          className="relative backdrop-blur-xl"
-          style={{
-            clipPath: 'url(#waveClip)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/90 via-[#0f1729]/80 to-[#0f1729]/70"></div>
-          
-          <svg 
-            className="absolute bottom-0 left-0 right-0 w-full" 
-            height="15" 
-            viewBox="0 0 1920 15" 
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgba(66, 153, 225, 0)" />
-                <stop offset="15%" stopColor="rgba(66, 153, 225, 0.6)" />
-                <stop offset="30%" stopColor="rgba(66, 153, 225, 0.8)" />
-                <stop offset="50%" stopColor="rgba(66, 153, 225, 0.9)" />
-                <stop offset="70%" stopColor="rgba(66, 153, 225, 0.8)" />
-                <stop offset="85%" stopColor="rgba(66, 153, 225, 0.6)" />
-                <stop offset="100%" stopColor="rgba(66, 153, 225, 0)" />
-              </linearGradient>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-            <path
-              d="M0,8 Q50,3 100,8 T200,8 T300,8 T400,8 T500,8 T600,8 T700,8 T800,8 T900,8 T1000,8 T1100,8 T1200,8 T1300,8 T1400,8 T1500,8 T1600,8 T1700,8 T1800,8 T1900,8 T1920,8 L1920,15 L0,15 Z"
-              fill="url(#waveGradient)"
-              filter="url(#glow)"
-              style={{
-                animation: 'wave-glow 3s ease-in-out infinite',
-              }}
-            >
-              <animate
-                attributeName="d"
-                dur="3s"
-                repeatCount="indefinite"
-                values="
-                  M0,8 Q50,3 100,8 T200,8 T300,8 T400,8 T500,8 T600,8 T700,8 T800,8 T900,8 T1000,8 T1100,8 T1200,8 T1300,8 T1400,8 T1500,8 T1600,8 T1700,8 T1800,8 T1900,8 T1920,8 L1920,15 L0,15 Z;
-                  M0,6 Q50,11 100,6 T200,6 T300,6 T400,6 T500,6 T600,6 T700,6 T800,6 T900,6 T1000,6 T1100,6 T1200,6 T1300,6 T1400,6 T1500,6 T1600,6 T1700,6 T1800,6 T1900,6 T1920,6 L1920,15 L0,15 Z;
-                  M0,10 Q50,5 100,10 T200,10 T300,10 T400,10 T500,10 T600,10 T700,10 T800,10 T900,10 T1000,10 T1100,10 T1200,10 T1300,10 T1400,10 T1500,10 T1600,10 T1700,10 T1800,10 T1900,10 T1920,10 L1920,15 L0,15 Z;
-                  M0,7 Q50,12 100,7 T200,7 T300,7 T400,7 T500,7 T600,7 T700,7 T800,7 T900,7 T1000,7 T1100,7 T1200,7 T1300,7 T1400,7 T1500,7 T1600,7 T1700,7 T1800,7 T1900,7 T1920,7 L1920,15 L0,15 Z;
-                  M0,8 Q50,3 100,8 T200,8 T300,8 T400,8 T500,8 T600,8 T700,8 T800,8 T900,8 T1000,8 T1100,8 T1200,8 T1300,8 T1400,8 T1500,8 T1600,8 T1700,8 T1800,8 T1900,8 T1920,8 L1920,15 L0,15 Z
-                "
+        <div className="container mx-auto px-6 py-4 relative z-10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <img 
+                src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                alt="Cloud" 
+                className="w-10 h-10"
               />
-            </path>
-          </svg>
-          
-          <div className="container mx-auto px-6 py-4 relative z-10">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#4299e1]/20 blur-xl rounded-full"></div>
-                  <img 
-                    src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
-                    alt="Cloud" 
-                    className="w-10 h-10 relative z-10 drop-shadow-[0_0_10px_rgba(66,153,225,0.8)]"
-                  />
-                </div>
-                <span className="text-2xl font-bold text-white drop-shadow-[0_0_8px_rgba(66,153,225,0.6)]">Cloud</span>
-              </div>
-              <div className="hidden md:flex gap-6">
-                {[
-                  { id: 'home', label: 'Главная' },
-                  { id: 'features', label: 'Функции' },
-                  { id: 'download', label: 'Скачать' },
-                  { id: 'pricing', label: 'Цены' },
-                  { id: 'faq', label: 'FAQ' },
-                  { id: 'support', label: 'Поддержка' },
-                  { id: 'updates', label: 'Обновления' },
-                  { id: 'about', label: 'О проекте' },
-                ].map((item, index) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="relative text-sm text-gray-400 hover:text-white transition-all duration-300 group px-2 py-1"
-                    style={{
-                      transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 2)}deg)`,
-                    }}
-                  >
-                    <span className="relative z-10">{item.label}</span>
-                    <div 
-                      className="absolute inset-0 bg-[#4299e1]/0 group-hover:bg-[#4299e1]/20 transition-all duration-300 -z-10"
-                      style={{
-                        clipPath: `polygon(${5 + Math.random() * 5}% 0, ${95 + Math.random() * 5}% ${Math.random() * 5}%, ${98 - Math.random() * 5}% ${95 + Math.random() * 5}%, ${2 + Math.random() * 5}% ${100 - Math.random() * 5}%)`,
-                        filter: 'blur(2px)',
-                      }}
-                    ></div>
-                  </button>
-                ))}
-              </div>
-              <Button 
-                onClick={() => setShowLogin(true)} 
-                className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-6 overflow-hidden group"
-                style={{
-                  clipPath: 'polygon(5% 0, 98% 2%, 97% 95%, 3% 100%)',
-                }}
-              >
-                <span className="relative z-10">Войти</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4299e1] via-[#5ba3e6] to-[#4299e1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
+              <span className="text-2xl font-bold text-white">Cloud</span>
             </div>
+            <div className="hidden md:flex gap-8">
+              {[
+                { id: 'home', label: 'Главная' },
+                { id: 'features', label: 'Функции' },
+                { id: 'download', label: 'Скачать' },
+                { id: 'pricing', label: 'Цены' },
+                { id: 'faq', label: 'FAQ' },
+                { id: 'support', label: 'Поддержка' },
+                { id: 'updates', label: 'Обновления' },
+                { id: 'about', label: 'О проекте' },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="relative text-sm text-gray-400 hover:text-white transition-all duration-300 group"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div 
+                    className="absolute inset-0 -inset-x-2 -inset-y-1 bg-[#4299e1]/0 group-hover:bg-[#4299e1]/20 rounded transition-all duration-300 blur-sm opacity-0 group-hover:opacity-100"
+                  ></div>
+                  <div 
+                    className="absolute inset-0 -inset-x-2 -inset-y-1 bg-[#4299e1]/0 group-hover:bg-[#4299e1]/10 rounded transition-all duration-300"
+                  ></div>
+                </button>
+              ))}
+            </div>
+            <Button 
+              onClick={() => scrollToSection('pricing')} 
+              className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-lg overflow-hidden group transition-all duration-300"
+            >
+              <span className="relative z-10 font-semibold">Купить</span>
+              <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+            </Button>
           </div>
         </div>
       </nav>
