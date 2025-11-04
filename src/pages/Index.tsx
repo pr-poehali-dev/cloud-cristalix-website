@@ -227,7 +227,7 @@ const Index = () => {
                     }}
                   ></div>
                   <img 
-                    src="https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png" 
+                    src="https://cdn.poehali.dev/files/80172bcc-627f-4727-b95f-838b403f5195.png" 
                     alt="Cloud GUI" 
                     className="relative z-10 w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30"
                     style={{
