@@ -218,21 +218,21 @@ const Index = () => {
               <div 
                 className="relative lg:block hidden"
                 style={{ 
-                  perspective: '1500px',
+                  perspective: '1000px',
                 }}
               >
                 <div
                   className="relative transition-smooth will-change-transform"
                   style={{
-                    transform: `rotateX(${mousePosition.y * -8}deg) rotateY(${mousePosition.x * 8}deg) translateZ(50px)`,
+                    transform: `rotateX(${mousePosition.y * -15}deg) rotateY(${mousePosition.x * 15}deg) translateZ(80px)`,
                     transformStyle: 'preserve-3d',
                     transitionDuration: '300ms',
                   }}
                 >
                   <div
-                    className="absolute inset-0 bg-[#4299e1]/20 blur-3xl rounded-3xl"
+                    className="absolute inset-0 bg-[#4299e1]/25 blur-3xl rounded-3xl"
                     style={{
-                      transform: 'translateZ(-40px)',
+                      transform: 'translateZ(-60px)',
                     }}
                   ></div>
                   <img 
@@ -240,7 +240,7 @@ const Index = () => {
                     alt="Cloud GUI" 
                     className="relative z-10 w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30"
                     style={{
-                      boxShadow: '0 20px 60px rgba(66, 153, 225, 0.4)',
+                      boxShadow: '0 25px 80px rgba(66, 153, 225, 0.5)',
                     }}
                     loading="lazy"
                   />
