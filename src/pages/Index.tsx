@@ -147,7 +147,9 @@ const Index = () => {
                 { id: 'download', label: 'Скачать' },
                 { id: 'pricing', label: 'Цены' },
                 { id: 'faq', label: 'FAQ' },
+                { id: 'support', label: 'Поддержка' },
                 { id: 'updates', label: 'Обновления' },
+                { id: 'about', label: 'О проекте' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -603,7 +605,8 @@ const Index = () => {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
           
           <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="max-w-3xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+              
               <Card id="download" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardContent className="p-5 lg:p-8 relative z-10">
@@ -669,6 +672,163 @@ const Index = () => {
                 </CardContent>
               </Card>
 
+              <Card id="support" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-5 lg:p-8 relative z-10">
+                  <div className="text-center">
+                    <div className="relative mb-4 lg:mb-6">
+                      <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
+                      <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
+                        <Icon name="Headphones" size={32} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500 lg:w-12 lg:h-12" />
+                      </div>
+                    </div>
+                    
+                    <div className="inline-block mb-2">
+                      <div className="bg-green-500/20 px-4 py-1 rounded-full border border-green-500/30">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                          <p className="text-xs font-semibold text-green-400">ОНЛАЙН 24/7</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl lg:text-3xl font-bold text-white mb-1 lg:mb-2 group-hover:text-[#4299e1] transition-colors duration-300">Поддержка</h3>
+                    <p className="text-xs lg:text-sm text-gray-400 mb-4 lg:mb-8">Всегда на связи</p>
+                    
+                    <div className="space-y-2 lg:space-y-4 mb-4 lg:mb-6">
+                      <div className="relative group/discord bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 lg:p-5 hover:border-[#5865F2]/50 hover:shadow-[0_0_20px_rgba(88,101,242,0.3)] transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#5865F2]/0 to-[#5865F2]/20 opacity-0 group-hover/discord:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-2 lg:gap-4 mb-2 lg:mb-4">
+                            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#5865F2]/20 rounded-xl flex items-center justify-center group-hover/discord:bg-[#5865F2]/30 group-hover/discord:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="MessageCircle" size={20} className="text-[#5865F2] lg:w-6 lg:h-6" />
+                            </div>
+                            <div className="text-left flex-1">
+                              <p className="text-base font-bold text-white">Discord</p>
+                              <p className="text-xs text-gray-500">Активное сообщество</p>
+                            </div>
+                            <div className="bg-green-500/20 px-2 py-1 rounded-full">
+                              <p className="text-xs font-bold text-green-400">2.5K</p>
+                            </div>
+                          </div>
+                          <Button 
+                            onClick={() => window.open('https://discord.gg/f7dRFuYcXP', '_blank')}
+                            className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-3 lg:py-4 text-xs lg:text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
+                          >
+                            Присоединиться →
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="relative group/telegram bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-3 lg:p-5 hover:border-[#0088cc]/50 hover:shadow-[0_0_20px_rgba(0,136,204,0.3)] transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0088cc]/0 to-[#0088cc]/20 opacity-0 group-hover/telegram:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-2 lg:gap-4 mb-2 lg:mb-4">
+                            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0088cc]/20 rounded-xl flex items-center justify-center group-hover/telegram:bg-[#0088cc]/30 group-hover/telegram:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Send" size={20} className="text-[#0088cc] lg:w-6 lg:h-6" />
+                            </div>
+                            <div className="text-left flex-1 min-w-0">
+                              <p className="text-sm lg:text-base font-bold text-white truncate">Telegram</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500 truncate">Мгновенные ответы</p>
+                            </div>
+                            <div className="bg-[#0088cc]/20 px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full flex-shrink-0">
+                              <p className="text-[10px] lg:text-xs font-bold text-[#0088cc]">⚡ FAST</p>
+                            </div>
+                          </div>
+                          <Button 
+                            onClick={() => window.open('https://t.me/CloudCristalix', '_blank')}
+                            className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-2.5 lg:py-4 text-xs lg:text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
+                          >
+                            Написать →
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-3 lg:p-4">
+                      <p className="text-[10px] lg:text-xs text-gray-500">Среднее время ответа: <span className="text-[#4299e1] font-bold">~ 5 мин</span></p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card id="about" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-5 lg:p-8 relative z-10">
+                  <div className="text-center">
+                    <div className="relative mb-4 lg:mb-6">
+                      <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
+                      <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 transition-all duration-500">
+                        <img 
+                          src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                          alt="Cloud" 
+                          className="w-12 h-12 lg:w-16 lg:h-16 group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="inline-block mb-2">
+                      <div className="bg-purple-500/20 px-4 py-1 rounded-full border border-purple-500/30">
+                        <p className="text-xs font-semibold text-purple-400">С 2023 ГОДА</p>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl lg:text-3xl font-bold text-white mb-1 lg:mb-2 group-hover:text-[#4299e1] transition-colors duration-300">О проекте</h3>
+                    <p className="text-xs lg:text-sm text-gray-400 mb-3 lg:mb-6">Cloud Client</p>
+                    
+                    <p className="text-xs lg:text-sm text-gray-300 mb-4 lg:mb-6 leading-relaxed">
+                      Профессиональный чит для <span className="text-[#4299e1] font-semibold">Cristalix</span>, созданный командой опытных разработчиков
+                    </p>
+                    
+                    <div className="space-y-2 lg:space-y-3 mb-4 lg:mb-6">
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-lg lg:rounded-xl p-3 lg:p-4 hover:border-[#4299e1]/30 hover:shadow-[0_0_15px_rgba(66,153,225,0.2)] transition-all duration-300">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center group-hover/stat:bg-[#4299e1]/30 group-hover/stat:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Users" size={18} className="text-[#4299e1] lg:w-5 lg:h-5" />
+                            </div>
+                            <div className="text-left">
+                              <p className="text-lg lg:text-2xl font-bold text-white group-hover/stat:text-[#4299e1] transition-colors">120+</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500">Активных юзеров</p>
+                            </div>
+                          </div>
+                          <div className="text-green-400 text-[10px] lg:text-xs font-bold">+8% ↑</div>
+                        </div>
+                      </div>
+
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-lg lg:rounded-xl p-3 lg:p-4 hover:border-green-500/30 hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all duration-300">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-green-500/30 group-hover/stat:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Shield" size={18} className="text-green-400 lg:w-5 lg:h-5" />
+                            </div>
+                            <div className="text-left">
+                              <p className="text-lg lg:text-2xl font-bold text-white group-hover/stat:text-green-400 transition-colors">100%</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500">Безопасность</p>
+                            </div>
+                          </div>
+                          <Icon name="Check" size={16} className="text-green-400 lg:w-5 lg:h-5" />
+                        </div>
+                      </div>
+
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-lg lg:rounded-xl p-3 lg:p-4 hover:border-purple-500/30 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-purple-500/30 group-hover/stat:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Zap" size={18} className="text-purple-400 lg:w-5 lg:h-5" />
+                            </div>
+                            <div className="text-left">
+                              <p className="text-lg lg:text-2xl font-bold text-white group-hover/stat:text-purple-400 transition-colors">24/7</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500">Обновления</p>
+                            </div>
+                          </div>
+                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
             </div>
           </div>
@@ -949,6 +1109,7 @@ const Index = () => {
                 <li><a href="#pricing" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="DollarSign" size={14} className="opacity-50 group-hover:opacity-100" /> Цены</a></li>
                 <li><a href="#download" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Download" size={14} className="opacity-50 group-hover:opacity-100" /> Скачать</a></li>
                 <li><a href="#updates" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="History" size={14} className="opacity-50 group-hover:opacity-100" /> Обновления</a></li>
+                <li><a href="#about" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Info" size={14} className="opacity-50 group-hover:opacity-100" /> О проекте</a></li>
               </ul>
             </div>
 
@@ -959,6 +1120,7 @@ const Index = () => {
               </h4>
               <ul className="space-y-3">
                 <li><a href="#faq" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="HelpCircle" size={14} className="opacity-50 group-hover:opacity-100" /> FAQ</a></li>
+                <li><a href="#support" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Mail" size={14} className="opacity-50 group-hover:opacity-100" /> Связаться</a></li>
                 <li><a href="https://discord.gg/f7dRFuYcXP" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="MessageCircle" size={14} className="opacity-50 group-hover:opacity-100" /> Discord</a></li>
                 <li><a href="https://t.me/CloudCristalix" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Send" size={14} className="opacity-50 group-hover:opacity-100" /> Telegram</a></li>
               </ul>
