@@ -145,11 +145,14 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'rain-fall': 'rain-fall linear infinite',
-				'float': 'float 4s ease-in-out infinite',
-				'fade-in': 'fade-in 0.3s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'fade-in': 'fade-in 0.5s ease-out',
 				'rain-pulse': 'rain-pulse ease-in-out infinite',
 				'ripple': 'ripple ease-out',
 				'drift': 'drift ease-in-out infinite',
+			},
+			transitionTimingFunction: {
+				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
 			}
 		}
 	},

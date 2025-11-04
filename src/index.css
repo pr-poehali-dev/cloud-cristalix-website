@@ -66,6 +66,16 @@
   h6 {
     font-family: "Inter", sans-serif;
   }
+
+  * {
+    will-change: auto;
+  }
+
+  .animate-float,
+  [class*="hover:"],
+  [class*="group-hover:"] {
+    will-change: transform;
+  }
 }
 
 @layer utilities {

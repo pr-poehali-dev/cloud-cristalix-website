@@ -14,12 +14,19 @@ const Index = () => {
 
   useEffect(() => {
     let rafId: number;
+    let lastTime = 0;
+    const throttleDelay = 16;
+
     const handleMouseMove = (e: MouseEvent) => {
+      const now = Date.now();
+      if (now - lastTime < throttleDelay) return;
+      
       if (rafId) return;
       rafId = requestAnimationFrame(() => {
         const x = (e.clientX / window.innerWidth - 0.5) * 2;
         const y = (e.clientY / window.innerHeight - 0.5) * 2;
         setMousePosition({ x, y });
+        lastTime = now;
         rafId = 0;
       });
     };
@@ -186,7 +193,8 @@ const Index = () => {
                   <img 
                     src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
                     alt="Cloud Logo" 
-                    className="w-40 h-40 mx-auto lg:mx-0 mb-8 animate-float drop-shadow-[0_0_25px_rgba(66,153,225,0.5)]"
+                    className="w-40 h-40 mx-auto lg:mx-0 mb-8 animate-float drop-shadow-[0_0_25px_rgba(66,153,225,0.5)] will-change-transform"
+                    loading="eager"
                   />
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
@@ -214,16 +222,17 @@ const Index = () => {
                 }}
               >
                 <div
-                  className="relative transition-transform duration-500 ease-out will-change-transform"
+                  className="relative transition-smooth will-change-transform"
                   style={{
-                    transform: `rotateX(${mousePosition.y * -5}deg) rotateY(${mousePosition.x * 5}deg) translateZ(30px)`,
+                    transform: `rotateX(${mousePosition.y * -3}deg) rotateY(${mousePosition.x * 3}deg) translateZ(20px)`,
                     transformStyle: 'preserve-3d',
+                    transitionDuration: '300ms',
                   }}
                 >
                   <div
                     className="absolute inset-0 bg-[#4299e1]/15 blur-2xl rounded-3xl"
                     style={{
-                      transform: 'translateZ(-30px)',
+                      transform: 'translateZ(-20px)',
                     }}
                   ></div>
                   <img 
@@ -233,6 +242,7 @@ const Index = () => {
                     style={{
                       boxShadow: '0 20px 60px rgba(66, 153, 225, 0.3)',
                     }}
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -468,7 +478,7 @@ const Index = () => {
                       : plan.isLifetime
                       ? 'from-[#ef4444]/20 via-[#4299e1]/20 to-[#0f1729] border-[#ef4444] md:col-span-2 lg:col-span-1'
                       : 'from-[#0f1729] to-[#0a0e1a] border-white/10'
-                  } border-2 rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300 cursor-pointer`}
+                  } border-2 rounded-2xl overflow-hidden group hover:scale-[1.02] transition-smooth duration-200 cursor-pointer will-change-transform`}
                   onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
                 >
                   {plan.popular && (
