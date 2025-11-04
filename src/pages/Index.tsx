@@ -891,40 +891,116 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="updates" className="py-24 px-6">
-          <div className="container mx-auto max-w-4xl">
+        <section id="updates" className="py-24 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#050711] to-[#0a0e1a]"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#4299e1]/5 rounded-full blur-3xl"></div>
+          
+          <div className="container mx-auto max-w-6xl relative z-10">
             <div className="text-center mb-16">
+              <div className="inline-block mb-4">
+                <div className="bg-purple-500/10 px-5 py-2 rounded-full border border-purple-500/30">
+                  <p className="text-sm font-bold text-purple-400">CHANGELOG</p>
+                </div>
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 История <span className="text-[#4299e1]">обновлений</span>
               </h2>
               <p className="text-gray-400 text-lg">
-                Последние изменения и улучшения
+                Следите за развитием проекта
               </p>
             </div>
 
-            <div className="space-y-6">
-              {[
-                { version: '1.0.0', date: '03.11.2025', changes: ['Исправлен баг с ESP', 'Улучшена стабильность', 'Обновлен обход античита'] },
-                { version: '0.9.5', date: '01.11.2025', changes: ['Новая функция AutoArmor', 'Улучшен интерфейс', 'Оптимизация производительности'] },
-                { version: '0.9.0', date: '28.10.2025', changes: ['Исправлены критические баги', 'Добавлена поддержка Minecraft 1.20.2', 'Новый модуль Timer'] },
-              ].map((update, idx) => (
-                <Card key={idx} className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
-                  <CardContent className="p-8">
-                    <div className="flex justify-between items-start mb-5">
-                      <h3 className="text-2xl font-bold text-[#4299e1]">v{update.version}</h3>
-                      <span className="text-sm text-gray-400 bg-[#0a0e1a] px-4 py-2 rounded-lg">{update.date}</span>
+            <div className="relative">
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#4299e1]/50 via-purple-500/50 to-transparent"></div>
+              
+              <div className="space-y-8">
+                {[
+                  { 
+                    version: '1.0.0', 
+                    date: '03 ноября 2025', 
+                    tag: 'STABLE',
+                    tagColor: 'green',
+                    icon: 'Rocket',
+                    changes: [
+                      { type: 'fix', text: 'Исправлен баг с ESP на серверах Cristalix' },
+                      { type: 'improve', text: 'Улучшена стабильность работы в фоновом режиме' },
+                      { type: 'security', text: 'Обновлен обход античита для версии 1.8-1.20' }
+                    ] 
+                  },
+                  { 
+                    version: '0.9.5', 
+                    date: '01 ноября 2025', 
+                    tag: 'BETA',
+                    tagColor: 'blue',
+                    icon: 'Sparkles',
+                    changes: [
+                      { type: 'new', text: 'Новая функция AutoArmor с настройкой приоритета' },
+                      { type: 'improve', text: 'Улучшен интерфейс меню настроек' },
+                      { type: 'improve', text: 'Оптимизация производительности на 25%' }
+                    ] 
+                  },
+                  { 
+                    version: '0.9.0', 
+                    date: '28 октября 2025', 
+                    tag: 'PATCH',
+                    tagColor: 'yellow',
+                    icon: 'Wrench',
+                    changes: [
+                      { type: 'fix', text: 'Исправлены критические баги с вылетами' },
+                      { type: 'new', text: 'Добавлена поддержка Minecraft 1.20.2' },
+                      { type: 'new', text: 'Новый модуль Timer с гибкими настройками' }
+                    ] 
+                  },
+                ].map((update, idx) => {
+                  const tagColors: Record<string, string> = {
+                    green: 'bg-green-500/20 text-green-400 border-green-500/30',
+                    blue: 'bg-[#4299e1]/20 text-[#4299e1] border-[#4299e1]/30',
+                    yellow: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+                  };
+                  
+                  const changeIcons: Record<string, { icon: string, color: string }> = {
+                    new: { icon: 'Plus', color: 'text-green-400' },
+                    fix: { icon: 'Bug', color: 'text-red-400' },
+                    improve: { icon: 'TrendingUp', color: 'text-[#4299e1]' },
+                    security: { icon: 'ShieldCheck', color: 'text-purple-400' },
+                  };
+                  
+                  return (
+                    <div key={idx} className="relative pl-20">
+                      <div className="absolute left-0 w-16 h-16 bg-gradient-to-br from-[#4299e1]/30 to-purple-500/30 rounded-2xl flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
+                        <Icon name={update.icon as any} size={28} className="text-[#4299e1]" />
+                      </div>
+                      
+                      <div className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/60 border border-white/10 rounded-2xl p-8 hover:border-[#4299e1]/50 hover:shadow-[0_0_30px_rgba(66,153,225,0.2)] transition-all duration-300">
+                        <div className="flex flex-wrap items-center gap-3 mb-5">
+                          <h3 className="text-3xl font-bold text-white group-hover:text-[#4299e1] transition-colors">v{update.version}</h3>
+                          <div className={`px-3 py-1 rounded-lg border text-xs font-bold ${tagColors[update.tagColor]}`}>
+                            {update.tag}
+                          </div>
+                          <div className="ml-auto text-sm text-gray-400 flex items-center gap-2">
+                            <Icon name="Calendar" size={16} />
+                            {update.date}
+                          </div>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-1 gap-3">
+                          {update.changes.map((change, i) => {
+                            const iconData = changeIcons[change.type];
+                            return (
+                              <div key={i} className="flex items-start gap-3 bg-[#0a0e1a]/40 rounded-xl p-4 hover:bg-[#0a0e1a]/60 transition-colors">
+                                <div className="w-8 h-8 bg-[#0f1729] rounded-lg flex items-center justify-center flex-shrink-0">
+                                  <Icon name={iconData.icon as any} size={16} className={iconData.color} />
+                                </div>
+                                <p className="text-gray-300 leading-relaxed pt-1">{change.text}</p>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
                     </div>
-                    <ul className="space-y-3">
-                      {update.changes.map((change, i) => (
-                        <li key={i} className="flex items-start text-sm">
-                          <Icon name="Check" size={18} className="text-[#4299e1] mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-300">{change}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
@@ -932,84 +1008,158 @@ const Index = () => {
 
       </main>
 
-      <footer className="relative z-10 bg-gradient-to-b from-[#050711] to-[#020408] border-t border-white/5 pt-16 pb-8 overflow-hidden">
+      <footer className="relative z-10 bg-gradient-to-b from-[#050711] to-[#020408] border-t border-white/5 pt-20 pb-8 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDIpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#4299e1]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-4 gap-10 mb-12">
+          <div className="grid md:grid-cols-12 gap-10 mb-16">
             
-            <div className="md:col-span-1">
-              <div className="flex items-center gap-3 mb-4">
-                <img 
-                  src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
-                  alt="Cloud" 
-                  className="w-12 h-12"
-                />
-                <h3 className="text-2xl font-bold text-white">Cloud</h3>
-              </div>
-              <p className="text-sm text-gray-400 leading-relaxed mb-4">
-                Профессиональный чит для Cristalix с постоянными обновлениями и поддержкой 24/7
-              </p>
-              <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 bg-[#0f1729] border border-white/10 rounded-lg flex items-center justify-center hover:border-[#5865F2] hover:bg-[#5865F2]/20 transition-all group">
-                  <Icon name="MessageCircle" size={18} className="text-gray-400 group-hover:text-[#5865F2] transition-colors" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-[#0f1729] border border-white/10 rounded-lg flex items-center justify-center hover:border-[#0088cc] hover:bg-[#0088cc]/20 transition-all group">
-                  <Icon name="Send" size={18} className="text-gray-400 group-hover:text-[#0088cc] transition-colors" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-[#0f1729] border border-white/10 rounded-lg flex items-center justify-center hover:border-[#4299e1] hover:bg-[#4299e1]/20 transition-all group">
-                  <Icon name="Youtube" size={18} className="text-gray-400 group-hover:text-[#4299e1] transition-colors" />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Продукт</h4>
-              <ul className="space-y-3">
-                <li><a href="#features" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Функции</a></li>
-                <li><a href="#pricing" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Цены</a></li>
-                <li><a href="#download" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Скачать</a></li>
-                <li><a href="#updates" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Обновления</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Поддержка</h4>
-              <ul className="space-y-3">
-                <li><a href="#faq" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> FAQ</a></li>
-                <li><a href="#support" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Связаться с нами</a></li>
-                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Документация</a></li>
-                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Статус серверов</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Правовая информация</h4>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Условия использования</a></li>
-                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Политика конфиденциальности</a></li>
-                <li><a href="#" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2"><Icon name="ChevronRight" size={14} /> Правила возврата</a></li>
-              </ul>
-              
-              <div className="mt-6 bg-[#0f1729]/50 border border-[#4299e1]/30 rounded-xl p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <p className="text-xs font-bold text-green-400">СТАТУС</p>
+            <div className="md:col-span-5">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-[#4299e1]/20 blur-xl rounded-full"></div>
+                  <img 
+                    src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                    alt="Cloud" 
+                    className="w-14 h-14 relative"
+                  />
                 </div>
-                <p className="text-xs text-gray-400">Все системы работают</p>
+                <h3 className="text-3xl font-bold text-white">Cloud<span className="text-[#4299e1]">.</span></h3>
               </div>
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                Профессиональный чит для Minecraft с постоянными обновлениями, высочайшим уровнем безопасности и круглосуточной технической поддержкой
+              </p>
+              
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-10 h-10 bg-[#4299e1]/10 rounded-lg flex items-center justify-center">
+                    <Icon name="Users" size={18} className="text-[#4299e1]" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">5000+ активных игроков</p>
+                    <p className="text-gray-500 text-xs">И растём каждый день</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
+                    <Icon name="Shield" size={18} className="text-green-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">100% безопасность</p>
+                    <p className="text-gray-500 text-xs">Без банов при правильном использовании</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex flex-wrap gap-3">
+                <a href="#" className="group flex items-center gap-2 px-4 py-2.5 bg-[#5865F2]/10 border border-[#5865F2]/30 rounded-xl hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all">
+                  <Icon name="MessageCircle" size={18} className="text-[#5865F2]" />
+                  <span className="text-sm font-semibold text-[#5865F2]">Discord</span>
+                  <Icon name="ExternalLink" size={14} className="text-[#5865F2] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+                <a href="#" className="group flex items-center gap-2 px-4 py-2.5 bg-[#0088cc]/10 border border-[#0088cc]/30 rounded-xl hover:bg-[#0088cc]/20 hover:border-[#0088cc]/50 transition-all">
+                  <Icon name="Send" size={18} className="text-[#0088cc]" />
+                  <span className="text-sm font-semibold text-[#0088cc]">Telegram</span>
+                  <Icon name="ExternalLink" size={14} className="text-[#0088cc] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+            </div>
+
+            <div className="md:col-span-2">
+              <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+                <Icon name="Grid" size={16} className="text-[#4299e1]" />
+                Навигация
+              </h4>
+              <ul className="space-y-3">
+                <li><a href="#features" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Zap" size={14} className="opacity-50 group-hover:opacity-100" /> Функции</a></li>
+                <li><a href="#pricing" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="DollarSign" size={14} className="opacity-50 group-hover:opacity-100" /> Цены</a></li>
+                <li><a href="#download" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Download" size={14} className="opacity-50 group-hover:opacity-100" /> Скачать</a></li>
+                <li><a href="#updates" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="History" size={14} className="opacity-50 group-hover:opacity-100" /> Обновления</a></li>
+                <li><a href="#about" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Info" size={14} className="opacity-50 group-hover:opacity-100" /> О проекте</a></li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-2">
+              <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+                <Icon name="Headphones" size={16} className="text-[#4299e1]" />
+                Помощь
+              </h4>
+              <ul className="space-y-3">
+                <li><a href="#faq" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="HelpCircle" size={14} className="opacity-50 group-hover:opacity-100" /> FAQ</a></li>
+                <li><a href="#support" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Mail" size={14} className="opacity-50 group-hover:opacity-100" /> Связаться</a></li>
+                <li>
+                  <button onClick={() => setShowLogin(true)} className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group">
+                    <Icon name="LogIn" size={14} className="opacity-50 group-hover:opacity-100" /> Личный кабинет
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-3">
+              <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+                <Icon name="Activity" size={16} className="text-[#4299e1]" />
+                Статус системы
+              </h4>
+              
+              <div className="space-y-3 mb-6">
+                <div className="bg-[#0f1729]/50 border border-green-500/30 rounded-xl p-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-gray-400">Античит обход</span>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-bold text-green-400">ONLINE</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-[#0f1729]/50 border border-green-500/30 rounded-xl p-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-gray-400">API сервер</span>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-bold text-green-400">ONLINE</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-[#0f1729]/50 border border-[#4299e1]/30 rounded-xl p-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-gray-400">Обновления</span>
+                    <div className="flex items-center gap-1.5">
+                      <Icon name="CheckCircle" size={12} className="text-[#4299e1]" />
+                      <span className="text-xs font-bold text-[#4299e1]">v1.0.0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <a href="#" className="block bg-gradient-to-r from-[#4299e1]/10 to-purple-500/10 border border-[#4299e1]/30 rounded-xl p-4 hover:border-[#4299e1]/50 transition-all group">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-[#4299e1]">НОВОЕ</span>
+                  <Icon name="ArrowRight" size={14} className="text-[#4299e1] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-xs text-gray-300">Обновление 1.0.0 уже доступно!</p>
+              </a>
             </div>
 
           </div>
 
           <div className="border-t border-white/5 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-gray-500">© 2025 <span className="text-[#4299e1] font-semibold">Cloud</span>. Все права защищены.</p>
-              <div className="flex items-center gap-6 text-xs text-gray-500">
-                <span>Сделано с</span>
-                <div className="flex items-center gap-1">
-                  <Icon name="Heart" size={14} className="text-red-400 fill-red-400" />
-                  <span>для игроков</span>
+              <p className="text-sm text-gray-500">© 2025 <span className="text-[#4299e1] font-bold">Cloud</span>. Все права защищены.</p>
+              <div className="flex items-center gap-6">
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                  <span>Сделано с</span>
+                  <Icon name="Heart" size={14} className="text-red-400 fill-red-400 animate-pulse" />
+                  <span>для геймеров</span>
+                </div>
+                <div className="h-4 w-px bg-white/10"></div>
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                  <Icon name="Zap" size={14} className="text-yellow-400" />
+                  <span>Powered by Cloud Team</span>
                 </div>
               </div>
             </div>
