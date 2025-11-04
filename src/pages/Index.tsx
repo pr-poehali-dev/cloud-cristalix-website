@@ -448,7 +448,7 @@ const Index = () => {
                       <span className="text-gray-400 text-xs lg:text-sm font-medium">🔥 НАВСЕГДА</span>
                     </div>
                     
-                    <div className="relative py-2 hidden lg:block">
+                    <div className="relative py-2">
                       <input 
                         type="range" 
                         min="0" 
