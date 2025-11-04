@@ -198,7 +198,7 @@ const Index = () => {
                   Текущая версия <span className="text-[#4299e1] font-semibold">1.0.0</span>
                 </p>
                 <p className="text-sm text-gray-500 mb-10">
-                  Посмотреть <button className="text-[#4299e1] hover:underline">Changelog</button>
+                  Посмотреть <button onClick={() => scrollToSection('updates')} className="text-[#4299e1] hover:underline">Changelog</button>
                 </p>
                 <p className="text-lg text-gray-300 mb-12 max-w-2xl lg:max-w-none leading-relaxed">
                   Cloud — приватный DLC-клиент для Cristalix с отличным Combat и хорошим Movement. 
@@ -768,11 +768,11 @@ const Index = () => {
                               <Icon name="Users" size={22} className="text-[#4299e1]" />
                             </div>
                             <div className="text-left">
-                              <p className="text-2xl font-bold text-white group-hover/stat:text-[#4299e1] transition-colors">5000+</p>
-                              <p className="text-xs text-gray-500">Активных игроков</p>
+                              <p className="text-2xl font-bold text-white group-hover/stat:text-[#4299e1] transition-colors">120+</p>
+                              <p className="text-xs text-gray-500">Активных юзеров</p>
                             </div>
                           </div>
-                          <div className="text-green-400 text-xs font-bold">+12% ↑</div>
+                          <div className="text-green-400 text-xs font-bold">+8% ↑</div>
                         </div>
                       </div>
 
@@ -1048,8 +1048,8 @@ const Index = () => {
                     <Icon name="Users" size={18} className="text-[#4299e1]" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">5000+ активных игроков</p>
-                    <p className="text-gray-500 text-xs">И растём каждый день</p>
+                    <p className="text-white font-semibold">120+ активных юзеров</p>
+                    <p className="text-gray-500 text-xs">Клиентов всего 2400+</p>
                   </div>
                 </div>
                 
