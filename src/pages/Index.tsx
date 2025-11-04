@@ -147,9 +147,7 @@ const Index = () => {
                 { id: 'download', label: 'Скачать' },
                 { id: 'pricing', label: 'Цены' },
                 { id: 'faq', label: 'FAQ' },
-                { id: 'support', label: 'Поддержка' },
                 { id: 'updates', label: 'Обновления' },
-                { id: 'about', label: 'О проекте' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -1109,7 +1107,6 @@ const Index = () => {
                 <li><a href="#pricing" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="DollarSign" size={14} className="opacity-50 group-hover:opacity-100" /> Цены</a></li>
                 <li><a href="#download" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Download" size={14} className="opacity-50 group-hover:opacity-100" /> Скачать</a></li>
                 <li><a href="#updates" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="History" size={14} className="opacity-50 group-hover:opacity-100" /> Обновления</a></li>
-                <li><a href="#about" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Info" size={14} className="opacity-50 group-hover:opacity-100" /> О проекте</a></li>
               </ul>
             </div>
 
@@ -1120,7 +1117,6 @@ const Index = () => {
               </h4>
               <ul className="space-y-3">
                 <li><a href="#faq" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="HelpCircle" size={14} className="opacity-50 group-hover:opacity-100" /> FAQ</a></li>
-                <li><a href="#support" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Mail" size={14} className="opacity-50 group-hover:opacity-100" /> Связаться</a></li>
                 <li><a href="https://discord.gg/f7dRFuYcXP" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="MessageCircle" size={14} className="opacity-50 group-hover:opacity-100" /> Discord</a></li>
                 <li><a href="https://t.me/CloudCristalix" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Send" size={14} className="opacity-50 group-hover:opacity-100" /> Telegram</a></li>
               </ul>
