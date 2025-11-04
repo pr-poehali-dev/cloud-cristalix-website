@@ -1107,7 +1107,8 @@ const Index = () => {
               <div className="space-y-3 mb-6">
                 <div className="bg-[#0f1729]/50 border border-green-500/30 rounded-xl p-3">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-gray-400">Античит обход</span>
+                    <span className="text-xs text-gray-400">Cristalix bypass
+</span>
                     <div className="flex items-center gap-1.5">
                       <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
                       <span className="text-xs font-bold text-green-400">ONLINE</span>
