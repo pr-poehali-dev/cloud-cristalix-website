@@ -302,7 +302,7 @@ const Index = () => {
 
               <TabsContent value="combat" className="mt-0">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
-                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 custom-scrollbar">
                     {features.combat.map((feature, idx) => (
                       <div
                         key={idx}
@@ -338,7 +338,7 @@ const Index = () => {
 
               <TabsContent value="render" className="mt-0">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
-                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 custom-scrollbar">
                     {features.render.map((feature, idx) => (
                       <div
                         key={idx}
@@ -374,7 +374,7 @@ const Index = () => {
 
               <TabsContent value="movement" className="mt-0">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
-                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 custom-scrollbar">
                     {features.movement.map((feature, idx) => (
                       <div
                         key={idx}
@@ -410,7 +410,7 @@ const Index = () => {
 
               <TabsContent value="misc" className="mt-0">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
-                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 custom-scrollbar">
                     {features.misc.map((feature, idx) => (
                       <div
                         key={idx}
