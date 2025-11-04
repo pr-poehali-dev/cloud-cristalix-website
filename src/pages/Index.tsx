@@ -39,12 +39,12 @@ const Index = () => {
   }, []);
 
   const pricingPlans = [
-    { days: '3 дня', price: '200₽', emoji: '🥉', desc: 'Идеально для тестирования', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/0d744ba6-3d61-45b6-bdb2-c27274138792.jpg' },
-    { days: '7 дней', price: '350₽', emoji: '🥈', desc: 'Оптимальный выбор на неделю', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/d17ec92a-11eb-47a4-b768-0c1688acb713.jpg' },
-    { days: '30 дней', price: '1200₽', emoji: '🥇', desc: 'Самый популярный тариф', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/61f1eb4e-ff3b-4c6f-bbf1-f9a4ad069eac.jpg', popular: true },
-    { days: '60 дней', price: '1900₽', emoji: '💎', desc: 'Выгодное предложение', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/fd64adcf-d98e-4f43-8899-078bd34dc788.jpg' },
-    { days: '90 дней', price: '3100₽', emoji: '👑', desc: 'Максимальная выгода', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/4c6d7575-5f13-4bb5-b331-76b1459fb182.jpg' },
-    { days: 'НАВСЕГДА', price: '4000₽', emoji: '🔥', desc: 'Безлимитный доступ навсегда', image: 'https://cdn.poehali.dev/projects/3ba16267-2dd4-44d8-82ea-66fa8d1f167c/files/19e68a3d-fe88-43fa-9a0c-f124e3b04bc2.jpg', isLifetime: true },
+    { days: '3 дня', price: '200₽', emoji: '🥉', desc: 'Идеально для тестирования', image: '/images/plan-3days.jpg' },
+    { days: '7 дней', price: '350₽', emoji: '🥈', desc: 'Оптимальный выбор на неделю', image: '/images/plan-7days.jpg' },
+    { days: '30 дней', price: '1200₽', emoji: '🥇', desc: 'Самый популярный тариф', image: '/images/plan-30days.jpg', popular: true },
+    { days: '60 дней', price: '1900₽', emoji: '💎', desc: 'Выгодное предложение', image: '/images/plan-60days.jpg' },
+    { days: '90 дней', price: '3100₽', emoji: '👑', desc: 'Максимальная выгода', image: '/images/plan-90days.jpg' },
+    { days: 'НАВСЕГДА', price: '4000₽', emoji: '🔥', desc: 'Безлимитный доступ навсегда', image: '/images/plan-lifetime.jpg', isLifetime: true },
   ];
 
   const features = {
@@ -141,7 +141,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img 
-                src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                src="/images/logo.png" 
                 alt="Cloud" 
                 className="w-10 h-10"
               />
@@ -191,7 +191,7 @@ const Index = () => {
               <div className="text-center lg:text-left">
                 <div className="mb-8">
                   <img 
-                    src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                    src="/images/logo.png" 
                     alt="Cloud Logo" 
                     className="w-40 h-40 mx-auto lg:mx-0 mb-8 animate-float drop-shadow-[0_0_25px_rgba(66,153,225,0.5)] will-change-transform"
                     loading="eager"
@@ -236,7 +236,7 @@ const Index = () => {
                     }}
                   ></div>
                   <img 
-                    src="https://cdn.poehali.dev/files/80172bcc-627f-4727-b95f-838b403f5195.png" 
+                    src="/images/gui-screenshot.png" 
                     alt="Cloud GUI" 
                     className="relative z-10 w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30"
                     style={{
@@ -336,7 +336,7 @@ const Index = () => {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
-                      src="https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png" 
+                      src="/images/combat-features.png" 
                       alt="Combat Features" 
                       className="w-full h-auto"
                     />
@@ -372,7 +372,7 @@ const Index = () => {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
-                      src="https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png" 
+                      src="/images/render-features.png" 
                       alt="Render Features" 
                       className="w-full h-auto"
                     />
@@ -408,7 +408,7 @@ const Index = () => {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
-                      src="https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png" 
+                      src="/images/movement-features.png" 
                       alt="Movement Features" 
                       className="w-full h-auto"
                     />
@@ -444,7 +444,7 @@ const Index = () => {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
-                      src="https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png" 
+                      src="/images/misc-features.png" 
                       alt="Misc Features" 
                       className="w-full h-auto"
                     />
@@ -719,7 +719,7 @@ const Index = () => {
                       <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
                       <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 transition-all duration-500">
                         <img 
-                          src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                          src="/images/logo.png" 
                           alt="Cloud" 
                           className="w-12 h-12 lg:w-16 lg:h-16 group-hover:scale-110 transition-transform duration-500"
                         />
@@ -1011,7 +1011,7 @@ const Index = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#4299e1]/20 blur-xl rounded-full"></div>
                   <img 
-                    src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
+                    src="/images/logo.png" 
                     alt="Cloud" 
                     className="w-10 h-10 lg:w-14 lg:h-14 relative"
                   />
