@@ -254,28 +254,28 @@ const Index = () => {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="flex lg:grid w-full lg:grid-cols-4 bg-[#0f1729] border border-white/10 rounded-xl p-1 mb-8 overflow-x-auto gap-1 lg:gap-0">
+              <TabsList className="grid w-full grid-cols-4 bg-[#0f1729] border border-white/10 rounded-xl p-1 mb-8">
                 <TabsTrigger 
                   value="combat" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium flex-shrink-0 min-w-[80px] lg:min-w-0"
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium text-xs lg:text-base"
                 >
                   Combat
                 </TabsTrigger>
                 <TabsTrigger 
                   value="render" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium flex-shrink-0 min-w-[80px] lg:min-w-0"
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium text-xs lg:text-base"
                 >
                   Render
                 </TabsTrigger>
                 <TabsTrigger 
                   value="movement" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium flex-shrink-0 min-w-[90px] lg:min-w-0"
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium text-xs lg:text-base"
                 >
                   Movement
                 </TabsTrigger>
                 <TabsTrigger 
                   value="misc" 
-                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium flex-shrink-0 min-w-[70px] lg:min-w-0"
+                  className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium text-xs lg:text-base"
                 >
                   Misc
                 </TabsTrigger>
@@ -571,7 +571,7 @@ const Index = () => {
 
                 <div className="hidden lg:block relative rounded-2xl overflow-hidden border border-white/10">
                   <img 
-                    src="https://cdn.poehali.dev/files/a8c65aa2-7fb9-4ab2-bb8f-83b8d2d87294.png" 
+                    src="https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png" 
                     alt="Pricing" 
                     className="w-full h-auto object-cover"
                   />
