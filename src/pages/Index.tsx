@@ -242,7 +242,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="features" className="py-24 px-6">
+        <section id="features" className="py-12 lg:py-24 px-6">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -282,24 +282,24 @@ const Index = () => {
               </TabsList>
 
               <TabsContent value="combat" className="mt-0">
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div className="space-y-3">
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
                     {features.combat.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-3 lg:p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
                       >
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                        <div className="flex items-start justify-between gap-2 lg:gap-3">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-sm lg:text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-0.5 lg:mb-1">
                               {feature.name}
                             </h3>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-xs lg:text-sm text-gray-400">
                               {feature.desc}
                             </p>
                           </div>
                           {feature.keybind && (
-                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                            <span className="text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap flex-shrink-0">
                               {feature.keybind}
                             </span>
                           )}
@@ -307,7 +307,7 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
                       src="https://cdn.poehali.dev/files/fb37bc3c-c1c9-4e50-be40-abf2a1228a06.png" 
                       alt="Combat Features" 
@@ -318,24 +318,24 @@ const Index = () => {
               </TabsContent>
 
               <TabsContent value="render" className="mt-0">
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div className="space-y-3">
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
                     {features.render.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-3 lg:p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
                       >
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                        <div className="flex items-start justify-between gap-2 lg:gap-3">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-sm lg:text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-0.5 lg:mb-1">
                               {feature.name}
                             </h3>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-xs lg:text-sm text-gray-400">
                               {feature.desc}
                             </p>
                           </div>
                           {feature.keybind && (
-                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                            <span className="text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap flex-shrink-0">
                               {feature.keybind}
                             </span>
                           )}
@@ -343,7 +343,7 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
                       src="https://cdn.poehali.dev/files/c68d0336-33d6-4b6b-ae3c-fa19176c5e5c.png" 
                       alt="Render Features" 
@@ -354,24 +354,24 @@ const Index = () => {
               </TabsContent>
 
               <TabsContent value="movement" className="mt-0">
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div className="space-y-3">
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
                     {features.movement.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-3 lg:p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
                       >
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                        <div className="flex items-start justify-between gap-2 lg:gap-3">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-sm lg:text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-0.5 lg:mb-1">
                               {feature.name}
                             </h3>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-xs lg:text-sm text-gray-400">
                               {feature.desc}
                             </p>
                           </div>
                           {feature.keybind && (
-                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                            <span className="text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap flex-shrink-0">
                               {feature.keybind}
                             </span>
                           )}
@@ -379,7 +379,7 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
                       src="https://cdn.poehali.dev/files/de4d5d23-2016-486f-a8dd-f169aae42b17.png" 
                       alt="Movement Features" 
@@ -390,24 +390,24 @@ const Index = () => {
               </TabsContent>
 
               <TabsContent value="misc" className="mt-0">
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div className="space-y-3">
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                  <div className="space-y-2 lg:space-y-3 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible pr-2 lg:pr-0">
                     {features.misc.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                        className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-3 lg:p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
                       >
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <h3 className="text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-1">
+                        <div className="flex items-start justify-between gap-2 lg:gap-3">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-sm lg:text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-0.5 lg:mb-1">
                               {feature.name}
                             </h3>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-xs lg:text-sm text-gray-400">
                               {feature.desc}
                             </p>
                           </div>
                           {feature.keybind && (
-                            <span className="text-xs px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap">
+                            <span className="text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded bg-[#4299e1]/20 text-[#4299e1] border border-[#4299e1]/30 font-mono whitespace-nowrap flex-shrink-0">
                               {feature.keybind}
                             </span>
                           )}
@@ -415,7 +415,7 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24 hidden lg:block">
                     <img 
                       src="https://cdn.poehali.dev/files/0804f60f-b2a6-438f-98ea-ea22e19ce056.png" 
                       alt="Misc Features" 
@@ -428,7 +428,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="pricing" className="py-24 px-6">
+        <section id="pricing" className="py-12 lg:py-24 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -440,12 +440,12 @@ const Index = () => {
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
-                  <div className="space-y-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-400 text-sm font-medium">🥉 3 дня</span>
-                      <span className="text-gray-400 text-sm font-medium">🔥 НАВСЕГДА</span>
+              <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+                <div className="space-y-4 lg:space-y-8">
+                  <div className="space-y-3 lg:space-y-6">
+                    <div className="flex items-center justify-between mb-1 lg:mb-2">
+                      <span className="text-gray-400 text-xs lg:text-sm font-medium">🥉 3 дня</span>
+                      <span className="text-gray-400 text-xs lg:text-sm font-medium">🔥 НАВСЕГДА</span>
                     </div>
                     
                     <div className="relative py-2">
@@ -480,7 +480,7 @@ const Index = () => {
                       />
                     </div>
 
-                    <div className="grid grid-cols-6 gap-1 text-center">
+                    <div className="grid grid-cols-6 gap-0.5 lg:gap-1 text-center">
                       {pricingPlans.map((plan, idx) => (
                         <button
                           key={idx}
@@ -488,7 +488,7 @@ const Index = () => {
                             setSelectedPlan(idx);
                             setSliderValue(idx);
                           }}
-                          className={`text-xs py-2 px-1 rounded-xl transition-all duration-200 cursor-pointer ${
+                          className={`text-xs py-1.5 lg:py-2 px-0.5 lg:px-1 rounded-lg lg:rounded-xl transition-all duration-200 cursor-pointer ${
                             selectedPlan === idx 
                               ? 'text-white bg-[#4299e1]/20 font-bold scale-105' 
                               : 'text-gray-500 hover:text-gray-300'
@@ -502,10 +502,10 @@ const Index = () => {
                   </div>
 
                   <Card className="bg-[#0f1729]/80 border border-white/10 rounded-2xl overflow-hidden">
-                    <CardContent className="p-8">
+                    <CardContent className="p-5 lg:p-8">
                       <div className="text-center">
-                        <div className="mb-6">
-                          <div className="text-6xl mb-4">{pricingPlans[selectedPlan].emoji}</div>
+                        <div className="mb-4 lg:mb-6">
+                          <div className="text-4xl lg:text-6xl mb-3 lg:mb-4">{pricingPlans[selectedPlan].emoji}</div>
                           
                           {pricingPlans[selectedPlan].popular && (
                             <div className="inline-block px-3 py-1 bg-[#4299e1]/20 border border-[#4299e1]/50 rounded-full text-[#4299e1] text-xs font-bold mb-3">
@@ -513,7 +513,7 @@ const Index = () => {
                             </div>
                           )}
                           
-                          <h3 className={`text-4xl font-bold mb-3 transition-all duration-300 ${pricingPlans[selectedPlan].isLifetime ? '' : 'text-white'}`}>
+                          <h3 className={`text-2xl lg:text-4xl font-bold mb-2 lg:mb-3 transition-all duration-300 ${pricingPlans[selectedPlan].isLifetime ? '' : 'text-white'}`}>
                             {pricingPlans[selectedPlan].isLifetime ? (
                               <>
                                 <span className="text-[#4299e1]">НАВ</span>
@@ -524,7 +524,7 @@ const Index = () => {
                             )}
                           </h3>
                           
-                          <p className="text-6xl font-black text-[#4299e1] mb-3 transition-all duration-300">
+                          <p className="text-4xl lg:text-6xl font-black text-[#4299e1] mb-2 lg:mb-3 transition-all duration-300">
                             {pricingPlans[selectedPlan].price}
                           </p>
                           
@@ -537,13 +537,13 @@ const Index = () => {
                           onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
                           className={`w-full ${pricingPlans[selectedPlan].isLifetime 
                             ? 'bg-gradient-to-r from-[#4299e1] to-[#ef4444]' 
-                            : 'bg-[#4299e1]'} hover:opacity-90 text-white rounded-xl py-7 text-lg font-bold`}
+                            : 'bg-[#4299e1]'} hover:opacity-90 text-white rounded-xl py-5 lg:py-7 text-base lg:text-lg font-bold`}
                         >
                           ПРИОБРЕСТИ
                         </Button>
 
-                        <div className="mt-6 pt-6 border-t border-white/10">
-                          <ul className="text-sm text-gray-400 space-y-2 text-left">
+                        <div className="mt-4 pt-4 lg:mt-6 lg:pt-6 border-t border-white/10">
+                          <ul className="text-xs lg:text-sm text-gray-400 space-y-1.5 lg:space-y-2 text-left">
                             <li className="flex items-center gap-2">
                               <Icon name="Check" size={16} className="text-[#4299e1]" />
                               Все модули разблокированы
@@ -569,32 +569,26 @@ const Index = () => {
                   </Card>
                 </div>
 
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 lg:sticky lg:top-24">
-                  <img 
-                    src={pricingPlans[selectedPlan].image}
-                    alt={`Тариф ${pricingPlans[selectedPlan].days}`}
-                    className="w-full h-auto transition-all duration-300"
-                  />
-                </div>
+
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-24 px-6 bg-gradient-to-b from-[#0a0e1a] to-[#050711] relative overflow-hidden">
+        <section className="py-12 lg:py-24 px-6 bg-gradient-to-b from-[#0a0e1a] to-[#050711] relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
           
           <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
               
               <Card id="download" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <CardContent className="p-8 relative z-10">
+                <CardContent className="p-5 lg:p-8 relative z-10">
                   <div className="text-center">
-                    <div className="relative mb-6">
+                    <div className="relative mb-4 lg:mb-6">
                       <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
-                      <div className="relative w-24 h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <Icon name="Download" size={48} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500" />
+                      <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <Icon name="Download" size={32} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500 lg:w-12 lg:h-12" />
                       </div>
                     </div>
                     
@@ -604,45 +598,45 @@ const Index = () => {
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold text-white mb-1 group-hover:text-[#4299e1] transition-colors duration-300">Скачать</h3>
-                    <p className="text-lg font-semibold text-gray-300 mb-1">Cloud v1.0.0</p>
-                    <p className="text-xs text-gray-500 mb-6">03.11.2025</p>
+                    <h3 className="text-xl lg:text-3xl font-bold text-white mb-0.5 lg:mb-1 group-hover:text-[#4299e1] transition-colors duration-300">Скачать</h3>
+                    <p className="text-base lg:text-lg font-semibold text-gray-300 mb-0.5 lg:mb-1">Cloud v1.0.0</p>
+                    <p className="text-[10px] lg:text-xs text-gray-500 mb-4 lg:mb-6">03.11.2025</p>
                     
                     <Button 
                       onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
-                      className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-6 font-bold text-lg shadow-lg hover:shadow-[#4299e1]/50 transform hover:scale-105 transition-all duration-300 mb-6 group/btn"
+                      className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-4 lg:py-6 font-bold text-base lg:text-lg shadow-lg hover:shadow-[#4299e1]/50 transform hover:scale-105 transition-all duration-300 mb-4 lg:mb-6 group/btn"
                     >
-                      <Icon name="Download" size={22} className="mr-2 group-hover/btn:animate-bounce" />
+                      <Icon name="Download" size={18} className="mr-2 group-hover/btn:animate-bounce lg:w-5 lg:h-5" />
                       Скачать клиент
                     </Button>
                     
-                    <div className="border-t border-white/10 pt-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Системные требования</p>
+                    <div className="border-t border-white/10 pt-4 lg:pt-6">
+                      <div className="flex items-center justify-between mb-3 lg:mb-4">
+                        <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-wider">Системные требования</p>
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                       </div>
-                      <ul className="text-xs text-gray-400 space-y-3 text-left">
-                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
-                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
-                            <Icon name="Monitor" size={14} className="text-[#4299e1]" />
+                      <ul className="text-[10px] lg:text-xs text-gray-400 space-y-2 lg:space-y-3 text-left">
+                        <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                            <Icon name="Monitor" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                           </div>
                           <span className="font-medium">Windows 10/11 (64-bit)</span>
                         </li>
-                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
-                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
-                            <Icon name="Gamepad2" size={14} className="text-[#4299e1]" />
+                        <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                            <Icon name="Gamepad2" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                           </div>
                           <span className="font-medium">Minecraft 1.8.9 - 1.20.2</span>
                         </li>
-                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
-                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
-                            <Icon name="Coffee" size={14} className="text-[#4299e1]" />
+                        <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                            <Icon name="Coffee" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                           </div>
                           <span className="font-medium">Java 8 или выше</span>
                         </li>
-                        <li className="flex items-center gap-3 hover:text-gray-300 transition-colors group/item">
-                          <div className="w-6 h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors">
-                            <Icon name="HardDrive" size={14} className="text-[#4299e1]" />
+                        <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
+                          <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                            <Icon name="HardDrive" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                           </div>
                           <span className="font-medium">4GB RAM минимум</span>
                         </li>
@@ -654,12 +648,12 @@ const Index = () => {
 
               <Card id="support" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <CardContent className="p-8 relative z-10">
+                <CardContent className="p-5 lg:p-8 relative z-10">
                   <div className="text-center">
-                    <div className="relative mb-6">
+                    <div className="relative mb-4 lg:mb-6">
                       <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
-                      <div className="relative w-24 h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
-                        <Icon name="Headphones" size={48} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500" />
+                      <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
+                        <Icon name="Headphones" size={32} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-500 lg:w-12 lg:h-12" />
                       </div>
                     </div>
                     
@@ -672,16 +666,16 @@ const Index = () => {
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#4299e1] transition-colors duration-300">Поддержка</h3>
-                    <p className="text-sm text-gray-400 mb-8">Всегда на связи</p>
+                    <h3 className="text-xl lg:text-3xl font-bold text-white mb-1 lg:mb-2 group-hover:text-[#4299e1] transition-colors duration-300">Поддержка</h3>
+                    <p className="text-xs lg:text-sm text-gray-400 mb-4 lg:mb-8">Всегда на связи</p>
                     
-                    <div className="space-y-4 mb-6">
-                      <div className="relative group/discord bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-5 hover:border-[#5865F2]/50 hover:shadow-[0_0_20px_rgba(88,101,242,0.3)] transition-all duration-300 overflow-hidden">
+                    <div className="space-y-2 lg:space-y-4 mb-4 lg:mb-6">
+                      <div className="relative group/discord bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 lg:p-5 hover:border-[#5865F2]/50 hover:shadow-[0_0_20px_rgba(88,101,242,0.3)] transition-all duration-300 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#5865F2]/0 to-[#5865F2]/20 opacity-0 group-hover/discord:opacity-100 transition-opacity duration-300"></div>
                         <div className="relative z-10">
-                          <div className="flex items-center gap-4 mb-4">
-                            <div className="w-12 h-12 bg-[#5865F2]/20 rounded-xl flex items-center justify-center group-hover/discord:bg-[#5865F2]/30 group-hover/discord:scale-110 transition-all duration-300">
-                              <Icon name="MessageCircle" size={24} className="text-[#5865F2]" />
+                          <div className="flex items-center gap-2 lg:gap-4 mb-2 lg:mb-4">
+                            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#5865F2]/20 rounded-xl flex items-center justify-center group-hover/discord:bg-[#5865F2]/30 group-hover/discord:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="MessageCircle" size={20} className="text-[#5865F2] lg:w-6 lg:h-6" />
                             </div>
                             <div className="text-left flex-1">
                               <p className="text-base font-bold text-white">Discord</p>
@@ -693,31 +687,31 @@ const Index = () => {
                           </div>
                           <Button 
                             onClick={() => window.open('https://discord.gg/f7dRFuYcXP', '_blank')}
-                            className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
+                            className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-3 lg:py-4 text-xs lg:text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
                           >
                             Присоединиться →
                           </Button>
                         </div>
                       </div>
 
-                      <div className="relative group/telegram bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-5 hover:border-[#0088cc]/50 hover:shadow-[0_0_20px_rgba(0,136,204,0.3)] transition-all duration-300 overflow-hidden">
+                      <div className="relative group/telegram bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-3 lg:p-5 hover:border-[#0088cc]/50 hover:shadow-[0_0_20px_rgba(0,136,204,0.3)] transition-all duration-300 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#0088cc]/0 to-[#0088cc]/20 opacity-0 group-hover/telegram:opacity-100 transition-opacity duration-300"></div>
                         <div className="relative z-10">
-                          <div className="flex items-center gap-4 mb-4">
-                            <div className="w-12 h-12 bg-[#0088cc]/20 rounded-xl flex items-center justify-center group-hover/telegram:bg-[#0088cc]/30 group-hover/telegram:scale-110 transition-all duration-300">
-                              <Icon name="Send" size={24} className="text-[#0088cc]" />
+                          <div className="flex items-center gap-2 lg:gap-4 mb-2 lg:mb-4">
+                            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0088cc]/20 rounded-xl flex items-center justify-center group-hover/telegram:bg-[#0088cc]/30 group-hover/telegram:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Send" size={20} className="text-[#0088cc] lg:w-6 lg:h-6" />
                             </div>
-                            <div className="text-left flex-1">
-                              <p className="text-base font-bold text-white">Telegram</p>
-                              <p className="text-xs text-gray-500">Мгновенные ответы</p>
+                            <div className="text-left flex-1 min-w-0">
+                              <p className="text-sm lg:text-base font-bold text-white truncate">Telegram</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500 truncate">Мгновенные ответы</p>
                             </div>
-                            <div className="bg-[#0088cc]/20 px-2 py-1 rounded-full">
-                              <p className="text-xs font-bold text-[#0088cc]">⚡ FAST</p>
+                            <div className="bg-[#0088cc]/20 px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full flex-shrink-0">
+                              <p className="text-[10px] lg:text-xs font-bold text-[#0088cc]">⚡ FAST</p>
                             </div>
                           </div>
                           <Button 
                             onClick={() => window.open('https://t.me/CloudCristalix', '_blank')}
-                            className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
+                            className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-2.5 lg:py-4 text-xs lg:text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
                           >
                             Написать →
                           </Button>
@@ -725,8 +719,8 @@ const Index = () => {
                       </div>
                     </div>
 
-                    <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-4">
-                      <p className="text-xs text-gray-500">Среднее время ответа: <span className="text-[#4299e1] font-bold">~ 5 мин</span></p>
+                    <div className="bg-[#0a0e1a]/60 border border-white/5 rounded-xl p-3 lg:p-4">
+                      <p className="text-[10px] lg:text-xs text-gray-500">Среднее время ответа: <span className="text-[#4299e1] font-bold">~ 5 мин</span></p>
                     </div>
                   </div>
                 </CardContent>
@@ -734,15 +728,15 @@ const Index = () => {
 
               <Card id="about" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-500 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <CardContent className="p-8 relative z-10">
+                <CardContent className="p-5 lg:p-8 relative z-10">
                   <div className="text-center">
-                    <div className="relative mb-6">
+                    <div className="relative mb-4 lg:mb-6">
                       <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-500"></div>
-                      <div className="relative w-24 h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 transition-all duration-500">
+                      <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 transition-all duration-500">
                         <img 
                           src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
                           alt="Cloud" 
-                          className="w-16 h-16 group-hover:scale-110 transition-transform duration-500"
+                          className="w-12 h-12 lg:w-16 lg:h-16 group-hover:scale-110 transition-transform duration-500"
                         />
                       </div>
                     </div>
@@ -753,53 +747,53 @@ const Index = () => {
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#4299e1] transition-colors duration-300">О проекте</h3>
-                    <p className="text-sm text-gray-400 mb-6">Cloud Client</p>
+                    <h3 className="text-xl lg:text-3xl font-bold text-white mb-1 lg:mb-2 group-hover:text-[#4299e1] transition-colors duration-300">О проекте</h3>
+                    <p className="text-xs lg:text-sm text-gray-400 mb-3 lg:mb-6">Cloud Client</p>
                     
-                    <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+                    <p className="text-xs lg:text-sm text-gray-300 mb-4 lg:mb-6 leading-relaxed">
                       Профессиональный чит для <span className="text-[#4299e1] font-semibold">Cristalix</span>, созданный командой опытных разработчиков
                     </p>
                     
-                    <div className="space-y-3 mb-6">
-                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 hover:border-[#4299e1]/30 hover:shadow-[0_0_15px_rgba(66,153,225,0.2)] transition-all duration-300">
+                    <div className="space-y-2 lg:space-y-3 mb-4 lg:mb-6">
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-lg lg:rounded-xl p-3 lg:p-4 hover:border-[#4299e1]/30 hover:shadow-[0_0_15px_rgba(66,153,225,0.2)] transition-all duration-300">
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center group-hover/stat:bg-[#4299e1]/30 group-hover/stat:scale-110 transition-all duration-300">
-                              <Icon name="Users" size={22} className="text-[#4299e1]" />
+                          <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-[#4299e1]/20 rounded-lg flex items-center justify-center group-hover/stat:bg-[#4299e1]/30 group-hover/stat:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Users" size={18} className="text-[#4299e1] lg:w-5 lg:h-5" />
                             </div>
                             <div className="text-left">
-                              <p className="text-2xl font-bold text-white group-hover/stat:text-[#4299e1] transition-colors">120+</p>
-                              <p className="text-xs text-gray-500">Активных юзеров</p>
+                              <p className="text-lg lg:text-2xl font-bold text-white group-hover/stat:text-[#4299e1] transition-colors">120+</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500">Активных юзеров</p>
                             </div>
                           </div>
-                          <div className="text-green-400 text-xs font-bold">+8% ↑</div>
+                          <div className="text-green-400 text-[10px] lg:text-xs font-bold">+8% ↑</div>
                         </div>
                       </div>
 
-                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 hover:border-green-500/30 hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all duration-300">
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-lg lg:rounded-xl p-3 lg:p-4 hover:border-green-500/30 hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all duration-300">
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-green-500/30 group-hover/stat:scale-110 transition-all duration-300">
-                              <Icon name="Shield" size={22} className="text-green-400" />
+                          <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-green-500/30 group-hover/stat:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Shield" size={18} className="text-green-400 lg:w-5 lg:h-5" />
                             </div>
                             <div className="text-left">
-                              <p className="text-2xl font-bold text-white group-hover/stat:text-green-400 transition-colors">100%</p>
-                              <p className="text-xs text-gray-500">Безопасность</p>
+                              <p className="text-lg lg:text-2xl font-bold text-white group-hover/stat:text-green-400 transition-colors">100%</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500">Безопасность</p>
                             </div>
                           </div>
-                          <Icon name="Check" size={20} className="text-green-400" />
+                          <Icon name="Check" size={16} className="text-green-400 lg:w-5 lg:h-5" />
                         </div>
                       </div>
 
-                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 hover:border-purple-500/30 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300">
+                      <div className="group/stat bg-gradient-to-r from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-lg lg:rounded-xl p-3 lg:p-4 hover:border-purple-500/30 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300">
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-purple-500/30 group-hover/stat:scale-110 transition-all duration-300">
-                              <Icon name="Zap" size={22} className="text-purple-400" />
+                          <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover/stat:bg-purple-500/30 group-hover/stat:scale-110 transition-all duration-300 flex-shrink-0">
+                              <Icon name="Zap" size={18} className="text-purple-400 lg:w-5 lg:h-5" />
                             </div>
                             <div className="text-left">
-                              <p className="text-2xl font-bold text-white group-hover/stat:text-purple-400 transition-colors">24/7</p>
-                              <p className="text-xs text-gray-500">Обновления</p>
+                              <p className="text-lg lg:text-2xl font-bold text-white group-hover/stat:text-purple-400 transition-colors">24/7</p>
+                              <p className="text-[10px] lg:text-xs text-gray-500">Обновления</p>
                             </div>
                           </div>
                           <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
@@ -814,7 +808,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="faq" className="py-24 px-6 relative overflow-hidden">
+        <section id="faq" className="py-12 lg:py-24 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#050711] via-[#0a0e1a] to-[#050711]"></div>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
           
@@ -833,7 +827,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
               {[
                 { 
                   icon: 'ShieldCheck',
@@ -885,15 +879,15 @@ const Index = () => {
                 return (
                   <div
                     key={idx}
-                    className="group bg-gradient-to-br from-[#0f1729]/80 to-[#0a0e1a]/60 border border-white/10 rounded-2xl p-6 hover:border-[#4299e1]/50 hover:shadow-[0_0_20px_rgba(66,153,225,0.2)] transition-all duration-300"
+                    className="group bg-gradient-to-br from-[#0f1729]/80 to-[#0a0e1a]/60 border border-white/10 rounded-xl lg:rounded-2xl p-4 lg:p-6 hover:border-[#4299e1]/50 hover:shadow-[0_0_20px_rgba(66,153,225,0.2)] transition-all duration-300"
                   >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                        <Icon name={item.icon as any} size={24} className={colors.icon} />
+                    <div className="flex items-start gap-2 lg:gap-4 mb-2 lg:mb-4">
+                      <div className={`w-8 h-8 lg:w-12 lg:h-12 ${colors.bg} rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon name={item.icon as any} size={18} className={`${colors.icon} lg:w-6 lg:h-6`} />
                       </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#4299e1] transition-colors pt-2">{item.q}</h3>
+                      <h3 className="text-sm lg:text-lg font-bold text-white group-hover:text-[#4299e1] transition-colors pt-0.5 lg:pt-2">{item.q}</h3>
                     </div>
-                    <p className="text-gray-400 leading-relaxed ml-16">{item.a}</p>
+                    <p className="text-xs lg:text-base text-gray-400 leading-relaxed ml-10 lg:ml-16">{item.a}</p>
                   </div>
                 );
               })}
@@ -901,21 +895,21 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="updates" className="py-24 px-6 relative overflow-hidden">
+        <section id="updates" className="py-12 lg:py-24 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#050711] to-[#0a0e1a]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#4299e1]/5 rounded-full blur-3xl"></div>
           
           <div className="container mx-auto max-w-6xl relative z-10">
-            <div className="text-center mb-16">
-              <div className="inline-block mb-4">
-                <div className="bg-purple-500/10 px-5 py-2 rounded-full border border-purple-500/30">
-                  <p className="text-sm font-bold text-purple-400">CHANGELOG</p>
+            <div className="text-center mb-8 lg:mb-16">
+              <div className="inline-block mb-3 lg:mb-4">
+                <div className="bg-purple-500/10 px-4 lg:px-5 py-1.5 lg:py-2 rounded-full border border-purple-500/30">
+                  <p className="text-xs lg:text-sm font-bold text-purple-400">CHANGELOG</p>
                 </div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 lg:mb-4">
                 История <span className="text-[#4299e1]">обновлений</span>
               </h2>
-              <p className="text-gray-400 text-lg">
+              <p className="text-gray-400 text-sm lg:text-lg">
                 Следите за развитием проекта
               </p>
             </div>
@@ -923,7 +917,7 @@ const Index = () => {
             <div className="relative">
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#4299e1]/50 via-purple-500/50 to-transparent"></div>
               
-              <div className="space-y-8">
+              <div className="space-y-6 lg:space-y-8">
                 {[
                   { 
                     version: '1.0.0', 
@@ -976,32 +970,33 @@ const Index = () => {
                   };
                   
                   return (
-                    <div key={idx} className="relative pl-20">
-                      <div className="absolute left-0 w-16 h-16 bg-gradient-to-br from-[#4299e1]/30 to-purple-500/30 rounded-2xl flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
-                        <Icon name={update.icon as any} size={28} className="text-[#4299e1]" />
+                    <div key={idx} className="relative pl-14 lg:pl-20">
+                      <div className="absolute left-0 w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#4299e1]/30 to-purple-500/30 rounded-xl lg:rounded-2xl flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
+                        <Icon name={update.icon as any} size={20} className="text-[#4299e1] lg:w-7 lg:h-7" />
                       </div>
                       
-                      <div className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/60 border border-white/10 rounded-2xl p-8 hover:border-[#4299e1]/50 hover:shadow-[0_0_30px_rgba(66,153,225,0.2)] transition-all duration-300">
-                        <div className="flex flex-wrap items-center gap-3 mb-5">
-                          <h3 className="text-3xl font-bold text-white group-hover:text-[#4299e1] transition-colors">v{update.version}</h3>
-                          <div className={`px-3 py-1 rounded-lg border text-xs font-bold ${tagColors[update.tagColor]}`}>
+                      <div className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/60 border border-white/10 rounded-xl lg:rounded-2xl p-4 lg:p-8 hover:border-[#4299e1]/50 hover:shadow-[0_0_30px_rgba(66,153,225,0.2)] transition-all duration-300">
+                        <div className="flex flex-wrap items-center gap-2 lg:gap-3 mb-3 lg:mb-5">
+                          <h3 className="text-xl lg:text-3xl font-bold text-white group-hover:text-[#4299e1] transition-colors">v{update.version}</h3>
+                          <div className={`px-2 lg:px-3 py-0.5 lg:py-1 rounded-lg border text-[10px] lg:text-xs font-bold ${tagColors[update.tagColor]}`}>
                             {update.tag}
                           </div>
-                          <div className="ml-auto text-sm text-gray-400 flex items-center gap-2">
-                            <Icon name="Calendar" size={16} />
-                            {update.date}
+                          <div className="ml-auto text-xs lg:text-sm text-gray-400 flex items-center gap-1 lg:gap-2">
+                            <Icon name="Calendar" size={14} className="lg:w-4 lg:h-4" />
+                            <span className="hidden lg:inline">{update.date}</span>
+                            <span className="lg:hidden">{update.date.split(' ')[0]} {update.date.split(' ')[1]}</span>
                           </div>
                         </div>
                         
-                        <div className="grid md:grid-cols-1 gap-3">
+                        <div className="grid md:grid-cols-1 gap-2 lg:gap-3">
                           {update.changes.map((change, i) => {
                             const iconData = changeIcons[change.type];
                             return (
-                              <div key={i} className="flex items-start gap-3 bg-[#0a0e1a]/40 rounded-xl p-4 hover:bg-[#0a0e1a]/60 transition-colors">
-                                <div className="w-8 h-8 bg-[#0f1729] rounded-lg flex items-center justify-center flex-shrink-0">
-                                  <Icon name={iconData.icon as any} size={16} className={iconData.color} />
+                              <div key={i} className="flex items-start gap-2 lg:gap-3 bg-[#0a0e1a]/40 rounded-lg lg:rounded-xl p-2.5 lg:p-4 hover:bg-[#0a0e1a]/60 transition-colors">
+                                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-[#0f1729] rounded-lg flex items-center justify-center flex-shrink-0">
+                                  <Icon name={iconData.icon as any} size={14} className={`${iconData.color} lg:w-4 lg:h-4`} />
                                 </div>
-                                <p className="text-gray-300 leading-relaxed pt-1">{change.text}</p>
+                                <p className="text-xs lg:text-base text-gray-300 leading-relaxed pt-0.5 lg:pt-1">{change.text}</p>
                               </div>
                             );
                           })}
@@ -1024,54 +1019,54 @@ const Index = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-12 gap-10 mb-16">
+          <div className="grid md:grid-cols-12 gap-6 lg:gap-10 mb-10 lg:mb-16">
             
             <div className="md:col-span-5">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-2 lg:gap-3 mb-4 lg:mb-6">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#4299e1]/20 blur-xl rounded-full"></div>
                   <img 
                     src="https://cdn.poehali.dev/files/754f65c8-b754-47ce-9539-b4aa31afdcab.png" 
                     alt="Cloud" 
-                    className="w-14 h-14 relative"
+                    className="w-10 h-10 lg:w-14 lg:h-14 relative"
                   />
                 </div>
-                <h3 className="text-3xl font-bold text-white">Cloud<span className="text-[#4299e1]">.</span></h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white">Cloud<span className="text-[#4299e1]">.</span></h3>
               </div>
-              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+              <p className="text-xs lg:text-sm text-gray-400 leading-relaxed mb-4 lg:mb-6">
                 Профессиональный чит для Minecraft с постоянными обновлениями, высочайшим уровнем безопасности и круглосуточной технической поддержкой
               </p>
               
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 bg-[#4299e1]/10 rounded-lg flex items-center justify-center">
-                    <Icon name="Users" size={18} className="text-[#4299e1]" />
+              <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-6">
+                <div className="flex items-center gap-2 lg:gap-3 text-sm">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-[#4299e1]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Users" size={16} className="text-[#4299e1] lg:w-4 lg:h-4" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">120+ активных юзеров</p>
-                    <p className="text-gray-500 text-xs">Клиентов всего 2400+</p>
+                    <p className="text-xs lg:text-sm text-white font-semibold">120+ активных юзеров</p>
+                    <p className="text-gray-500 text-[10px] lg:text-xs">Клиентов всего 2400+</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
-                    <Icon name="Shield" size={18} className="text-green-400" />
+                <div className="flex items-center gap-2 lg:gap-3 text-sm">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Shield" size={16} className="text-green-400 lg:w-4 lg:h-4" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">100% безопасность</p>
-                    <p className="text-gray-500 text-xs">Без банов при правильном использовании</p>
+                    <p className="text-xs lg:text-sm text-white font-semibold">100% безопасность</p>
+                    <p className="text-gray-500 text-[10px] lg:text-xs">Без банов при правильном использовании</p>
                   </div>
                 </div>
               </div>
               
-              <div className="flex flex-wrap gap-3">
-                <a href="https://discord.gg/f7dRFuYcXP" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-[#5865F2]/10 border border-[#5865F2]/30 rounded-xl hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all">
-                  <Icon name="MessageCircle" size={18} className="text-[#5865F2]" />
-                  <span className="text-sm font-semibold text-[#5865F2]">Discord</span>
-                  <Icon name="ExternalLink" size={14} className="text-[#5865F2] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="flex flex-wrap gap-2 lg:gap-3">
+                <a href="https://discord.gg/f7dRFuYcXP" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1.5 lg:gap-2 px-3 lg:px-4 py-2 lg:py-2.5 bg-[#5865F2]/10 border border-[#5865F2]/30 rounded-xl hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all">
+                  <Icon name="MessageCircle" size={16} className="text-[#5865F2] lg:w-4 lg:h-4" />
+                  <span className="text-xs lg:text-sm font-semibold text-[#5865F2]">Discord</span>
+                  <Icon name="ExternalLink" size={12} className="text-[#5865F2] opacity-0 group-hover:opacity-100 transition-opacity lg:w-3 lg:h-3" />
                 </a>
-                <a href="https://t.me/CloudCristalix" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-[#0088cc]/10 border border-[#0088cc]/30 rounded-xl hover:bg-[#0088cc]/20 hover:border-[#0088cc]/50 transition-all">
-                  <Icon name="Send" size={18} className="text-[#0088cc]" />
+                <a href="https://t.me/CloudCristalix" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1.5 lg:gap-2 px-3 lg:px-4 py-2 lg:py-2.5 bg-[#0088cc]/10 border border-[#0088cc]/30 rounded-xl hover:bg-[#0088cc]/20 hover:border-[#0088cc]/50 transition-all">
+                  <Icon name="Send" size={16} className="text-[#0088cc] lg:w-4 lg:h-4" />
                   <span className="text-sm font-semibold text-[#0088cc]">Telegram</span>
                   <Icon name="ExternalLink" size={14} className="text-[#0088cc] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
