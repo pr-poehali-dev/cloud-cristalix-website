@@ -167,7 +167,7 @@ const Index = () => {
               ))}
             </div>
             <Button 
-              onClick={() => scrollToSection('pricing')} 
+              onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')} 
               className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-xl overflow-hidden group transition-all duration-300"
             >
               <span className="relative z-10 font-semibold">Купить</span>
@@ -534,6 +534,7 @@ const Index = () => {
                         </div>
                         
                         <Button 
+                          onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
                           className={`w-full ${pricingPlans[selectedPlan].isLifetime 
                             ? 'bg-gradient-to-r from-[#4299e1] to-[#ef4444]' 
                             : 'bg-[#4299e1]'} hover:opacity-90 text-white rounded-xl py-7 text-lg font-bold`}
@@ -607,7 +608,10 @@ const Index = () => {
                     <p className="text-lg font-semibold text-gray-300 mb-1">Cloud v1.0.0</p>
                     <p className="text-xs text-gray-500 mb-6">03.11.2025</p>
                     
-                    <Button className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-6 font-bold text-lg shadow-lg hover:shadow-[#4299e1]/50 transform hover:scale-105 transition-all duration-300 mb-6 group/btn">
+                    <Button 
+                      onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
+                      className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-6 font-bold text-lg shadow-lg hover:shadow-[#4299e1]/50 transform hover:scale-105 transition-all duration-300 mb-6 group/btn"
+                    >
                       <Icon name="Download" size={22} className="mr-2 group-hover/btn:animate-bounce" />
                       Скачать клиент
                     </Button>
@@ -687,7 +691,10 @@ const Index = () => {
                               <p className="text-xs font-bold text-green-400">2.5K</p>
                             </div>
                           </div>
-                          <Button className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300">
+                          <Button 
+                            onClick={() => window.open('https://discord.gg/f7dRFuYcXP', '_blank')}
+                            className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
+                          >
                             Присоединиться →
                           </Button>
                         </div>
@@ -708,7 +715,10 @@ const Index = () => {
                               <p className="text-xs font-bold text-[#0088cc]">⚡ FAST</p>
                             </div>
                           </div>
-                          <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300">
+                          <Button 
+                            onClick={() => window.open('https://t.me/CloudCristalix', '_blank')}
+                            className="w-full bg-[#0088cc] hover:bg-[#006699] text-white rounded-xl py-4 text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
+                          >
                             Написать →
                           </Button>
                         </div>
@@ -1055,12 +1065,12 @@ const Index = () => {
               </div>
               
               <div className="flex flex-wrap gap-3">
-                <a href="#" className="group flex items-center gap-2 px-4 py-2.5 bg-[#5865F2]/10 border border-[#5865F2]/30 rounded-xl hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all">
+                <a href="https://discord.gg/f7dRFuYcXP" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-[#5865F2]/10 border border-[#5865F2]/30 rounded-xl hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all">
                   <Icon name="MessageCircle" size={18} className="text-[#5865F2]" />
                   <span className="text-sm font-semibold text-[#5865F2]">Discord</span>
                   <Icon name="ExternalLink" size={14} className="text-[#5865F2] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
-                <a href="#" className="group flex items-center gap-2 px-4 py-2.5 bg-[#0088cc]/10 border border-[#0088cc]/30 rounded-xl hover:bg-[#0088cc]/20 hover:border-[#0088cc]/50 transition-all">
+                <a href="https://t.me/CloudCristalix" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-[#0088cc]/10 border border-[#0088cc]/30 rounded-xl hover:bg-[#0088cc]/20 hover:border-[#0088cc]/50 transition-all">
                   <Icon name="Send" size={18} className="text-[#0088cc]" />
                   <span className="text-sm font-semibold text-[#0088cc]">Telegram</span>
                   <Icon name="ExternalLink" size={14} className="text-[#0088cc] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1090,11 +1100,8 @@ const Index = () => {
               <ul className="space-y-3">
                 <li><a href="#faq" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="HelpCircle" size={14} className="opacity-50 group-hover:opacity-100" /> FAQ</a></li>
                 <li><a href="#support" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Mail" size={14} className="opacity-50 group-hover:opacity-100" /> Связаться</a></li>
-                <li>
-                  <button onClick={() => setShowLogin(true)} className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group">
-                    <Icon name="LogIn" size={14} className="opacity-50 group-hover:opacity-100" /> Личный кабинет
-                  </button>
-                </li>
+                <li><a href="https://discord.gg/f7dRFuYcXP" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="MessageCircle" size={14} className="opacity-50 group-hover:opacity-100" /> Discord</a></li>
+                <li><a href="https://t.me/CloudCristalix" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors flex items-center gap-2 group"><Icon name="Send" size={14} className="opacity-50 group-hover:opacity-100" /> Telegram</a></li>
               </ul>
             </div>
 
