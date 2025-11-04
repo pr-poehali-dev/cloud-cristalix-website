@@ -448,8 +448,8 @@ const Index = () => {
         <section id="pricing" className="py-12 lg:py-24 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#4299e1]/5 to-transparent pointer-events-none"></div>
           
-          <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="text-center mb-16">
+          <div className="container mx-auto max-w-6xl relative z-10">
+            <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Цены и <span className="text-[#4299e1]">подписки</span>
               </h2>
@@ -458,56 +458,80 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-6 mb-12">
-              {pricingPlans.slice(0, 3).map((plan, idx) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {[pricingPlans[0], pricingPlans[1], pricingPlans[2], pricingPlans[5]].map((plan, idx) => (
                 <Card 
                   key={idx}
                   className={`relative bg-gradient-to-br ${
                     plan.popular 
-                      ? 'from-[#4299e1]/20 via-[#0f1729] to-[#0f1729] border-[#4299e1]' 
+                      ? 'from-[#4299e1]/20 via-[#0f1729] to-[#0f1729] border-[#4299e1] md:col-span-2 lg:col-span-1' 
+                      : plan.isLifetime
+                      ? 'from-[#ef4444]/20 via-[#4299e1]/20 to-[#0f1729] border-[#ef4444] md:col-span-2 lg:col-span-1'
                       : 'from-[#0f1729] to-[#0a0e1a] border-white/10'
                   } border-2 rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300 cursor-pointer`}
                   onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
                 >
                   {plan.popular && (
-                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#4299e1] to-[#3182ce] py-2 text-center">
+                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#4299e1] to-[#3182ce] py-1.5 text-center">
                       <span className="text-white text-xs font-bold tracking-wider">🔥 ПОПУЛЯРНОЕ</span>
                     </div>
                   )}
                   
-                  <CardContent className={`p-8 ${plan.popular ? 'pt-14' : ''}`}>
+                  {plan.isLifetime && (
+                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#4299e1] via-purple-500 to-[#ef4444] py-1.5 text-center">
+                      <span className="text-white text-xs font-bold tracking-wider">👑 ХИТ</span>
+                    </div>
+                  )}
+                  
+                  <CardContent className={`p-6 ${plan.popular || plan.isLifetime ? 'pt-10' : ''}`}>
                     <div className="text-center">
-                      <div className="text-6xl mb-4">{plan.emoji}</div>
-                      <h3 className="text-2xl font-bold text-white mb-2">{plan.days}</h3>
-                      <p className="text-gray-400 text-sm mb-6">{plan.desc}</p>
+                      <div className="text-5xl mb-3">{plan.emoji}</div>
+                      <h3 className={`text-xl font-bold mb-1 ${
+                        plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-white'
+                      }`}>
+                        {plan.days}
+                      </h3>
+                      <p className="text-gray-400 text-xs mb-4">{plan.desc}</p>
                       
-                      <div className="mb-6">
-                        <span className="text-5xl font-black text-[#4299e1]">{plan.price}</span>
+                      <div className="mb-4">
+                        <span className={`text-4xl font-black ${
+                          plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-[#4299e1]'
+                        }`}>
+                          {plan.price}
+                        </span>
                       </div>
 
                       <Button 
                         className={`w-full ${
                           plan.popular 
                             ? 'bg-[#4299e1] hover:bg-[#3182ce]' 
+                            : plan.isLifetime
+                            ? 'bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90'
                             : 'bg-white/10 hover:bg-white/20'
-                        } text-white rounded-xl py-6 text-base font-bold transition-all`}
+                        } text-white rounded-xl py-5 text-sm font-bold transition-all`}
                       >
-                        ВЫБРАТЬ ПЛАН
+                        {plan.isLifetime ? '🚀 КУПИТЬ' : 'ВЫБРАТЬ'}
                       </Button>
 
-                      <div className="mt-6 pt-6 border-t border-white/10 space-y-3">
-                        <div className="flex items-center gap-2 text-sm text-gray-300">
-                          <Icon name="Check" size={18} className="text-[#4299e1]" />
+                      <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
+                        <div className="flex items-center gap-2 text-xs text-gray-300">
+                          <Icon name="Check" size={16} className="text-[#4299e1]" />
                           Все модули
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-300">
-                          <Icon name="Check" size={18} className="text-[#4299e1]" />
+                        <div className="flex items-center gap-2 text-xs text-gray-300">
+                          <Icon name="Check" size={16} className="text-[#4299e1]" />
                           Обход античита
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-300">
-                          <Icon name="Check" size={18} className="text-[#4299e1]" />
+                        <div className="flex items-center gap-2 text-xs text-gray-300">
+                          <Icon name="Check" size={16} className="text-[#4299e1]" />
                           Поддержка 24/7
                         </div>
+                        {plan.isLifetime && (
+                          <div className="flex items-center gap-2 text-xs text-[#ef4444] font-semibold">
+                            <Icon name="Zap" size={16} className="text-[#ef4444]" />
+                            Обновления навсегда
+                          </div>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -515,66 +539,10 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white text-center mb-8">
-                Расширенные тарифы
-              </h3>
-              
-              <div className="grid md:grid-cols-3 gap-6">
-                {pricingPlans.slice(3).map((plan, idx) => (
-                  <Card 
-                    key={idx}
-                    className={`relative ${
-                      plan.isLifetime 
-                        ? 'bg-gradient-to-br from-[#ef4444]/20 via-[#4299e1]/20 to-[#0f1729] border-2 border-[#ef4444]' 
-                        : 'bg-[#0f1729]/80 border border-white/10'
-                    } rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300 cursor-pointer`}
-                    onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
-                  >
-                    {plan.isLifetime && (
-                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#4299e1] via-purple-500 to-[#ef4444] py-2 text-center">
-                        <span className="text-white text-xs font-bold tracking-wider">👑 ЛУЧШЕЕ ПРЕДЛОЖЕНИЕ</span>
-                      </div>
-                    )}
-                    
-                    <CardContent className={`p-6 ${plan.isLifetime ? 'pt-12' : ''}`}>
-                      <div className="text-center">
-                        <div className="text-5xl mb-3">{plan.emoji}</div>
-                        <h3 className={`text-xl font-bold mb-2 ${
-                          plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-white'
-                        }`}>
-                          {plan.days}
-                        </h3>
-                        <p className="text-gray-400 text-xs mb-4">{plan.desc}</p>
-                        
-                        <div className="mb-4">
-                          <span className={`text-3xl font-black ${
-                            plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-[#4299e1]'
-                          }`}>
-                            {plan.price}
-                          </span>
-                        </div>
-
-                        <Button 
-                          className={`w-full ${
-                            plan.isLifetime 
-                              ? 'bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90' 
-                              : 'bg-[#4299e1] hover:bg-[#3182ce]'
-                          } text-white rounded-xl py-4 text-sm font-bold`}
-                        >
-                          {plan.isLifetime ? '🚀 КУПИТЬ' : 'ВЫБРАТЬ'}
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-16 text-center">
-              <div className="inline-flex items-center gap-3 bg-[#0f1729]/80 border border-[#4299e1]/30 rounded-full px-8 py-4">
-                <Icon name="Shield" size={24} className="text-[#4299e1]" />
-                <p className="text-gray-300">
+            <div className="mt-12 text-center">
+              <div className="inline-flex items-center gap-3 bg-[#0f1729]/80 border border-[#4299e1]/30 rounded-full px-6 py-3">
+                <Icon name="Shield" size={20} className="text-[#4299e1]" />
+                <p className="text-gray-300 text-sm">
                   <span className="font-bold text-white">Гарантия возврата</span> в течение 24 часов
                 </p>
               </div>
