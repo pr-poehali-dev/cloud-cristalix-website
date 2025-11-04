@@ -254,7 +254,26 @@ const Index = () => {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4 bg-[#0f1729] border border-white/10 rounded-xl p-1 mb-8">
+              <div className="lg:hidden mb-6">
+                <div className="relative">
+                  <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
+                    {['combat', 'render', 'movement', 'misc'].map((tab) => (
+                      <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`flex-shrink-0 px-6 py-3 rounded-xl font-medium transition-all snap-center ${
+                          activeTab === tab
+                            ? 'bg-[#4299e1] text-white shadow-lg shadow-[#4299e1]/30'
+                            : 'bg-[#0f1729] text-gray-400 border border-white/10'
+                        }`}
+                      >
+                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <TabsList className="hidden lg:grid w-full grid-cols-4 bg-[#0f1729] border border-white/10 rounded-xl p-1 mb-8">
                 <TabsTrigger 
                   value="combat" 
                   className="rounded-lg data-[state=active]:bg-[#4299e1] data-[state=active]:text-white text-gray-400 font-medium text-xs lg:text-base"
@@ -569,11 +588,12 @@ const Index = () => {
                   </Card>
                 </div>
 
-                <div className="hidden lg:block relative rounded-2xl overflow-hidden border border-white/10">
+                <div className="hidden lg:block relative rounded-2xl overflow-hidden border border-white/10 transition-all duration-300">
                   <img 
-                    src="https://cdn.poehali.dev/files/d560ba32-268d-4b1b-b19f-faafec7a80a3.png" 
-                    alt="Pricing" 
-                    className="w-full h-auto object-cover"
+                    src={pricingPlans[selectedPlan].image} 
+                    alt={`Pricing - ${pricingPlans[selectedPlan].days}`} 
+                    className="w-full h-auto object-cover transition-opacity duration-300"
+                    key={selectedPlan}
                   />
                 </div>
               </div>
