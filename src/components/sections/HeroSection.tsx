@@ -38,14 +38,28 @@ const HeroSection = ({ mousePosition, scrollToSection }: HeroSectionProps) => {
             </Button>
           </div>
 
-          <div className="relative lg:block hidden">
-            <img 
-              src="/images/gui-screenshot.png" 
-              alt="Cloud GUI" 
-              className="w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30 shadow-[0_25px_80px_rgba(66,153,225,0.3)]"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="relative lg:block hidden" style={{ perspective: '1000px' }}>
+            <div 
+              className="relative transition-transform duration-100 ease-out"
+              style={{
+                transform: `rotateX(${mousePosition.y * -10}deg) rotateY(${mousePosition.x * 10}deg)`,
+                transformStyle: 'preserve-3d',
+              }}
+            >
+              <div 
+                className="absolute inset-0 bg-[#4299e1]/20 rounded-3xl blur-xl"
+                style={{ transform: 'translateZ(-50px)' }}
+              ></div>
+              
+              <img 
+                src="/images/gui-screenshot.png" 
+                alt="Cloud GUI" 
+                className="relative w-full max-w-2xl rounded-3xl border-2 border-[#4299e1]/30 shadow-[0_25px_80px_rgba(66,153,225,0.3)]"
+                loading="lazy"
+                decoding="async"
+                style={{ transform: 'translateZ(60px)' }}
+              />
+            </div>
           </div>
         </div>
       </div>
