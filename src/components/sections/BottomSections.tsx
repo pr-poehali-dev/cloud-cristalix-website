@@ -238,7 +238,13 @@ const BottomSections = () => {
                     }`}
                   />
                 </button>
-                {openFaq === idx && (
+                <div 
+                  className="overflow-hidden transition-all duration-500 ease-in-out"
+                  style={{
+                    maxHeight: openFaq === idx ? '500px' : '0',
+                    opacity: openFaq === idx ? 1 : 0,
+                  }}
+                >
                   <div className="px-4 lg:px-6 pb-4 lg:pb-6 pt-0">
                     <div className="pl-11 lg:pl-14">
                       <p className="text-sm lg:text-base text-gray-400 leading-relaxed">
@@ -246,7 +252,7 @@ const BottomSections = () => {
                       </p>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>

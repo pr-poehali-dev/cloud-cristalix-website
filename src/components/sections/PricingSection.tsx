@@ -40,13 +40,15 @@ const PricingSection = () => {
           {[pricingPlans[0], pricingPlans[1], pricingPlans[2], pricingPlans[5]].map((plan, idx) => (
             <Card 
               key={idx}
-              className={`relative bg-gradient-to-br ${
+              className={`group relative bg-gradient-to-br ${
                 plan.popular 
                   ? 'from-[#4299e1]/20 via-[#0f1729] to-[#0f1729] border-[#4299e1] md:col-span-2 lg:col-span-1' 
                   : plan.isLifetime
                   ? 'from-[#ef4444]/20 via-[#4299e1]/20 to-[#0f1729] border-[#ef4444] md:col-span-2 lg:col-span-1'
                   : 'from-[#0f1729] to-[#0a0e1a] border-white/10'
-              } border-2 rounded-2xl overflow-hidden cursor-pointer`}
+              } border-2 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                plan.popular ? 'hover:shadow-[#4299e1]/50' : plan.isLifetime ? 'hover:shadow-[#ef4444]/50' : 'hover:shadow-[#4299e1]/30'
+              }`}
               onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
             >
               {plan.popular && (
@@ -63,7 +65,7 @@ const PricingSection = () => {
               
               <CardContent className={`p-6 ${plan.popular || plan.isLifetime ? 'pt-10' : ''}`}>
                 <div className="text-center">
-                  <div className="text-5xl mb-3">{plan.emoji}</div>
+                  <div className="text-5xl mb-3 transition-transform duration-300 group-hover:scale-110">{plan.emoji}</div>
                   <h3 className={`text-xl font-bold mb-1 ${
                     plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-white'
                   }`}>
@@ -118,10 +120,10 @@ const PricingSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 bg-[#0f1729]/80 border border-[#4299e1]/30 rounded-full px-6 py-3">
-            <Icon name="Shield" size={20} className="text-[#4299e1]" />
+          <div className="inline-flex items-center gap-3 bg-[#0f1729]/80 border border-[#4299e1]/30 rounded-full px-6 py-3 hover:border-[#4299e1]/60 transition-all duration-300">
+            <Icon name="Zap" size={20} className="text-[#4299e1]" />
             <p className="text-gray-300 text-sm">
-              <span className="font-bold text-white">Гарантия возврата</span> в течение 24 часов
+              <span className="font-bold text-white">Мгновенная активация</span> после оплаты
             </p>
           </div>
         </div>
