@@ -36,7 +36,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {[pricingPlans[0], pricingPlans[1], pricingPlans[2], pricingPlans[5]].map((plan, idx) => (
             <Card 
               key={idx}
@@ -63,18 +63,18 @@ const PricingSection = () => {
                 </div>
               )}
               
-              <CardContent className={`p-4 md:p-6 ${plan.popular || plan.isLifetime ? 'pt-8 md:pt-10' : ''}`}>
+              <CardContent className={`p-6 ${plan.popular || plan.isLifetime ? 'pt-10' : ''}`}>
                 <div className="text-center">
-                  <div className="text-4xl md:text-5xl mb-2 md:mb-3 transition-transform duration-300 group-hover:scale-110">{plan.emoji}</div>
-                  <h3 className={`text-lg md:text-xl font-bold mb-1 ${
+                  <div className="text-5xl mb-3 transition-transform duration-300 group-hover:scale-110">{plan.emoji}</div>
+                  <h3 className={`text-xl font-bold mb-1 ${
                     plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-white'
                   }`}>
                     {plan.days}
                   </h3>
-                  <p className="text-gray-400 text-[10px] md:text-xs mb-3 md:mb-4">{plan.desc}</p>
+                  <p className="text-gray-400 text-xs mb-4">{plan.desc}</p>
                   
-                  <div className="mb-3 md:mb-4">
-                    <span className={`text-3xl md:text-4xl font-black ${
+                  <div className="mb-4">
+                    <span className={`text-4xl font-black ${
                       plan.isLifetime ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4299e1] to-[#ef4444]' : 'text-[#4299e1]'
                     }`}>
                       {plan.price}
@@ -88,27 +88,27 @@ const PricingSection = () => {
                         : plan.isLifetime
                         ? 'bg-gradient-to-r from-[#4299e1] to-[#ef4444] hover:opacity-90'
                         : 'bg-white/10 hover:bg-white/20'
-                    } text-white rounded-xl py-3 md:py-5 text-xs md:text-sm font-bold transition-all`}
+                    } text-white rounded-xl py-5 text-sm font-bold transition-all`}
                   >
                     {plan.isLifetime ? '🚀 КУПИТЬ' : 'ВЫБРАТЬ'}
                   </Button>
 
-                  <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-white/10 space-y-1.5 md:space-y-2">
-                    <div className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs text-gray-300">
-                      <Icon name="Check" size={14} className="text-[#4299e1] md:w-4 md:h-4" />
+                  <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
+                    <div className="flex items-center gap-2 text-xs text-gray-300">
+                      <Icon name="Check" size={16} className="text-[#4299e1]" />
                       Все модули
                     </div>
-                    <div className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs text-gray-300">
-                      <Icon name="Check" size={14} className="text-[#4299e1] md:w-4 md:h-4" />
+                    <div className="flex items-center gap-2 text-xs text-gray-300">
+                      <Icon name="Check" size={16} className="text-[#4299e1]" />
                       Обход античита
                     </div>
-                    <div className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs text-gray-300">
-                      <Icon name="Check" size={14} className="text-[#4299e1] md:w-4 md:h-4" />
+                    <div className="flex items-center gap-2 text-xs text-gray-300">
+                      <Icon name="Check" size={16} className="text-[#4299e1]" />
                       Поддержка 24/7
                     </div>
                     {plan.isLifetime && (
-                      <div className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs text-[#ef4444] font-semibold">
-                        <Icon name="Zap" size={14} className="text-[#ef4444] md:w-4 md:h-4" />
+                      <div className="flex items-center gap-2 text-xs text-[#ef4444] font-semibold">
+                        <Icon name="Zap" size={16} className="text-[#ef4444]" />
                         Обновления навсегда
                       </div>
                     )}
