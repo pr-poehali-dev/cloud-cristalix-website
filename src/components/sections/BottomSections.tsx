@@ -283,23 +283,34 @@ const BottomSections = () => {
                       STABLE
                     </span>
                   </div>
-                  <p className="text-xs lg:text-sm text-gray-400 mb-3 lg:mb-4">03.11.2025</p>
+                  <p className="text-xs lg:text-sm text-gray-400 mb-2 lg:mb-3">03.11.2025</p>
+                  <p className="text-sm lg:text-base text-white mb-3 lg:mb-4 font-medium">
+                    Сносим старьё! Весь GUI и HUD были переписаны с нуля для вашего максимального комфорта!
+                  </p>
                   <ul className="space-y-1.5 lg:space-y-2 text-xs lg:text-sm text-gray-300">
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-[#4299e1] mt-0.5 flex-shrink-0" />
-                      <span>Добавлен AimBot с улучшенной точностью</span>
+                      <span className="text-[#4299e1] mt-0.5 flex-shrink-0">[~]</span>
+                      <span>Обновлен Fly</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-[#4299e1] mt-0.5 flex-shrink-0" />
-                      <span>Оптимизирован Movement модуль</span>
+                      <span className="text-orange-400 mt-0.5 flex-shrink-0">[-]</span>
+                      <span>Временно вырезан BlockEsp Gui</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-[#4299e1] mt-0.5 flex-shrink-0" />
-                      <span>Исправлены баги с ESP</span>
+                      <span className="text-[#4299e1] mt-0.5 flex-shrink-0">[~]</span>
+                      <span>Исправлена неработоспособность подсветки некоторых блоков в BlockEsp</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-[#4299e1] mt-0.5 flex-shrink-0" />
-                      <span>Добавлена поддержка Minecraft 1.20.2</span>
+                      <span className="text-[#4299e1] mt-0.5 flex-shrink-0">[~]</span>
+                      <span>Теперь при запуске некоторые значения в модулях сразу активны</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-400 mt-0.5 flex-shrink-0">[+]</span>
+                      <span>В Optimization добавлена настройка дистанции рендера черепов и стендов</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-400 mt-0.5 flex-shrink-0">[+]</span>
+                      <span>Добавлен JumpCircle</span>
                     </li>
                   </ul>
                 </div>
@@ -312,16 +323,16 @@ const BottomSections = () => {
                   <Icon name="History" size={20} className="text-gray-400 lg:w-6 lg:h-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg lg:text-xl font-bold text-white mb-1 lg:mb-2">Версия 0.9.5</h3>
+                  <h3 className="text-lg lg:text-xl font-bold text-white mb-1 lg:mb-2">Версия 0.9</h3>
                   <p className="text-xs lg:text-sm text-gray-400 mb-3 lg:mb-4">25.10.2025</p>
                   <ul className="space-y-1.5 lg:space-y-2 text-xs lg:text-sm text-gray-400">
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-gray-500 mt-0.5 flex-shrink-0" />
-                      <span>Улучшена система автообновлений</span>
+                      <span className="text-gray-500 mt-0.5 flex-shrink-0">[+]</span>
+                      <span>Возвращен модуль EntityESP</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-gray-500 mt-0.5 flex-shrink-0" />
-                      <span>Добавлены новые настройки ClickGUI</span>
+                      <span className="text-gray-500 mt-0.5 flex-shrink-0">⛅️</span>
+                      <span>Баг фикс</span>
                     </li>
                   </ul>
                 </div>
