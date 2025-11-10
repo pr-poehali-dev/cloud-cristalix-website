@@ -150,11 +150,11 @@ const FeaturesSection = () => {
                   {featureList.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="group bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-3 lg:p-4 hover:border-[#4299e1]/50 hover:bg-[#0a0e1a]/80 transition-all cursor-pointer"
+                      className="bg-[#0a0e1a]/60 border border-white/10 rounded-lg p-3 lg:p-4"
                     >
                       <div className="flex items-start justify-between gap-2 lg:gap-3">
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-sm lg:text-base font-semibold text-white group-hover:text-[#4299e1] transition-colors mb-0.5 lg:mb-1">
+                          <h3 className="text-sm lg:text-base font-semibold text-white mb-0.5 lg:mb-1">
                             {feature.name}
                           </h3>
                           <p className="text-xs lg:text-sm text-gray-400">

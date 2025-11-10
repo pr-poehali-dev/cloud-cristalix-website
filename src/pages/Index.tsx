@@ -9,32 +9,7 @@ const Index = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const isMobile = window.matchMedia('(max-width: 1024px)').matches;
-    if (isMobile) return;
-
-    let rafId: number | null = null;
-    let lastTime = 0;
-    const throttleDelay = 50;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const now = Date.now();
-      if (now - lastTime < throttleDelay) return;
-      
-      if (rafId !== null) return;
-      rafId = requestAnimationFrame(() => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 2;
-        const y = (e.clientY / window.innerHeight - 0.5) * 2;
-        setMousePosition({ x, y });
-        lastTime = now;
-        rafId = null;
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (rafId !== null) cancelAnimationFrame(rafId);
-    };
+    // 3D mouse effect disabled for performance
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -47,10 +22,7 @@ const Index = () => {
   return (
     <div className="min-h-screen relative bg-[#0a0e1a]">
       
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0d16]/90 via-[#070913]/95 to-[#050711]"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDY2LCAxNTMsIDIyNSwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
-      </div>
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#0a0d16] via-[#070913] to-[#050711]"></div>
 
       <nav 
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl"
@@ -82,24 +54,17 @@ const Index = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="relative text-sm text-gray-400 hover:text-white transition-all duration-300 group"
+                  className="text-sm text-gray-400 hover:text-[#4299e1] transition-colors duration-200"
                 >
-                  <span className="relative z-10">{item.label}</span>
-                  <div 
-                    className="absolute inset-0 -inset-x-2 -inset-y-1 bg-[#4299e1]/0 group-hover:bg-[#4299e1]/20 rounded transition-all duration-300 blur-sm opacity-0 group-hover:opacity-100"
-                  ></div>
-                  <div 
-                    className="absolute inset-0 -inset-x-2 -inset-y-1 bg-[#4299e1]/0 group-hover:bg-[#4299e1]/10 rounded transition-all duration-300"
-                  ></div>
+                  {item.label}
                 </button>
               ))}
             </div>
             <Button 
               onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')} 
-              className="relative bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-xl overflow-hidden group transition-all duration-300"
+              className="bg-[#4299e1] hover:bg-[#3182ce] text-white px-8 py-2 rounded-xl transition-colors duration-200"
             >
-              <span className="relative z-10 font-semibold">Купить</span>
-              <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+              <span className="font-semibold">Купить</span>
             </Button>
           </div>
         </div>

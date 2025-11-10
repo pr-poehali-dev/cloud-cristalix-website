@@ -32,19 +32,15 @@ const BottomSections = () => {
   return (
     <>
       <section className="py-12 lg:py-24 px-6 bg-gradient-to-b from-[#0a0e1a] to-[#050711] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
-        
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
             
-            <Card id="download" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-300 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <Card id="download" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 transition-colors duration-200 relative">
               <CardContent className="p-5 lg:p-8 relative z-10">
                 <div className="text-center">
                   <div className="relative mb-4 lg:mb-6">
-                    <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-300"></div>
-                    <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                      <Icon name="Download" size={32} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-300 lg:w-12 lg:h-12" />
+                    <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto">
+                      <Icon name="Download" size={32} className="text-[#4299e1] lg:w-12 lg:h-12" />
                     </div>
                   </div>
                   
@@ -60,38 +56,38 @@ const BottomSections = () => {
                   
                   <Button 
                     onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
-                    className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-4 lg:py-6 font-bold text-base lg:text-lg shadow-lg hover:shadow-[#4299e1]/50 transform hover:scale-105 transition-all duration-300 mb-4 lg:mb-6 group/btn"
+                    className="w-full bg-gradient-to-r from-[#4299e1] to-[#3182ce] hover:from-[#3182ce] hover:to-[#2c5aa0] text-white rounded-xl py-4 lg:py-6 font-bold text-base lg:text-lg shadow-lg transition-colors duration-200 mb-4 lg:mb-6"
                   >
-                    <Icon name="Download" size={18} className="mr-2 group-hover/btn:animate-bounce lg:w-5 lg:h-5" />
+                    <Icon name="Download" size={18} className="mr-2 lg:w-5 lg:h-5" />
                     Скачать клиент
                   </Button>
                   
                   <div className="border-t border-white/10 pt-4 lg:pt-6">
                     <div className="flex items-center justify-between mb-3 lg:mb-4">
                       <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-wider">Системные требования</p>
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     </div>
                     <ul className="text-[10px] lg:text-xs text-gray-400 space-y-2 lg:space-y-3 text-left">
-                      <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
-                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                      <li className="flex items-center gap-2 lg:gap-3">
+                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center flex-shrink-0">
                           <Icon name="Monitor" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                         </div>
                         <span className="font-medium">Windows 10/11 (64-bit)</span>
                       </li>
-                      <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
-                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                      <li className="flex items-center gap-2 lg:gap-3">
+                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center flex-shrink-0">
                           <Icon name="Gamepad2" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                         </div>
                         <span className="font-medium">Minecraft 1.8.9 - 1.20.2</span>
                       </li>
-                      <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
-                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                      <li className="flex items-center gap-2 lg:gap-3">
+                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center flex-shrink-0">
                           <Icon name="Coffee" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                         </div>
                         <span className="font-medium">Java 8 или выше</span>
                       </li>
-                      <li className="flex items-center gap-2 lg:gap-3 hover:text-gray-300 transition-colors group/item">
-                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center group-hover/item:bg-[#4299e1]/30 transition-colors flex-shrink-0">
+                      <li className="flex items-center gap-2 lg:gap-3">
+                        <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#4299e1]/20 flex items-center justify-center flex-shrink-0">
                           <Icon name="HardDrive" size={12} className="text-[#4299e1] lg:w-3.5 lg:h-3.5" />
                         </div>
                         <span className="font-medium">4GB RAM минимум</span>
@@ -102,21 +98,19 @@ const BottomSections = () => {
               </CardContent>
             </Card>
 
-            <Card id="support" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-300 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <Card id="support" className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 transition-colors duration-200 relative">
               <CardContent className="p-5 lg:p-8 relative z-10">
                 <div className="text-center">
                   <div className="relative mb-4 lg:mb-6">
-                    <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-300"></div>
-                    <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
-                      <Icon name="Headphones" size={32} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-300 lg:w-12 lg:h-12" />
+                    <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto">
+                      <Icon name="Headphones" size={32} className="text-[#4299e1] lg:w-12 lg:h-12" />
                     </div>
                   </div>
                   
                   <div className="inline-block mb-2">
                     <div className="bg-green-500/20 px-4 py-1 rounded-full border border-green-500/30">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <p className="text-xs font-semibold text-green-400">ОНЛАЙН 24/7</p>
                       </div>
                     </div>
@@ -126,8 +120,7 @@ const BottomSections = () => {
                   <p className="text-xs lg:text-sm text-gray-400 mb-4 lg:mb-8">Всегда на связи</p>
                   
                   <div className="space-y-2 lg:space-y-4 mb-4 lg:mb-6">
-                    <div className="relative group/discord bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 lg:p-5 hover:border-[#5865F2]/50 hover:shadow-[0_0_20px_rgba(88,101,242,0.3)] transition-all duration-300 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#5865F2]/0 to-[#5865F2]/20 opacity-0 group-hover/discord:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative group/discord bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 lg:p-5 hover:border-[#5865F2]/50 transition-colors duration-200 overflow-hidden">
                       <div className="relative z-10">
                         <div className="flex items-center gap-2 lg:gap-4 mb-2 lg:mb-4">
                           <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#5865F2]/20 rounded-xl flex items-center justify-center group-hover/discord:bg-[#5865F2]/30 transition-colors">
@@ -137,14 +130,13 @@ const BottomSections = () => {
                             <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-wider">Discord Server</p>
                             <p className="text-sm lg:text-base font-semibold text-white">Сообщество</p>
                           </div>
-                          <Icon name="ArrowRight" size={16} className="text-gray-400 group-hover/discord:text-[#5865F2] group-hover/discord:translate-x-1 transition-all lg:w-5 lg:h-5" />
+                          <Icon name="ArrowRight" size={16} className="text-gray-400 group-hover/discord:text-[#5865F2] transition-colors duration-200 lg:w-5 lg:h-5" />
                         </div>
                         <p className="text-[10px] lg:text-xs text-gray-500 text-left">Присоединяйся к нашему Discord серверу</p>
                       </div>
                     </div>
 
-                    <div className="relative group/telegram bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 lg:p-5 hover:border-[#0088cc]/50 hover:shadow-[0_0_20px_rgba(0,136,204,0.3)] transition-all duration-300 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#0088cc]/0 to-[#0088cc]/20 opacity-0 group-hover/telegram:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative group/telegram bg-gradient-to-br from-[#0a0e1a]/80 to-[#0a0e1a]/40 border border-white/5 rounded-xl p-4 lg:p-5 hover:border-[#0088cc]/50 transition-colors duration-200 overflow-hidden">
                       <div className="relative z-10">
                         <div className="flex items-center gap-2 lg:gap-4 mb-2 lg:mb-4">
                           <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0088cc]/20 rounded-xl flex items-center justify-center group-hover/telegram:bg-[#0088cc]/30 transition-colors">
@@ -154,7 +146,7 @@ const BottomSections = () => {
                             <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-wider">Telegram канал</p>
                             <p className="text-sm lg:text-base font-semibold text-white">Новости и обновления</p>
                           </div>
-                          <Icon name="ArrowRight" size={16} className="text-gray-400 group-hover/telegram:text-[#0088cc] group-hover/telegram:translate-x-1 transition-all lg:w-5 lg:h-5" />
+                          <Icon name="ArrowRight" size={16} className="text-gray-400 group-hover/telegram:text-[#0088cc] transition-colors duration-200 lg:w-5 lg:h-5" />
                         </div>
                         <p className="text-[10px] lg:text-xs text-gray-500 text-left">Следи за новостями в Telegram</p>
                       </div>
@@ -166,14 +158,12 @@ const BottomSections = () => {
               </CardContent>
             </Card>
 
-            <Card className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 hover:shadow-[0_0_30px_rgba(66,153,225,0.3)] transition-all duration-300 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4299e1]/0 to-[#4299e1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <Card className="group bg-gradient-to-br from-[#0f1729]/90 to-[#0a0e1a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-[#4299e1]/70 transition-colors duration-200 relative">
               <CardContent className="p-5 lg:p-8 relative z-10">
                 <div className="text-center">
                   <div className="relative mb-4 lg:mb-6">
-                    <div className="absolute inset-0 bg-[#4299e1]/30 blur-xl rounded-full group-hover:blur-2xl transition-all duration-300"></div>
-                    <div className="relative w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto transform group-hover:scale-110 transition-all duration-300">
-                      <Icon name="Info" size={32} className="text-[#4299e1] group-hover:scale-110 transition-transform duration-300 lg:w-12 lg:h-12" />
+                    <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#4299e1]/30 to-[#4299e1]/10 rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto">
+                      <Icon name="Info" size={32} className="text-[#4299e1] lg:w-12 lg:h-12" />
                     </div>
                   </div>
                   
@@ -336,10 +326,6 @@ const BottomSections = () => {
       </section>
 
       <footer className="relative z-10 bg-gradient-to-b from-[#050711] to-[#020408] border-t border-white/5 pt-20 pb-8 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2NiwxNTMsMjI1LDAuMDIpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#4299e1]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-        
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-12 gap-6 lg:gap-10 mb-10 lg:mb-16">
             
@@ -431,7 +417,7 @@ const BottomSections = () => {
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs text-gray-400">Cristalix bypass</span>
                     <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                       <span className="text-xs font-bold text-green-400">ONLINE</span>
                     </div>
                   </div>
@@ -441,7 +427,7 @@ const BottomSections = () => {
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs text-gray-400">Cloud Api</span>
                     <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                       <span className="text-xs font-bold text-green-400">ONLINE</span>
                     </div>
                   </div>

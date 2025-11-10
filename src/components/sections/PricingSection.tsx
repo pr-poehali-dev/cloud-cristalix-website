@@ -46,7 +46,7 @@ const PricingSection = () => {
                   : plan.isLifetime
                   ? 'from-[#ef4444]/20 via-[#4299e1]/20 to-[#0f1729] border-[#ef4444] md:col-span-2 lg:col-span-1'
                   : 'from-[#0f1729] to-[#0a0e1a] border-white/10'
-              } border-2 rounded-2xl overflow-hidden group hover:scale-[1.02] transition-transform duration-200 cursor-pointer`}
+              } border-2 rounded-2xl overflow-hidden cursor-pointer`}
               onClick={() => window.open('http://t.me/CloudCristalix_robot', '_blank')}
             >
               {plan.popular && (
