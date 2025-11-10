@@ -13,7 +13,7 @@ const RainEffect = () => {
   );
 
   const backgroundDrops = useMemo(() =>
-    Array.from({ length: 120 }, (_, i) => ({
+    Array.from({ length: 80 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -25,7 +25,7 @@ const RainEffect = () => {
   );
 
   const driftingDrops = useMemo(() =>
-    Array.from({ length: 18 }, (_, i) => ({
+    Array.from({ length: 10 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -37,7 +37,7 @@ const RainEffect = () => {
   );
 
   const ripples = useMemo(() =>
-    Array.from({ length: 9 }, (_, i) => ({
+    Array.from({ length: 5 }, (_, i) => ({
       id: i,
       left: 10 + Math.random() * 80,
       top: 10 + Math.random() * 80,
