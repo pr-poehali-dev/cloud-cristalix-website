@@ -128,16 +128,16 @@ export default {
 				},
 				'drift': {
 					'0%': { 
-						transform: 'translateX(0) translateY(0) rotate(0deg)'
+						transform: 'translate3d(0, 0, 0) rotate(0deg)'
 					},
 					'33%': { 
-						transform: 'translateX(-20px) translateY(30px) rotate(120deg)'
+						transform: 'translate3d(-20px, 30px, 0) rotate(120deg)'
 					},
 					'66%': { 
-						transform: 'translateX(20px) translateY(60px) rotate(240deg)'
+						transform: 'translate3d(20px, 60px, 0) rotate(240deg)'
 					},
 					'100%': { 
-						transform: 'translateX(0) translateY(90px) rotate(360deg)'
+						transform: 'translate3d(0, 90px, 0) rotate(360deg)'
 					}
 				},
 			},
